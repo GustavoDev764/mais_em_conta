@@ -24,7 +24,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.install.FrontEnd",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.install.FrontEnd",
+      "versionCode": 1
     }
   }
 }
