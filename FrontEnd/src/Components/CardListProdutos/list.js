@@ -1,6 +1,11 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity, Dimensions} from 'react-native';
 import {Card, Divider} from 'react-native-elements';
+
+import {Feather, FontAwesome} from '@expo/vector-icons';
+
+
+const { width, height } = Dimensions.get('screen');
 
 import Produto from './produto';
 
@@ -52,6 +57,15 @@ export default class List extends React.Component{
 
                 </View>
                 {/* Fim lista Produto */}
+
+                <Divider style={{ backgroundColor: '#8e8e8ead' }} />
+
+                {/* Footer Card 1 */}
+                <TouchableOpacity onPress={()=>{alert("ver mais produto dessa categoria")}} style={{flexDirection:"row", padding:10, justifyContent:"space-between"}}>
+                    <Text style={{color:"blue"}}>Ver Mais</Text>
+                    <FontAwesome name="angle-right" color="blue" size={width * .06} />
+                </TouchableOpacity>
+                {/* Footer Card 1 */}
 
 
 

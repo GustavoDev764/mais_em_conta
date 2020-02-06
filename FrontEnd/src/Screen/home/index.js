@@ -8,7 +8,9 @@ import {
     Dimensions,
     TouchableOpacity,
     Image,
+    
 } from 'react-native';
+
 import {Ionicons, FontAwesome, Feather} from '@expo/vector-icons';
 
 
@@ -18,6 +20,7 @@ import SearchBar from '../searchBar';
 //components
 import CarouseItem from '../../Components/CarouseItem';
 import Carrossel from '../../Components/Carousel';
+import Tabs from '../../Components/Tabs';
 
 import Head from '../../Components/Head';
 import Body from '../../Components/Body';
@@ -111,7 +114,10 @@ export default class HomeScreen extends React.Component{
                 <Body>
                 
                     <Carrossel style={{marginTop:10, marginBottom:10,}} image={images} />
-
+                    
+                    <Tabs />
+                      
+                        
                         {
                             Listprodutos.map((item, index)=>{
 

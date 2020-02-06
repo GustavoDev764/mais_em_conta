@@ -1,12 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView, Image, Dimensions} from 'react-native';
-import {Feather} from '@expo/vector-icons';
+import {View, Text, StyleSheet, ScrollView, Image, Dimensions, TouchableOpacity} from 'react-native';
+import {Feather, FontAwesome} from '@expo/vector-icons';
+import {Icon} from 'native-base';
+import {Divider, Rating, AirbnbRating, Button } from 'react-native-elements';
+
 
 import {Card} from 'react-native-elements';
 
+//import Components
 import HeadProduto from '../../Components/Head/headproduto';
 import Body from '../../Components/Body';
-
+import ComentProduto from '../../Components/ComentarioProduto';
+import CarouselProduto from '../../Components/CarouselProduto';
 
 import { BackgroundCarousel } from "../../../BackgroundCarousel";
 
@@ -53,44 +58,204 @@ export default class Produto extends React.Component{
         const {favorito} = this.state;
 
         return (
-            <View> 
+            <View style={{flex:1}}> 
 
                 <HeadProduto 
                     navigation={navigation}
                     favorito={favorito}
                     onClikeFavorito={this.onClikeFavorito}
                 />
-
-                   
-                <ScrollView 
-                    style={{width:width, height:height * .3}}
-                    horizontal
-                    pagingEnabled
-                   
-                >
-                  
-                    
-                    <Image
-                        style={{width:width,height:height * .3}}
-                        source={{ uri: "https://images-americanas.b2w.io/produtos/01/00/img/85787/7/85787787_1GG.jpg" }}
-                        resizeMode={"contain"}
-                    />
-                    <Image
-                        style={{width:width,height:height * .3}}
-                        source={{ uri: "https://images-americanas.b2w.io/produtos/01/00/img/85787/7/85787787_2GG.jpg" }}
-                        resizeMode={"contain"}
-                    />
-
-                    <Image
-                        style={{width:width,height:height * .3}}
-                        source={{ uri: "https://images-americanas.b2w.io/produtos/01/00/img/85787/7/85787787_3GG.jpg" }}
-                        resizeMode={"contain"}
-                    />
-                   
-                </ScrollView>
-
+                
                 <Body>     
 
+                   <ScrollView 
+                        style={{marginTop:-10, width:width, height:height * .3, backgroundColor:"#FFF"}}
+                        horizontal
+                        pagingEnabled
+                    
+                    >
+                    
+                        
+                        <Image
+                            style={{width:width,height:height * .3}}
+                            source={{ uri: "https://images-americanas.b2w.io/produtos/01/00/img/85787/7/85787787_1GG.jpg" }}
+                            resizeMode={"contain"}
+                        />
+                        <Image
+                            style={{width:width,height:height * .3}}
+                            source={{ uri: "https://images-americanas.b2w.io/produtos/01/00/img/85787/7/85787787_2GG.jpg" }}
+                            resizeMode={"contain"}
+                        />
+
+                        <Image
+                            style={{width:width,height:height * .3}}
+                            source={{ uri: "https://images-americanas.b2w.io/produtos/01/00/img/85787/7/85787787_3GG.jpg" }}
+                            resizeMode={"contain"}
+                        />
+                    
+                    </ScrollView>
+
+                    <View style={{marginTop:10, padding:5,}}>
+
+                        <View style={{marginBottom:15,padding:10, borderRadius:8, backgroundColor:"#FFF"}}>
+                            
+                            <View style={{marginBottom:5,}}>
+                                <Text style={{fontSize:18, fontWeight:"bold", textAlign:"left"}}>
+                                    Computador Gamer Completo Com
+                                    Monitor Led Intel Core I5 8gb
+                                    Hd 500gb (nvidia Geforce Gt) Kit
+                                    Gamer Com Mousepad Easypc Light
+                                </Text>
+
+                                
+
+                                <View style={{marginTop:8, flexDirection:"row", justifyContent:"space-between"}}>
+                                    <Text style={{fontSize:12, textAlign:"left"}}>
+                                        Codigo: 85787784
+                                    </Text>
+
+                                    <TouchableOpacity style={{}} onPress={()=>{alert("ir para tela de avalia produto");}}>
+                                        <Rating
+                                            imageSize={18}
+                                            readonly
+                                            ratingCount={5}
+                                            startingValue={3}
+                                            onFinishRating={this.ratingCompleted}
+                                            style={{ paddingVertical: 10 }}
+                                            style={{}}
+                                        />
+                                    </TouchableOpacity>
+                                    
+                                </View>
+                                <TouchableOpacity onPress={()=>{alert("ir para tela de denuncia")}}>
+                                    <Text style={{fontSize:12, fontWeight:"bold", color:"red"}}>Denunciar Anúncio</Text>
+                                </TouchableOpacity>
+
+
+                            </View>
+
+                            <Divider style={{marginTop:8, marginBottom:5,}} />
+
+                            <View style={{flexDirection:"column", alignItems:"center", marginTop:8, marginBottom:5,}} >
+
+                                <Text style={{fontSize:30, fontWeight:"bold"}}>R$ 1.574,32</Text>
+                                <Button
+                                    icon={
+                                        <Icon name="md-list-box"
+                                        
+                                        style={{marginRight:5, color:"#FFF", fontSize:20}}
+                                        />
+                                    }
+                                    title="Adiciona a Lista"
+                                    type="solid"
+                                    containerStyle={{marginTop:8,}}
+                                    buttonStyle={{backgroundColor:"red", padding:10}}
+                                    onPress={()=>{alert("Adiciona o produto a lista")}}
+
+                                />
+                                
+                            </View>
+
+                            <View style={{marginTop:8, marginBottom:5,}} >
+
+                                <Button
+                                    title="Descrição"
+                                    type="outline"
+                                    containerStyle={{marginTop:8,}}
+                                    onPress={()=>{alert("Ir para tela de Descrição")}}
+                                />
+
+                                
+
+                                <Button
+                                    
+                                    title="Informação Técnicas"
+                                    type="outline"
+                                    containerStyle={{marginTop:8,}}
+                                    onPress={()=>{alert("Ir para tela de Informação Técnicas")}}
+                                   
+                                />
+                            
+                            </View>
+
+                        </View>
+
+                        <View style={{marginBottom:15, padding:10, borderRadius:8, backgroundColor:"#FFF"}}>
+                            
+                            <View style={{flexDirection:"row", justifyContent:"space-between"}}>
+                                
+                                <View style={{flexDirection:"column", justifyContent:"space-between"}}>
+                                    <Text style={{fontSize:15, fontWeight:"bold"}}>30 Avaliações</Text>
+                                    <TouchableOpacity style={{}} onPress={()=>{alert("ir para tela de avalia produto");}}>
+                                            <Rating
+                                                imageSize={18}
+                                                readonly
+                                                ratingCount={5}
+                                                startingValue={3}
+                                                onFinishRating={this.ratingCompleted}
+                                                style={{ paddingVertical: 10 }}
+                                                style={{}}
+                                            />
+                                    </TouchableOpacity>
+                                </View>
+
+                                <Button
+                                    
+                                    title="Avaliar"
+                                    type="outline"
+                                    containerStyle={{marginTop:8,}}
+                                    onPress={()=>{alert("Ir para tela de Avalia Produto")}}
+                                   
+                                />
+
+                            
+                            </View>
+
+                            <Divider style={{marginTop:8, marginBottom:5,}} />
+
+                            <View style={{marginTop:8, flexDirection:"row"}}>
+                                
+                                
+                                <View style={{flexDirection:"column", justifyContent:"space-between", alignItems:"flex-start"}}>
+                                    
+                                    <ComentProduto />
+
+                                    <ComentProduto />
+      
+                                    <View style={{width:"100%"}}>
+
+                                       
+                                        {/* Footer Card 1 */}
+                                        <TouchableOpacity onPress={()=>{alert("ver todo so comentarios")}} style={{flexDirection:"row", justifyContent:"space-between"}}>
+                                            <Text style={{color:"blue"}}>Ver Todos</Text>
+                                            <FontAwesome name="angle-right" color="blue" size={width * .06} />
+                                        </TouchableOpacity>
+                                        {/* Footer Card 1 */} 
+
+                                    </View>
+
+                                </View> 
+                            </View>
+                            
+                        </View>
+
+
+                        <View style={{flexDirection:"column", marginBottom:0, padding:5, borderRadius:8, backgroundColor:"#FFF"}}>
+                            
+                            <View style={{flexDirection:"row", marginBottom:5, justifyContent:"space-between"}}>
+                                <Text style={{fontSize:15, fontWeight:"bold"}}>quem viu este, viu também</Text>                            
+                            </View>
+
+                            
+                            <CarouselProduto />
+                    
+                        </View>
+
+                        
+
+                    </View>
+
+                    
                     
 
                 </Body>

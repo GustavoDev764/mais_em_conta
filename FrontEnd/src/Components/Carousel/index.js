@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
      },
     item: {
         width: screenWidth - 60,
-        height: screenWidth * .5,
+        height: screenWidth * .41,
       },
       imageContainer: {
         flex: 1,
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
       image: {
         ...StyleSheet.absoluteFillObject,
         resizeMode: 'cover',
+        
       },
      
   });

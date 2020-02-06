@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, View, Text, Image} from 'react-native';
+import { Rating} from 'react-native-elements';
 
 export default class Produto extends React.Component{
 
@@ -23,30 +24,61 @@ export default class Produto extends React.Component{
 
         return(
 
-            <TouchableOpacity onPress={()=>{alert("ir para tela de produto")}} style={{flex:1, borderColor:"#8e8e8ead", borderRightWidth: isBorder ? 0.5 : 0 }}>
+            <TouchableOpacity onPress={()=>{alert("ir para tela de produto")}} 
+                    style={{
+                        flex:1,
+                        margin:3,
+                        borderColor:"#8e8e8ead",
+                        
+                        paddingLeft: !isBorder ? 4 : 0,
+                        paddingRight: isBorder ? 4 : 0,
+                        
+                        borderRightWidth:isBorder ? .8 : 0,
+                        borderLeftWidth: !isBorder ? .8 : 0,
+                        
+                       
+                       
+                       
+                    }}> 
 
                                            
-                <View style={{height:130}}>
+                <View style={{height:130, }}>
                     <View style={{flex:1,}}>
                         <Image source={{uri: principaImage}} style={{flex:1, width:null, height:null, resizeMode:"contain"}} />
                     </View>
                 </View>
 
-                <View style={{flexDirection:"row",marginLeft:5, marginTop:5,}}>
-                    <Text style={{fontSize:17, fontWeight:"bold", color:"#2f2f2f"}}>R$</Text>
-                    <View style={{flexDirection:"row"}}>
-                        <Text style={{fontSize:17, fontWeight:"bold",marginLeft:5, color:"#2f2f2f"}}>{valorArray[0]}</Text>
-                        { ( parseFloat(valorArray[1]) > 0 ) ? 
+                <View style={{flexDirection:"column", alignItems:"flex-start", marginLeft: 0, marginTop:5,  }}>
+                    
+                    <View style={{flexDirection:"row", }}>
+                        <Text style={{fontSize:17, fontWeight:"bold", color:"#2f2f2f"}}>R$</Text>
+                        <View style={{flexDirection:"row"}}>
+                            <Text style={{fontSize:17, fontWeight:"bold",marginLeft:5, color:"#2f2f2f"}}>{valorArray[0]}</Text>
+                            { ( parseFloat(valorArray[1]) > 0 ) ? 
+                                
+                                <Text numberOfLines={1} style={{fontSize:13, fontWeight:"bold",marginLeft:1,color:"#2f2f2f"}}>,{valorArray[1]} </Text>
+                                
+                                : null}
                             
-                            <Text numberOfLines={1} style={{fontSize:13, fontWeight:"bold",marginLeft:1,color:"#2f2f2f"}}>,{valorArray[1]} </Text>
-                            
-                            : null}
-                        
+                        </View>
                     </View>
+
+                    <View style={{marginTop:5}}>
+                        <Rating
+                            imageSize={18}
+                            readonly
+                            ratingCount={5}
+                            startingValue={4.5}
+                            onFinishRating={this.ratingCompleted}
+                            style={{ paddingVertical: 10 }}
+                            style={{}}
+                        />
+                    </View>
+
                 </View>
 
-                <View style={{borderWidth:0,padding:2 }}>
-                    <Text numberOfLines={2} ellipsizeMode="tail" style={{borderWidth:0,textAlign:"justify", fontSize:12, color:"#505050", padding:2}}>
+                <View style={{alignItems:"flex-start" ,marginTop:5,}}>
+                    <Text numberOfLines={2} ellipsizeMode="tail" style={{borderWidth:0,textAlign:"left", fontSize:12, color:"#505050"}}>
                        {descricao}
                     </Text>
                 </View>
