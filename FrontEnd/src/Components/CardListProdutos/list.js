@@ -17,14 +17,8 @@ export default class List extends React.Component{
 
     renderProduto = (item, index) => {
         return <Produto
-                    key = {index}
-
-                    id            = {item.id}
-                    title         = {item.title} 
-                    valor         = {item.valor}
-                    descricao     = {item.descricao}
-                    principaImage = {item.principaImage}
-                    images        = {item.images}
+                    key     = {index}
+                    produto = {item}
                 />
     }
 

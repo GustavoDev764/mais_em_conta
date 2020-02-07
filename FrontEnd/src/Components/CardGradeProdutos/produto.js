@@ -10,15 +10,19 @@ export default class Produto extends React.Component{
 
     render(){
 
+        const { isBorder, produto } = this.props;
+
         const {
-            isBorder,
+
             id,
             title,
             valor,
+            rating,
             descricao,
             principaImage,
             images,
-        } = this.props;
+
+        } = produto;
 
         var valorArray = valor.split(',');
 
@@ -42,13 +46,13 @@ export default class Produto extends React.Component{
                     }}> 
 
                                            
-                <View style={{height:130, }}>
+                <View style={{height:130,}}>
                     <View style={{flex:1,}}>
                         <Image source={{uri: principaImage}} style={{flex:1, width:null, height:null, resizeMode:"contain"}} />
                     </View>
                 </View>
 
-                <View style={{flexDirection:"column", alignItems:"flex-start", marginLeft: 0, marginTop:5,  }}>
+                <View style={{flexDirection:"column", alignItems:"flex-start", padding:2, marginLeft: 0, marginTop:5,}}>
                     
                     <View style={{flexDirection:"row", }}>
                         <Text style={{fontSize:17, fontWeight:"bold", color:"#2f2f2f"}}>R$</Text>
@@ -63,12 +67,12 @@ export default class Produto extends React.Component{
                         </View>
                     </View>
 
-                    <View style={{marginTop:5}}>
+                    <View style={{marginTop:5,}}>
                         <Rating
                             imageSize={18}
                             readonly
                             ratingCount={5}
-                            startingValue={4.5}
+                            startingValue={rating}
                             onFinishRating={this.ratingCompleted}
                             style={{ paddingVertical: 10 }}
                             style={{}}
@@ -78,7 +82,7 @@ export default class Produto extends React.Component{
                 </View>
 
                 <View style={{alignItems:"flex-start" ,marginTop:5,}}>
-                    <Text numberOfLines={2} ellipsizeMode="tail" style={{borderWidth:0,textAlign:"left", fontSize:12, color:"#505050"}}>
+                    <Text numberOfLines={2} ellipsizeMode="tail" style={{textAlign:"left", fontSize:12, color:"#505050"}}>
                        {descricao}
                     </Text>
                 </View>

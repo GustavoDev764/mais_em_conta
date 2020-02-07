@@ -21,14 +21,8 @@ export default class CarouselProduto extends React.Component{
         return item.produtos.map((produto, index)=>{
             
             return <Produto
-                    key = {index}
-
-                    id            = {produto.id}
-                    title         = {produto.title} 
-                    valor         = {produto.valor}
-                    descricao     = {produto.descricao}
-                    principaImage = {produto.principaImage}
-                    images        = {produto.images}
+                    key     = {index}
+                    produto = {produto}
                 />
 
         });

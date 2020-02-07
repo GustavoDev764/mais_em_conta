@@ -39,7 +39,7 @@ export default class HeadSearch extends React.Component{
                 containerStyle={styles.head}  
 
                 leftComponent={
-                    <Ionicons name={"ios-arrow-round-back"} style={styles.icon} onPress={() => navigation.navigate(routeBack)} />
+                    <Ionicons name={"ios-arrow-round-back"} style={styles.icon} onPress={() => navigation.navigate(routeBack != null ? routeBack: 'HomeScreen')} />
                 }
 
                 centerComponent={

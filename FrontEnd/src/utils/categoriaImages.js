@@ -31,4 +31,16 @@ export const categoria = [
         link:   "ListaCategoria",
         params: [{idCategoria: 5,}], 
     },
+    {
+        title:  "Móveis",
+        image:  "https://images-americanas.b2w.io/produtos/01/00/img/98633/2/98633202_1GG.jpg",
+        link:   "ListaCategoria",
+        params: [{idCategoria: 5,}], 
+    },
+    {
+        title:  "Beleza",
+        image:  "https://images-americanas.b2w.io/produtos/01/00/oferta/65541/1/65541173_1GG.jpg",
+        link:   "ListaCategoria",
+        params: [{idCategoria: 5,}], 
+    },
 ];

@@ -15,6 +15,7 @@ export default class TabItem extends React.Component{
 
     render(){
 
+        console.log(width);
         const {title, image, link, params} = this.props;
 
         return(
@@ -36,20 +37,25 @@ const styles = StyleSheet.create({
         alignContent:"center",
         alignItems:"center",
         justifyContent:"space-between",
-        width:80,
-        height:80,
+        width: (height > 720) ? width * .2 : 80,
+        height: (height > 720) ? height * .12 : 80,
         backgroundColor:"#ffffff",
         borderRadius:3,
+        padding: 5,
         marginLeft:10,
-        padding:10,
+        
     },
     text:{
         fontSize:10,
-        fontWeight:"bold"
+        fontWeight:"bold",
+        padding:1,
+        marginBottom:2,
     },
     image:{
         width:50,
         height:50,
         resizeMode:"contain",
+      
+        
     }
 });

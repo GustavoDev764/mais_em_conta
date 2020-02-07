@@ -13,14 +13,8 @@ export default class GradeLineProdutos extends React.Component{
         
         const isBorder = index == 0 ? true : false;
         return <Produto
-                key = {index}
-
-                id            = {item.id}
-                title         = {item.title} 
-                valor         = {item.valor}
-                descricao     = {item.descricao}
-                principaImage = {item.principaImage}
-                images        = {item.images}
+                key      = {index}
+                produto  = {item}
                 isBorder = {isBorder}
         /> ;
         
