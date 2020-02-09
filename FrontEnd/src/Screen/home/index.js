@@ -18,7 +18,6 @@ import {Ionicons, FontAwesome, Feather} from '@expo/vector-icons';
 import SearchBar from '../searchBar';
 
 //components
-import CarouseItem from '../../Components/CarouseItem';
 import Carrossel from '../../Components/Carousel';
 import Tabs from '../../Components/Tabs';
 

@@ -47,16 +47,16 @@ export default class Produto extends React.Component{
                         </View>
                     </View>
                                             
-                    <View style={{marginLeft: 3, padding:2, width:"65%", alignItems:"flex-start", justifyContent:"flex-start",}}>
+                    <View style={styles.containerPriceRating}>
                                                 
-                        <View style={{flexDirection:"row",marginTop:5,  }}>
-                            <Text style={{fontSize:17, fontWeight:"bold", color:"#2f2f2f"}}>R$</Text>
-                            <View style={{flexDirection:"row"}}>
-                                <Text style={{fontSize:17, fontWeight:"bold",marginLeft:5, color:"#2f2f2f"}}>1.615</Text>
+                        <View style={styles.containerPrice}>
+                            <Text style={styles.textCoin}>R$</Text>
+                            <View style={styles.containerCents}>
+                                <Text style={styles.price}>1.615</Text>
                                             
                                 { ( parseFloat(valorArray[1]) > 0 ) ? 
                                         
-                                    <Text numberOfLines={1} style={{fontSize:13, fontWeight:"bold",marginLeft:1,color:"#2f2f2f"}}>,{valorArray[1]} </Text>
+                                    <Text numberOfLines={1} style={styles.priceCents}>,{valorArray[1]} </Text>
                                                 
                                     : null}
                             </View>
@@ -64,7 +64,7 @@ export default class Produto extends React.Component{
                         </View>
 
                     
-                        <View style={{marginLeft:0 ,marginTop:5,marginBottom:5, }}>
+                        <View style={styles.containerRating}>
                             <Rating
                                 imageSize={18}
                                 readonly
@@ -80,15 +80,7 @@ export default class Produto extends React.Component{
                                                
                             <Text 
                                 numberOfLines={2}
-                                style={{
-                                            
-                                    textAlign:"left",
-                                    fontSize:12,
-                                    color:"#505050",
-                                    padding:2,
-                                    marginLeft:0,
-                                                
-                                    }}>
+                                style={styles.descricao}>
                                         
                                 {descricao}
                             </Text>
@@ -142,6 +134,57 @@ const styles = StyleSheet.create({
     },
 
     rating:{
-        paddingVertical: 10,
+        paddingVertical: 0,
+    },
+
+    containerPriceRating:{
+        marginLeft: 3,
+        padding:2,
+        width:"65%",
+        alignItems:"flex-start",
+        justifyContent:"flex-start",
+    },
+
+    containerPrice:{
+        flexDirection:"row",
+        marginTop:5,  
+    },
+
+    textCoin:{
+        fontSize:17,
+        fontWeight:"bold",
+        color:"#2f2f2f",
+    },
+
+    containerCents:{
+        flexDirection:"row",
+    },
+
+    price:{
+        fontSize:17,
+        fontWeight:"bold",
+        marginLeft:5,
+        color:"#2f2f2f",
+    },
+
+    priceCents:{
+        fontSize:13,
+        fontWeight:"bold",
+        marginLeft:1,
+        color:"#2f2f2f"
+    },
+
+    containerRating:{
+        marginLeft:0,
+        marginTop:5,
+        marginBottom:5,
+    },
+
+    descricao:{
+        textAlign:"left",
+        fontSize:12,
+        color:"#505050",
+        padding:2,
+        marginLeft:0,  
     }
 });

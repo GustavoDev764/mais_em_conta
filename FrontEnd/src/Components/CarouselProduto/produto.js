@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Image, Rating} from 'react-native-elements';
 
 //components
@@ -30,7 +30,7 @@ export default class Produto extends React.Component{
         var valorArray = valor.split(',');
 
         return(
-            <View style={styles.container} >
+            <TouchableOpacity onPress={()=>{alert("ir para tela de produto");}} style={styles.container} >
                 
                 <View style={styles.head}>
                     <Image
@@ -81,7 +81,7 @@ export default class Produto extends React.Component{
 
 
                 
-            </View>
+            </TouchableOpacity>
         );
     }
 }
@@ -133,17 +133,18 @@ const styles = StyleSheet.create({
     containerRating:{
         alignItems:"flex-start",
         marginTop:5,
-        marginBottom:5,
+        marginBottom:2,
     },
 
     rating:{
-        paddingVertical: 10,
+       
     },
 
     containerText:{
         padding:2, 
-        marginTop:5,
-        marginLeft:2
+        marginTop:0,
+        marginLeft:2,
+        
     },
     text:{
         fontSize:12,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {Divider, Rating, Button} from 'react-native-elements';
 import {Icon} from 'native-base'
 
@@ -12,11 +12,11 @@ export default class CardInfor extends React.Component{
 
     render(){
         return(
-            <View style={{marginBottom:15,padding:10, borderRadius:8, backgroundColor:"#FFF"}}>
+            <View style={styles.container}>
                             
-                <View style={{marginBottom:5,}}>
+                <View style={styles.headCard}>
                     
-                    <Text style={{fontSize:18, fontWeight:"bold", textAlign:"left"}}>
+                    <Text style={styles.titleProduto}>
                         Computador Gamer Completo Com
                         Monitor Led Intel Core I5 8gb
                         Hd 500gb (nvidia Geforce Gt) Kit
@@ -25,8 +25,8 @@ export default class CardInfor extends React.Component{
 
                                 
 
-                    <View style={{marginTop:8, flexDirection:"row", justifyContent:"space-between"}}>
-                        <Text style={{fontSize:12, textAlign:"left"}}>
+                    <View style={styles.inforProduto}>
+                        <Text style={{}}>
                                         Codigo: 85787784
                         </Text>
 
@@ -37,7 +37,6 @@ export default class CardInfor extends React.Component{
                                 ratingCount={5}
                                 startingValue={3}
                                 onFinishRating={this.ratingCompleted}
-                                style={{ paddingVertical: 10 }}
                                 style={{}}
                             />
                         </TouchableOpacity>
@@ -45,40 +44,40 @@ export default class CardInfor extends React.Component{
                     </View>
 
                     <TouchableOpacity onPress={()=>{alert("ir para tela de denuncia")}}>
-                        <Text style={{fontSize:12, fontWeight:"bold", color:"red"}}>Denunciar Anúncio</Text>
+                        <Text style={styles.textDenuncia}>Denunciar Anúncio</Text>
                     </TouchableOpacity>
 
 
                 </View>
 
-                <Divider style={{marginTop:8, marginBottom:5,}} />
+                <Divider style={[styles.margin, styles.divider]} />
 
-                <View style={{flexDirection:"column", alignItems:"center", marginTop:8, marginBottom:5,}} >
+                <View style={styles.containerPriceButton} >
 
-                    <Text style={{fontSize:30, fontWeight:"bold"}}>R$ 1.574,32</Text>
+                    <Text style={styles.textPrice}>R$ 1.574,32</Text>
                     <Button
                         icon={
                             <Icon name="md-list-box"
                                         
-                            style={{marginRight:5, color:"#FFF", fontSize:20}}
+                            style={styles.iconList}
                             />
                         }
                         title="Adiciona a Lista"
                         type="solid"
-                        containerStyle={{marginTop:8,}}
-                        buttonStyle={{backgroundColor:"red", padding:10}}
+                        containerStyle={styles.margin}
+                        buttonStyle={styles.button}
                         onPress={()=>{alert("Adiciona o produto a lista")}}
 
                     />
                                 
                 </View>
 
-                <View style={{marginTop:8, marginBottom:5,}} >
+                <View style={[styles.margin, styles.containerButton]} >
 
                     <Button
                         title="Descrição"
                         type="outline"
-                        containerStyle={{marginTop:8,}}
+                        containerStyle={styles.margin}
                         onPress={()=>{alert("Ir para tela de Descrição")}}
                     />
 
@@ -88,7 +87,7 @@ export default class CardInfor extends React.Component{
                                     
                         title="Informação Técnicas"
                         type="outline"
-                        containerStyle={{marginTop:8,}}
+                        containerStyle={styles.margin}
                         onPress={()=>{alert("Ir para tela de Informação Técnicas")}}
                                    
                     />
@@ -99,3 +98,77 @@ export default class CardInfor extends React.Component{
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+
+    margin:{
+        marginTop:8,
+    },
+
+    divider:{
+        marginBottom:5,
+    },
+
+    container:{
+        marginBottom:15,
+        padding:10,
+        borderRadius:8,
+        backgroundColor:"#FFF",
+    },
+
+    headCard:{
+        marginBottom:5,
+    },
+
+    titleProduto:{
+        fontSize:18,
+        fontWeight:"bold",
+        textAlign:"left",
+    },
+
+    inforProduto:{
+        marginTop:8,
+        flexDirection:"row",
+        justifyContent:"space-between",
+    },
+
+    textCodigoProduto:{
+        fontSize:12,
+        textAlign:"left",
+    },
+
+    textDenuncia:{
+        fontSize:12,
+        fontWeight:"bold",
+        color:"red",
+    },
+
+    containerPriceButton:{
+        flexDirection:"column",
+        alignItems:"center",
+        marginTop:8,
+        marginBottom:5,
+    },
+
+    textPrice:{
+        fontSize:30,
+        fontWeight:"bold",
+    },
+
+    iconList:{
+        marginRight:5,
+        color:"#FFF",
+        fontSize:20,
+    },
+
+    button:{
+        backgroundColor:"red",
+        padding:10,
+    },
+
+    containerButton:{
+        marginBottom:5,
+    }
+
+});

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 
 
@@ -15,10 +15,10 @@ export default class CardSugestao extends React.Component{
 
     render(){
         return(
-            <View style={{flexDirection:"column", marginBottom:0, padding:5, borderRadius:8, backgroundColor:"#FFF"}}>
+            <View style={styles.container}>
                             
-                <View style={{flexDirection:"row", marginBottom:5, justifyContent:"space-between"}}>
-                    <Text style={{fontSize:15, fontWeight:"bold"}}>quem viu este, viu também</Text>                            
+                <View style={styles.head}>
+                    <Text style={styles.text}>quem viu este, viu também</Text>                            
                 </View>
 
                             
@@ -28,3 +28,26 @@ export default class CardSugestao extends React.Component{
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    container:{
+        flexDirection:"column",
+        marginBottom:0,
+        padding:5,
+        borderRadius:8,
+        backgroundColor:"#FFF",
+    },
+
+    head:{
+        flexDirection:"row",
+        marginBottom:5,
+        justifyContent:"space-between",
+    },
+
+    text:{
+        fontSize:15,
+        fontWeight:"bold",
+    }
+
+});
