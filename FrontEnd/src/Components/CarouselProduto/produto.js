@@ -1,6 +1,9 @@
 import React from 'react';
-import {ActivityIndicator, View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {Image, Rating} from 'react-native-elements';
+
+//components
+import PreLoading from '../PreLoading';
 
 export default class Produto extends React.Component{
     
@@ -27,64 +30,48 @@ export default class Produto extends React.Component{
         var valorArray = valor.split(',');
 
         return(
-            <View style={{
-               
-                        flexDirection:"column",
-                        alignItems:"flex-start",
-                        marginRight:5,
-                        marginBottom:10,
-                        padding:1,
-                        width:168,
-                        height:"100%",
-                    
-                    }}
+            <View style={styles.container} >
                 
-            >
-                
-                <View style={{padding:1, }}>
+                <View style={styles.head}>
                     <Image
                 
                     source={{ uri: principaImage }}
-                    style={{ width: 160, height:160, resizeMode:"contain" }}
-                    PlaceholderContent={<ActivityIndicator />}
+                    style={styles.image}
+                    PlaceholderContent={<PreLoading />}
                     />
                 </View>
 
-                <View style={{padding:2, marginTop:5, marginLeft:2, }}>
+                <View style={styles.containerPriceRating}>
 
-                    <View style={{flexDirection:"row",}}>
-                        <Text style={{fontSize:17, fontWeight:"bold", color:"#2f2f2f"}}>R$ {valorArray[0]}</Text>
+                    <View style={styles.containerPrice}>
+                        <Text style={styles.priceCoin}>R$ {valorArray[0]}</Text>
                         {
                             ( parseFloat(valorArray[1]) > 0 ) ? 
-                            <Text style={{fontSize:13, fontWeight:"bold", color:"#2f2f2f"}}>,{valorArray[1]}</Text>
+                            <Text style={styles.centsCoin}>,{valorArray[1]}</Text>
                             : null
                         }
                         
                     </View>
 
-                    <View style={{alignItems:"flex-start", marginTop:5,marginBottom:5,}}>
+                    <View style={styles.containerRating}>
                         <Rating
                             imageSize={18}
                             readonly
                             ratingCount={5}
                             startingValue={rating}
                             onFinishRating={this.ratingCompleted}
-                            style={{ paddingVertical: 10 }}
-                            style={{}}
+                            style={styles.rating}
+                            
                         />
                     </View>
 
                 </View>
 
-                <View style={{padding:2, marginTop:5, marginLeft:2}}>
+                <View style={styles.containerText}>
                     <Text 
                         numberOfLines={3}
                         ellipsizeMode="tail"
-                         style={{
-                                fontSize:12,
-                                
-                                
-                            }}>
+                        style={styles.text}>
 
                      {descricao}
 
@@ -98,3 +85,69 @@ export default class Produto extends React.Component{
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    container:{
+        flexDirection:"column",
+        alignItems:"flex-start",
+        marginRight:5,
+        marginBottom:10,
+        padding:1,
+        width:168,
+        height:"100%",
+    },
+
+    head:{
+        padding:1, 
+    },
+
+    image:{
+        width: 160,
+        height:160,
+        resizeMode:"contain", 
+    },
+
+    containerPriceRating:{
+        padding:2,
+        marginTop:5,
+        marginLeft:2, 
+    },
+    
+    containerPrice:{
+        flexDirection:"row",
+    },
+
+    priceCoin:{
+        fontSize:17,
+        fontWeight:"bold",
+        color:"#2f2f2f",
+    },
+
+    centsCoin:{
+        fontSize:13,
+        fontWeight:"bold",
+        color:"#2f2f2f",
+    },
+
+    containerRating:{
+        alignItems:"flex-start",
+        marginTop:5,
+        marginBottom:5,
+    },
+
+    rating:{
+        paddingVertical: 10,
+    },
+
+    containerText:{
+        padding:2, 
+        marginTop:5,
+        marginLeft:2
+    },
+    text:{
+        fontSize:12,
+    }
+
+
+});

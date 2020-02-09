@@ -1,6 +1,9 @@
 import React from 'react';
-import {TouchableOpacity, View, Text, Image} from 'react-native';
-import { Rating} from 'react-native-elements';
+import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
+import { Rating, Image} from 'react-native-elements';
+
+//import components
+import PreLoading from '../PreLoading';
 
 export default class Produto extends React.Component{
 
@@ -30,6 +33,7 @@ export default class Produto extends React.Component{
 
             <TouchableOpacity onPress={()=>{alert("ir para tela de produto")}} 
                     style={{
+
                         flex:1,
                         margin:3,
                         borderColor:"#8e8e8ead",
@@ -39,35 +43,38 @@ export default class Produto extends React.Component{
                         
                         borderRightWidth:isBorder ? .8 : 0,
                         borderLeftWidth: !isBorder ? .8 : 0,
-                        
-                       
-                       
-                       
+                    
                     }}> 
 
                                            
-                <View style={{height:130,}}>
-                    <View style={{flex:1,}}>
-                        <Image source={{uri: principaImage}} style={{flex:1, width:null, height:null, resizeMode:"contain"}} />
+                <View style={styles.imageContainer}>
+                    <View style={styles.bodyimageContainer}>
+                        <Image 
+                            PlaceholderContent={<PreLoading />} 
+                            source={{uri: principaImage}}
+                            style={styles.image}
+                        />
                     </View>
                 </View>
 
-                <View style={{flexDirection:"column", alignItems:"flex-start", padding:2, marginLeft: 0, marginTop:5,}}>
+                <View style={styles.textContainer}>
                     
-                    <View style={{flexDirection:"row", }}>
-                        <Text style={{fontSize:17, fontWeight:"bold", color:"#2f2f2f"}}>R$</Text>
-                        <View style={{flexDirection:"row"}}>
-                            <Text style={{fontSize:17, fontWeight:"bold",marginLeft:5, color:"#2f2f2f"}}>{valorArray[0]}</Text>
+                    <View style={styles.priceRatingContainer}>
+                        
+                        <Text style={styles.textCoin}>R$</Text>
+                        
+                        <View style={styles.priceCentsContainer}>
+                            <Text style={styles.priceCoin}>{valorArray[0]}</Text>
                             { ( parseFloat(valorArray[1]) > 0 ) ? 
                                 
-                                <Text numberOfLines={1} style={{fontSize:13, fontWeight:"bold",marginLeft:1,color:"#2f2f2f"}}>,{valorArray[1]} </Text>
+                                <Text numberOfLines={1} style={styles.textCents}>,{valorArray[1]} </Text>
                                 
                                 : null}
                             
                         </View>
                     </View>
 
-                    <View style={{marginTop:5,}}>
+                    <View style={[styles.margin, ]}>
                         <Rating
                             imageSize={18}
                             readonly
@@ -81,8 +88,8 @@ export default class Produto extends React.Component{
 
                 </View>
 
-                <View style={{alignItems:"flex-start" ,marginTop:5,}}>
-                    <Text numberOfLines={2} ellipsizeMode="tail" style={{textAlign:"left", fontSize:12, color:"#505050"}}>
+                <View style={[styles.margin, styles.descriptionContainer]}>
+                    <Text numberOfLines={2} ellipsizeMode="tail" style={styles.description}>
                        {descricao}
                     </Text>
                 </View>
@@ -91,3 +98,74 @@ export default class Produto extends React.Component{
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    margin:{
+        marginTop:5,
+    },
+
+    imageContainer:{
+        height:130,
+    },
+
+    bodyimageContainer:{
+        flex:1,
+        alignItems:"center"
+    },
+
+    image:{
+        flex:1,
+        width: 120,
+        height: 120,
+        resizeMode:"contain",
+    },
+
+    textContainer:{
+        flexDirection:"column",
+        alignItems:"flex-start",
+        padding:2,
+        marginLeft: 0,
+        marginTop:5,
+    },
+
+    priceRatingContainer:{
+        flexDirection:"row", 
+    },
+
+    textCoin:{
+        fontSize:17,
+        fontWeight:"bold",
+        color:"#2f2f2f",
+    },
+
+    priceCentsContainer:{
+        flexDirection:"row",
+    },
+
+    priceCoin:{
+        fontSize:17,
+        fontWeight:"bold",
+        marginLeft:5,
+        color:"#2f2f2f"
+    },
+
+    textCents:{
+        fontSize:13,
+        fontWeight:"bold",
+        marginLeft:1,
+        color:"#2f2f2f"
+    },
+
+    descriptionContainer:{
+        alignItems:"flex-start",
+        
+    },
+
+    description:{
+        textAlign:"left",
+        fontSize:12,
+        color:"#505050",
+    }
+
+});

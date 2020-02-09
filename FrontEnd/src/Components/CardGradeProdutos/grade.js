@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Dimensions} from 'react-native';
-import {Ionicons, FontAwesome, Feather} from '@expo/vector-icons';
-import {Card, Divider, Header, ListItem  } from 'react-native-elements';
+import React from 'react';
+import {View, Text, TouchableOpacity, Dimensions, StyleSheet} from 'react-native';
+import {FontAwesome} from '@expo/vector-icons';
+import {Card, Divider} from 'react-native-elements';
 
 import GradeLineProdutos from './gradeLineProdutos';
 
@@ -75,18 +75,18 @@ export default class Grade extends React.Component{
 
         return(
            
-            <Card containerStyle={{padding: 0, borderRadius:8}}>
+            <Card containerStyle={styles.card}>
 
                 {/* Head Card 1 */}
-                <View style={{flexDirection:"row", padding:10, alignItems:"flex-start",justifyContent:"flex-start"}}>
-                    <Text style={{fontSize:17, fontWeight:"bold", color:"#1b1b1b"}}>{titleGrade}</Text>
+                <View style={styles.headCard}>
+                    <Text style={styles.textHeadCard}>{titleGrade}</Text>
                 </View>
                 {/* Head Card 1 */}
 
-                <Divider style={{ backgroundColor: '#8e8e8ead' }} />
+                <Divider style={styles.divider} />
 
                 {/* Inicio do conteudo produtos */}
-                <View style={{flexDirection:"column"}}>
+                <View style={styles.contentProduto}>
                                        
                     {
                        
@@ -102,8 +102,8 @@ export default class Grade extends React.Component{
                 
 
                 {/* Footer Card 1 */}
-                <TouchableOpacity onPress={()=>{alert("ver mais produto dessa categoria")}} style={{flexDirection:"row", padding:10, justifyContent:"space-between"}}>
-                    <Text style={{color:"blue"}}>Ver Mais</Text>
+                <TouchableOpacity onPress={()=>{alert("ver mais produto dessa categoria")}} style={styles.footerCard}>
+                    <Text style={styles.footerText}>Ver Mais</Text>
                     <FontAwesome name="angle-right" color="blue" size={width * .06} />
                 </TouchableOpacity>
                 {/* Footer Card 1 */}
@@ -112,3 +112,43 @@ export default class Grade extends React.Component{
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    divider:{
+        backgroundColor: '#8e8e8ead',
+    },
+
+    card:{
+        padding: 0,
+        borderRadius:8
+    },
+
+    headCard:{
+        flexDirection:"row",
+        padding:10,
+        alignItems:"flex-start",
+        justifyContent:"flex-start",
+    },
+
+    textHeadCard:{
+        fontSize:17,
+        fontWeight:"bold",
+        color:"#1b1b1b",
+    },
+
+    contentProduto:{
+        flexDirection:"column",
+    },
+
+    footerCard:{
+        flexDirection:"row",
+        padding:10,
+        justifyContent:"space-between",
+    },
+    
+    footerText:{
+        color:"blue",
+    }
+
+});

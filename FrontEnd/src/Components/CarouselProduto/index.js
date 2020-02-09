@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 
 import Produto from '../CarouselProduto/produto';
 
@@ -36,7 +36,7 @@ export default class CarouselProduto extends React.Component{
         <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            style={{marginLeft:2,marginRight:2,}}
+            style={styles.scrollView}
             
         >
 
@@ -50,3 +50,11 @@ export default class CarouselProduto extends React.Component{
       )
     };
 }
+
+const styles = StyleSheet.create({
+
+    scrollView:{
+        marginLeft:2,
+        marginRight:2,
+    }
+})

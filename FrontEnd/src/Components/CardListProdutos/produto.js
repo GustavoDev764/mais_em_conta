@@ -1,8 +1,11 @@
 import React from 'react';
-import {View, Text,TouchableOpacity, Image, Dimensions} from 'react-native';
-import {Divider, Rating} from 'react-native-elements';
+import {View, Text,TouchableOpacity, Dimensions, StyleSheet} from 'react-native';
+import {Divider, Rating, Image} from 'react-native-elements';
 
 const { width, height } = Dimensions.get('screen');
+
+//import components
+import PreLoading from '../PreLoading';
 
 export default class Produto extends React.Component{
 
@@ -31,18 +34,16 @@ export default class Produto extends React.Component{
         return(
             <>
                 <TouchableOpacity onPress={()=>{alert("ir para tela de produto");}} 
-                    style={{
-                            flexDirection:"row", 
-                            padding:10,
-                            justifyContent:"space-between",
-                            height: height * .19,
-                           
-                        }}>
+                    style={styles.container}>
                                         
                                         
-                    <View style={{height:"100%", width:"35%", }}>
-                        <View style={{flex:1, }}>
-                            <Image source={{uri: principaImage}} style={{flex:1, width:null, height:null, resizeMode:"contain"}} />
+                    <View style={styles.imageContainer}>
+                        <View style={styles.imagebody}>
+                            <Image  
+                                source={{uri: principaImage}}
+                                style={styles.image} 
+                                PlaceholderContent={<PreLoading />} 
+                            />
                         </View>
                     </View>
                                             
@@ -70,12 +71,12 @@ export default class Produto extends React.Component{
                                 ratingCount={5}
                                 startingValue={rating}
                                 onFinishRating={this.ratingCompleted}
-                                style={{ paddingVertical: 10 }}
-                                style={{}}
+                                style={styles.rating}
+                                
                             />
                         </View>
 
-                        <View style={{}}>
+                        <View style={styles.containerText}>
                                                
                             <Text 
                                 numberOfLines={2}
@@ -108,3 +109,39 @@ export default class Produto extends React.Component{
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    container:{
+        flexDirection:"row", 
+        padding:10,
+        justifyContent:"space-between",
+        height: height * .19,
+    },
+
+    imageContainer:{
+        height:"100%",
+        width:"35%", 
+        padding:1,
+    },
+    imagebody:{
+        flex:1, 
+        alignItems:"center",
+        
+    },
+
+    image:{
+        flex:1,
+        width:90,
+        height:90,
+        resizeMode:"contain",
+    },
+
+    containerText:{
+
+    },
+
+    rating:{
+        paddingVertical: 10,
+    }
+});

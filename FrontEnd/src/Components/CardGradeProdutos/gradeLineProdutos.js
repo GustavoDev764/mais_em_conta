@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Produto from './produto';
 import {Divider} from 'react-native-elements';
 
@@ -27,7 +27,7 @@ export default class GradeLineProdutos extends React.Component{
         
         return(
             <>
-            <View style={{flexDirection:"row", justifyContent:"space-around", padding:2, borderWidth:0}}>
+            <View style={styles.view}>
                 
                 {
                    listProdutos.map((item,index) =>{
@@ -35,8 +35,22 @@ export default class GradeLineProdutos extends React.Component{
                    }) 
                 }
             </View>
-            <Divider style={{ backgroundColor: '#8e8e8ead' }}/>   
+            <Divider style={styles.divider}/>   
             </>                       
         );
     }
 }
+
+const styles = StyleSheet.create({
+    
+    view:{
+        flexDirection:"row",
+        justifyContent:"space-around",
+        padding:2, borderWidth:0,
+    },
+
+    divider:{
+        backgroundColor: '#8e8e8ead',
+    }
+
+});

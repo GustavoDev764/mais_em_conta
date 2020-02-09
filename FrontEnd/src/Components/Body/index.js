@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
+import {View, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 
 export default class Body extends React.Component{
 
@@ -11,9 +11,9 @@ export default class Body extends React.Component{
 
         
         return(
-            <SafeAreaView style={{flex: 1,}}>
-                    <ScrollView style={{backgroundColor: '#ececec'}} showsVerticalScrollIndicator={false}>
-                        <View style={{marginTop:10, marginBottom:10, padding:2}}>
+            <SafeAreaView style={styles.safeAreaView}>
+                    <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+                        <View style={styles.view}>
 
                             {this.props.children}
                         
@@ -23,3 +23,23 @@ export default class Body extends React.Component{
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    safeAreaView:{
+        flex:1,
+    },
+
+    scrollView:{
+        backgroundColor: '#ececec'
+    },
+
+    view:{
+        marginTop:10,
+        marginBottom:10,
+        padding:2,
+    }
+
+
+
+});

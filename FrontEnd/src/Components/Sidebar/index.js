@@ -22,9 +22,9 @@ export default class SideBar extends React.Component{
                         }  
                         }>
                         <Image source={require("../../../assets/Profile.png")} style={styles.imageProfile}/>
-                        <View style={{flexDirection:"column", padding:10, alignContent:"center"}}>
-                            <Text style={{fontSize:15, fontWeight:"bold"}}>Olá Sophie Stewart</Text>
-                            <Text style={{fontSize:12}}>SophieStewart@gmail.com</Text>
+                        <View style={styles.dadoUser}>
+                            <Text style={styles.nameUser}>Olá Sophie Stewart</Text>
+                            <Text style={styles.emailUser}>SophieStewart@gmail.com</Text>
                         </View>
                 </TouchableOpacity>
                 <View style={styles.container}>
@@ -36,6 +36,21 @@ export default class SideBar extends React.Component{
 };
 
 const styles = StyleSheet.create({
+
+    dadoUser:{
+        flexDirection:"column",
+        padding:10,
+        alignContent:"center",
+    },
+    nameUser:{
+        fontSize:15,
+        fontWeight:"bold"
+    },
+
+    emailUser:{
+        fontSize:12,
+    },
+
     profileHead: {
         flexDirection:"row",
         justifyContent:"flex-start",
