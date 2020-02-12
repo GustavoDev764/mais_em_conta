@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component, Fragment} from 'react';
 import {View, Text, StyleSheet, ScrollView, Image, Dimensions, TouchableOpacity} from 'react-native';
-import {Feather} from '@expo/vector-icons';
+import {Ionicons, Feather} from '@expo/vector-icons';
 
 
 //import Components
@@ -11,17 +11,20 @@ import CardInfor from '../../Components/Produto/cardInfor';
 import CardAvaliacao from '../../Components/Produto/cardavaliacao';
 import CardSugestao from '../../Components/Produto/cardsugestao';
 
+import CardLoading from  '../../Components/Produto/cardLoading';
+
 
 const {width, height} = Dimensions.get("screen");
 
 
-export default class Produto extends React.Component{
+export default class ProdutoScreen extends Component{
 
     constructor(props){
         super(props);
 
         this.state = {
             favorito: false,
+            isRender: false,
         }
 
     }
@@ -31,43 +34,89 @@ export default class Produto extends React.Component{
         drawerIcon: ({tintColor}) => <Feather name="user" size={16} color={tintColor} />
     };
 
+    //Navegação por telas
+
+    openTelaSearhcView = () => {
+        return this.props.navigation.navigate('SearchBarScreen', {routeBack: "ProdutoScreen"});
+    }
+
+    openTelaDecricaoProduto = (produto)=>{
+        return this.props.navigation.navigate('DescricaoProdutoScreen', {routeBack: "ProdutoScreen", produto: produto});
+    }
+
+
+    //Fim de Navegações
+
     onClikeFavorito = (favorito) =>{
        this.setState({ favorito: !favorito});
+    }
+
+    setRender(){
+       setTimeout(()=>{ this.setState({isRender: true}) }, 0);
+    }
+
+    componentDidMount(){
+
+        if(this.state.isRender == false){
+            this.setRender()
+        }
     }
    
     render() {
         
         const {navigation} = this.props;
 
-        const {favorito} = this.state;
+        const {favorito, isRender} = this.state;
+
+        const data      = navigation.getParam("data");
+        const routeBack = navigation.getParam("routeBack");
+        
+        //console.log(this.props.navigation.goBack());
+       //console.log(routeBack);
+        
+
+        
+        
 
         return (
-            <View style={{flex:1}}> 
-
-                <HeadProduto 
-                    navigation={navigation}
-                    favorito={favorito}
-                    onClikeFavorito={this.onClikeFavorito}
-                />
+            
+            <Fragment> 
                 
+                <HeadProduto 
+                    navigation = {navigation}
+                    routeBack  = {routeBack}
+                    openTelaSearhcView = {this.openTelaSearhcView}
+                />
+
+                {
+
+                 isRender ? 
+                 
                 <Body>     
 
-                    <ImagesProduto />
+                
+                    <ImagesProduto images = {data.images} />
 
                     <View style={{marginTop:10, padding:5,}}>
-                       
-                        <CardInfor />
+                        
 
+                        
+                        <CardInfor 
+                             navigation={navigation}
+                             produto={data}
+                             openViewDecricaoProduto = {this.openTelaDecricaoProduto}
+                        />
+                        
                         <CardAvaliacao />
                         
                         <CardSugestao />
                     
                     </View>
 
-                </Body>
-                
+                </Body> :  <CardLoading />
+                }
               
-            </View>
+            </Fragment>
         );
     }
 }

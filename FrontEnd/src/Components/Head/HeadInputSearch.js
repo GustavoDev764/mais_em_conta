@@ -3,9 +3,13 @@ import {TouchableOpacity, View, Text, Dimensions, StyleSheet} from 'react-native
 import {Header, SearchBar} from 'react-native-elements';
 import {FontAwesome, Ionicons} from '@expo/vector-icons';
 
+
+//import components
+import HeadArrowBack from './HeadArrowBack'
+
 const { width, height } = Dimensions.get('screen');
 
-export default class HeadSearch extends React.Component{
+export default class HeadInputSearch extends React.Component{
 
     constructor(props){
         super(props);
@@ -33,13 +37,15 @@ export default class HeadSearch extends React.Component{
         const { search, isloading} = this.state;
 
         var routeBack = navigation.getParam('routeBack');
+
+        console.log(routeBack);
         
         return(
             <Header
                 containerStyle={styles.head}  
 
                 leftComponent={
-                    <Ionicons name={"ios-arrow-round-back"} style={styles.icon} onPress={() => navigation.navigate(routeBack != null ? routeBack: 'HomeScreen')} />
+                    <HeadArrowBack navigation={navigation} routeBack={routeBack != null ? routeBack : 'HomeScreen'} />
                 }
 
                 centerComponent={
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
     },
    
     head:{
-        backgroundColor: '#f3db07',
+        backgroundColor: '#0086ff',
         justifyContent: 'space-around',
     },
     inputBar:{

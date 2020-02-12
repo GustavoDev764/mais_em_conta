@@ -11,9 +11,17 @@ export default class Produto extends React.Component{
         super(props);
     }
 
+
+    // openViewProduto(produto, navigation){
+    //     return navigation.navigate("Produto",{routeBack:"HomeScreen", produto:produto});
+    // }
+
+
+    
+
     render(){
 
-        const { isBorder, produto } = this.props;
+        const { isBorder, produto} = this.props;
 
         const {
 
@@ -26,12 +34,13 @@ export default class Produto extends React.Component{
             images,
 
         } = produto;
-
+       
         var valorArray = valor.split(',');
 
         return(
 
-            <TouchableOpacity onPress={()=>{alert("ir para tela de produto")}} 
+            <TouchableOpacity 
+                    onPress={()=>{return this.props.openViewProduto(produto);}}
                     style={{
 
                         flex:1,

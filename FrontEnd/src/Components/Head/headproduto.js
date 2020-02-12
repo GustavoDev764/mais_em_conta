@@ -1,7 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
-import { Header, Left, Right, Button, Icon, } from 'native-base';
+import {Header} from 'react-native-elements';
+
+
+//HeadHome
+import HeadGrupo from '../../Components/Head/HeadGrupo';
+import HeadArrowBack from '../../Components/Head/HeadArrowBack';
+import HeadList from '../../Components/Head/HeadList';
+import HeadSearch from '../../Components/Head/HeadSearch';
 
 export default class HeadProduto extends React.Component{
 
@@ -15,39 +22,31 @@ export default class HeadProduto extends React.Component{
             favorito,
             onClikeFavorito,
             navigation,
+            routeBack,
+            openTelaSearhcView,
+                        
         
         } = this.props;
 
+      
+
+        
         return(
-            <Header style={styles.head}>
-                <Left>
-                    <Button transparent onPress={()=>{navigation.goBack()}}>
-                        <Ionicons name='ios-arrow-round-back' style={styles.buttonVolta} />
-                    </Button>
-
-                </Left>
-                <View style={styles.titlePage}>
-                        <Text style={styles.textTitle}>Produto</Text>
-                </View>
-
-                <Right>
-                    <Button transparent onPress={()=>{return  navigation.navigate('SearchBar',{routeBack: 'Produto' });}}>
-                        <Icon name='search' style={styles.icon} />
-                    </Button>
-                        
-                    <Button transparent onPress={()=>{onClikeFavorito(favorito)}}>
-                        {
-                            favorito ? <Icon name='heart'  style={styles.favoritoIcon} /> : <Icon name='heart-empty'  style={styles.favoritoIcon} />
-                        }
-                            
-                    </Button>
-                     
-                        
-                    <Button transparent onPress={()=>{alert("ir para minha lista de produtos")}}>
-                        <Icon name='md-list-box' style={styles.icon} />
-                    </Button>
-                </Right>
-            </Header>
+            <Header 
+                    leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
+                    centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Produto</Text>}
+                    rightComponent={
+                        <HeadGrupo>
+                            <HeadSearch opressFunc={openTelaSearhcView} />
+                            <HeadList   opressFunc={this.openMenuDrawer} />
+                        </HeadGrupo>
+                    }
+                    containerStyle={{
+                        backgroundColor: '#0086ff',
+                        justifyContent: 'space-around',
+                       
+                      }}
+                />
         );
     }
     

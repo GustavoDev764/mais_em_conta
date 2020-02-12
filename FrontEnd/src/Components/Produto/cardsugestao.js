@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent, Fragment} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 
@@ -6,7 +6,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import CarouselProduto from '../../Components/CarouselProduto';
 
 
-export default class CardSugestao extends React.Component{
+export default class CardSugestao extends PureComponent{
 
     constructor(props){
         super(props);
@@ -15,16 +15,18 @@ export default class CardSugestao extends React.Component{
 
     render(){
         return(
-            <View style={styles.container}>
-                            
-                <View style={styles.head}>
-                    <Text style={styles.text}>quem viu este, viu também</Text>                            
-                </View>
+            <Fragment>
+                <View style={styles.container}>
+                                
+                    <View style={styles.head}>
+                        <Text style={styles.text}>quem viu este, viu também</Text>                            
+                    </View>
 
-                            
-                <CarouselProduto />
-                    
-            </View>
+                                
+                    <CarouselProduto />
+                        
+                </View>
+            </Fragment>
         );
     }
 }

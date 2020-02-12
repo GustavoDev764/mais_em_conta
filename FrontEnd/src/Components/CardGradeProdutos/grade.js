@@ -19,6 +19,8 @@ export default class Grade extends React.Component{
         var total = produtos.length;
         var lista = [];
 
+       
+
         //verifica se o total de produtos e par
         if( (total%2) == 0 ){
            
@@ -26,6 +28,8 @@ export default class Grade extends React.Component{
             for(i=0; i < total; i+=2){
                 lista[i] = <GradeLineProdutos
                     key={i}
+                    
+                    openViewProduto = {this.props.openViewProduto}
                     listProdutos = {[ produtos[i], produtos[i+1] ]}
                 />    
             }
@@ -35,6 +39,8 @@ export default class Grade extends React.Component{
             if(total == 1){
                 lista[0] = <GradeLineProdutos
                             key={0}
+                            
+                            openViewProduto = {this.props.openViewProduto}
                             listProdutos = {[produtos[0]]}
                 /> 
             }else{
@@ -47,6 +53,8 @@ export default class Grade extends React.Component{
                     if( produtos[i+1] != undefined ) {
                         lista[i] = <GradeLineProdutos
                                     key={i}
+                                   
+                                    openViewProduto = {this.props.openViewProduto}
                                     listProdutos = {[ produtos[i], produtos[i+1] ]}
                                     /> 
                     }else{
@@ -54,6 +62,8 @@ export default class Grade extends React.Component{
                         //nao existe o proximo entao manda so um produto
                         lista[i] = <GradeLineProdutos
                                     key={i}
+                                    
+                                    openViewProduto = {this.props.openViewProduto}
                                     listProdutos = {[ produtos[i] ]}
                                 /> 
                     }

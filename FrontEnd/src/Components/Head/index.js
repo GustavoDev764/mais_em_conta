@@ -24,30 +24,78 @@ export default class Head extends React.Component{
                 }
 
                 centerComponent={
-                    <TouchableOpacity onPress={()=>{ return navigation.navigate(nameRoute,{routeBack:routeBack} ) }} style={styles.searchBar}>
-                            
-                        <View style={styles.divInput}>
-                            <FontAwesome name="search" style={styles.iconSearch}/>
-                            <Text style={styles.textInput}>Buscar no Mais Econta</Text>
-                        </View>
-                           
-                    </TouchableOpacity>
+                    <View style={styles.containeHead}>
+                         <View style={styles.bodyHead}>
+                             <Text style={styles.textHead}>Mais em conta</Text>
+                         </View>
+                    </View>
                     }
-                rightComponent={<Ionicons name="md-list-box" style={styles.icon} onPress={()=>{alert("ir para lista")}} />}
+                rightComponent={
+                    <View style={styles.containerHeadRight}>
+
+                        <TouchableOpacity style={styles.containerSearch} onPress={()=>{ return navigation.navigate(nameRoute,{routeBack:routeBack} ) }} >
+                            <FontAwesome name="search" style={styles.iconSearch}/>
+                        </TouchableOpacity>
+
+                        <View style={{flex:1}}>
+                            <Ionicons name="md-list-box" style={styles.icon} onPress={()=>{alert("ir para lista")}} />
+                        </View>
+                        
+                    </View>
+                    
+                }
             
             />
         );
     }
 }
 
+{/* <TouchableOpacity onPress={()=>{ return navigation.navigate(nameRoute,{routeBack:routeBack} ) }} style={styles.searchBar}>
+                            
+                            <View style={styles.divInput}>
+                                <FontAwesome name="search" style={styles.iconSearch}/>
+                                <Text style={styles.textInput}>Buscar no Mais Econta</Text>
+                            </View>
+                               
+                        </TouchableOpacity> */}
+
 const styles = StyleSheet.create({
+
+    /* INICIO HEAD */
+
+    containeHead:{
+        flexDirection:"row"
+    },
+    bodyHead:{
+        flex:1,
+    },
+
+    textHead:{
+        fontSize:22,
+        color:"#FFF",
+        fontWeight:"bold",
+    },
+
+    containerHeadRight:{
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-between",
+    },
+    
+    containerSearch:{
+        flex:1,
+        marginRight:25,
+    },
+
+    /* FIM HEAD */
+
     icon:{
         color:"#000",
-        fontSize:25,
+        fontSize:width * .069,
     },
     iconSearch:{
-        color:"#a2a2a2",
-        fontSize:width * .04,
+        color:"#000",
+        fontSize:width * .06,
     },
     head:{
         backgroundColor: '#f3db07',

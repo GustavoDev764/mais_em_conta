@@ -33,7 +33,7 @@ export default class Produto extends React.Component{
 
         return(
             <>
-                <TouchableOpacity onPress={()=>{alert("ir para tela de produto");}} 
+                <TouchableOpacity onPress={()=>{return this.props.openViewProduto(produto);}} 
                     style={styles.container}>
                                         
                                         

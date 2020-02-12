@@ -1,7 +1,11 @@
 import React from 'react';
-import {View, Text, TouchableOpacity,StyleSheet, Image, Dimensions} from 'react-native';
+import {View, Text, TouchableOpacity,StyleSheet, Dimensions} from 'react-native';
+import {Image} from 'react-native-elements';
 
 const {width, height} = Dimensions.get("screen");
+
+//import components
+import PreLoading from '../PreLoading';
 
 export default class TabItem extends React.Component{
 
@@ -15,7 +19,6 @@ export default class TabItem extends React.Component{
 
     render(){
 
-        console.log(width);
         const {title, image, link, params} = this.props;
 
         return(
@@ -23,6 +26,7 @@ export default class TabItem extends React.Component{
                 <Image
                     source={{uri: image}}
                     style={styles.image}
+                    PlaceholderContent={<PreLoading />}
                 />
                 <Text style={styles.text}>{title}</Text>      
             </TouchableOpacity> 

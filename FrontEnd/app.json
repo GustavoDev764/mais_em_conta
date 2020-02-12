@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "FrontEnd",
-    "slug": "FrontEnd",
+    "name": "Mais Em Conta",
+    "slug": "MaisEmConta",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [

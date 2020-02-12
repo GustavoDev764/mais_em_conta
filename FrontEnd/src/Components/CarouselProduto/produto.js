@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {PureComponent, Fragment} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Image, Rating} from 'react-native-elements';
 
 //components
 import PreLoading from '../PreLoading';
 
-export default class Produto extends React.Component{
+export default class Produto extends PureComponent{
     
     constructor(props){
         super(props);
@@ -30,58 +30,60 @@ export default class Produto extends React.Component{
         var valorArray = valor.split(',');
 
         return(
-            <TouchableOpacity onPress={()=>{alert("ir para tela de produto");}} style={styles.container} >
-                
-                <View style={styles.head}>
-                    <Image
-                
-                    source={{ uri: principaImage }}
-                    style={styles.image}
-                    PlaceholderContent={<PreLoading />}
-                    />
-                </View>
-
-                <View style={styles.containerPriceRating}>
-
-                    <View style={styles.containerPrice}>
-                        <Text style={styles.priceCoin}>R$ {valorArray[0]}</Text>
-                        {
-                            ( parseFloat(valorArray[1]) > 0 ) ? 
-                            <Text style={styles.centsCoin}>,{valorArray[1]}</Text>
-                            : null
-                        }
-                        
-                    </View>
-
-                    <View style={styles.containerRating}>
-                        <Rating
-                            imageSize={18}
-                            readonly
-                            ratingCount={5}
-                            startingValue={rating}
-                            onFinishRating={this.ratingCompleted}
-                            style={styles.rating}
-                            
+            <Fragment>
+                <TouchableOpacity onPress={()=>{alert("ir para tela de produto");}} style={styles.container} >
+                    
+                    <View style={styles.head}>
+                        <Image
+                    
+                        source={{ uri: principaImage }}
+                        style={styles.image}
+                        PlaceholderContent={<PreLoading />}
                         />
                     </View>
 
-                </View>
+                    <View style={styles.containerPriceRating}>
 
-                <View style={styles.containerText}>
-                    <Text 
-                        numberOfLines={3}
-                        ellipsizeMode="tail"
-                        style={styles.text}>
+                        <View style={styles.containerPrice}>
+                            <Text style={styles.priceCoin}>R$ {valorArray[0]}</Text>
+                            {
+                                ( parseFloat(valorArray[1]) > 0 ) ? 
+                                <Text style={styles.centsCoin}>,{valorArray[1]}</Text>
+                                : null
+                            }
+                            
+                        </View>
 
-                     {descricao}
+                        <View style={styles.containerRating}>
+                            <Rating
+                                imageSize={18}
+                                readonly
+                                ratingCount={5}
+                                startingValue={rating}
+                                onFinishRating={this.ratingCompleted}
+                                style={styles.rating}
+                                
+                            />
+                        </View>
 
-                    </Text>   
-                </View>
+                    </View>
+
+                    <View style={styles.containerText}>
+                        <Text 
+                            numberOfLines={3}
+                            ellipsizeMode="tail"
+                            style={styles.text}>
+
+                        {descricao}
+
+                        </Text>   
+                    </View>
 
 
 
-                
-            </TouchableOpacity>
+                    
+                </TouchableOpacity>
+            </Fragment>
         );
     }
 }

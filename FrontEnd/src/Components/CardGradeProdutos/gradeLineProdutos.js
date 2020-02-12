@@ -11,9 +11,14 @@ export default class GradeLineProdutos extends React.Component{
 
     renderProduto = (item,index) => {
         
+        
+        
+
         const isBorder = index == 0 ? true : false;
         return <Produto
                 key      = {index}
+                
+                openViewProduto = {this.props.openViewProduto}
                 produto  = {item}
                 isBorder = {isBorder}
         /> ;

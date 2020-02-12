@@ -17,6 +17,7 @@ export default class List extends React.Component{
 
     renderProduto = (item, index) => {
         return <Produto
+                    openViewProduto = {this.props.openViewProduto}
                     key     = {index}
                     produto = {item}
                 />
