@@ -17,6 +17,9 @@ export default class CardAvaliacao extends PureComponent{
 
 
     render(){
+
+        const {openViewAvaliacaesDoProduto, produto} = this.props;
+
         return(
             <Fragment>
                 <View style={styles.container}>
@@ -25,7 +28,7 @@ export default class CardAvaliacao extends PureComponent{
                                     
                         <View style={styles.avalicaoRanting}>
                             <Text style={styles.textAvaliacao}>30 Avaliações</Text>
-                            <TouchableOpacity style={{}} onPress={()=>{alert("ir para tela de avalia produto");}}>
+                            <TouchableOpacity style={{}} onPress={()=>{return openViewAvaliacaesDoProduto(produto);}}>
                                     <Rating
                                         imageSize={18}
                                         readonly
@@ -43,7 +46,7 @@ export default class CardAvaliacao extends PureComponent{
                             title="Avaliar"
                             type="outline"
                             containerStyle={[styles.margin,]}
-                            onPress={()=>{alert("Ir para tela de Avalia Produto")}}
+                            onPress={()=>{return openViewAvaliacaesDoProduto(produto);}}
                                     
                         />
 
@@ -65,7 +68,7 @@ export default class CardAvaliacao extends PureComponent{
 
                                         
                                 {/* Footer Card 1 */}
-                                <TouchableOpacity onPress={()=>{alert("ver todo so comentarios")}} style={styles.footer}>
+                                <TouchableOpacity  onPress={()=>{return openViewAvaliacaesDoProduto(produto);}} style={styles.footer}>
                                     <Text style={styles.textFooter}>Ver Todos</Text>
                                     <FontAwesome name="angle-right" color="blue" size={width * .06} />
                                 </TouchableOpacity>

@@ -29,7 +29,7 @@ export default class Produto extends React.Component{
             title,
             valor,
             rating,
-            descricao,
+            descricaoCurta,
             principaImage,
             images,
 
@@ -99,7 +99,7 @@ export default class Produto extends React.Component{
 
                 <View style={[styles.margin, styles.descriptionContainer]}>
                     <Text numberOfLines={2} ellipsizeMode="tail" style={styles.description}>
-                       {descricao}
+                       {descricaoCurta}
                     </Text>
                 </View>
                                             

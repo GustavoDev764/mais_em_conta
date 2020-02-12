@@ -21,7 +21,7 @@ export default class Produto extends PureComponent{
             title,
             valor,
             rating,
-            descricao,
+            descricaoCurta,
             principaImage,
             images,
 
@@ -74,7 +74,7 @@ export default class Produto extends PureComponent{
                             ellipsizeMode="tail"
                             style={styles.text}>
 
-                        {descricao}
+                        {descricaoCurta}
 
                         </Text>   
                     </View>

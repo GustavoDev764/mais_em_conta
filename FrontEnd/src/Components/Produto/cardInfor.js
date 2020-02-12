@@ -12,7 +12,13 @@ export default class CardInfor extends PureComponent{
 
     render(){
 
-        const { produto, openViewDecricaoProduto} = this.props;
+        const { 
+            produto,
+            openViewDecricaoProduto,
+            openViewInformaTecnicaProduto,
+            openViewAvaliacaesDoProduto,
+
+        } = this.props;
 
         const {
 
@@ -43,7 +49,7 @@ export default class CardInfor extends PureComponent{
                               Codigo: {id}
                             </Text>
 
-                            <TouchableOpacity style={{}} onPress={()=>{alert("ir para tela de avalia produto");}}>
+                            <TouchableOpacity style={{}} onPress={()=>{return openViewAvaliacaesDoProduto(produto);}}>
                                 <Rating
                                     imageSize={18}
                                     readonly
@@ -101,7 +107,7 @@ export default class CardInfor extends PureComponent{
                             title="Informação Técnicas"
                             type="outline"
                             containerStyle={styles.margin}
-                            onPress={()=>{alert("Ir para tela de Informação Técnicas")}}
+                            onPress={()=>{return openViewInformaTecnicaProduto(produto);}}
                                     
                         />
                                 

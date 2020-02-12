@@ -19,6 +19,8 @@ import {Header} from 'react-native-elements';
 //rotas
 import ProdutoScreen from '../produto';
 import DescricaoProdutoScreen from '../descricaoProduto';
+import InformaTecnicaProdutoScreen from '../InformaTecnicaProduto';
+import AvaliacaesDoProdutoScreen from '../avaliacaesDoProduto';
 import SearchBarScreen from '../searchBar';
 
 //components
@@ -215,6 +217,8 @@ export const HomeScreenStack = createStackNavigator(
         HomeScreen,
         ProdutoScreen,
         DescricaoProdutoScreen,
+        InformaTecnicaProdutoScreen,
+        AvaliacaesDoProdutoScreen,
         SearchBarScreen,
         
         

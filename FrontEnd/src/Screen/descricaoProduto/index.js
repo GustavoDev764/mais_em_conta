@@ -5,6 +5,9 @@ import {View, Text, StyleSheet} from 'react-native';
 import {Header} from 'react-native-elements';
 import HeadArrowBack from '../../Components/Head/HeadArrowBack';
 import Body from '../../Components/Body';
+import Descricao from  '../../Components/Descricao';
+
+
 
 
 
@@ -22,9 +25,6 @@ export default class DescricaoProdutoScreen extends PureComponent{
 
         const routeBack = navigation.getParam("routeBack");
         const produto   = navigation.getParam("produto");
-
-        console.log(produto);
-        
 
         return(
             <Fragment>
@@ -49,9 +49,15 @@ export default class DescricaoProdutoScreen extends PureComponent{
                                 borderRadius:8,
                                 backgroundColor:"#fff"}}>
 
-                                <Text style={{fontSize:20,textAlign:"justify"}}>
-                                    {produto.descricao}
-                                </Text>
+                                {
+                                    produto.descricao.map((item, index)=>{
+                                        return <Descricao 
+                                                    key={index}
+                                                    title={item.title}
+                                                    text={item.text}
+                                                 />;
+                                    })
+                                }    
                                 
                             </View>
                             
