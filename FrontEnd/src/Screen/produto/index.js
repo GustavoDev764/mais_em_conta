@@ -52,6 +52,10 @@ export default class ProdutoScreen extends Component{
         return this.props.navigation.navigate('AvaliacaesDoProdutoScreen', {routeBack: "ProdutoScreen", produto: produto});
     }
 
+    openTelaAvaliaProduto = (produto)=>{
+        return this.props.navigation.navigate('AvaliaProdutoScreen', {routeBack: "ProdutoScreen", produto: produto});
+    }
+
 
     //Fim de Navegações
 
@@ -115,11 +119,13 @@ export default class ProdutoScreen extends Component{
                             openViewDecricaoProduto       = {this.openTelaDecricaoProduto}
                             openViewInformaTecnicaProduto = {this.openTelaInformaTecnicaProduto}
                             openViewAvaliacaesDoProduto   = {this.openTelaAvaliacaesDoProduto}
+                            
                         />
-                        
+                            
                         <CardAvaliacao
                             produto = {data}
                             openViewAvaliacaesDoProduto   = {this.openTelaAvaliacaesDoProduto}
+                            openViewAvaliaProduto         = {this.openTelaAvaliaProduto}
                         />
                         
                         <CardSugestao />

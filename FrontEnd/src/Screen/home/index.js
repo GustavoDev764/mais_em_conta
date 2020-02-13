@@ -21,6 +21,7 @@ import ProdutoScreen from '../produto';
 import DescricaoProdutoScreen from '../descricaoProduto';
 import InformaTecnicaProdutoScreen from '../InformaTecnicaProduto';
 import AvaliacaesDoProdutoScreen from '../avaliacaesDoProduto';
+import AvaliaProdutoScreen from '../avaliaProduto';
 import SearchBarScreen from '../searchBar';
 
 //components
@@ -219,6 +220,7 @@ export const HomeScreenStack = createStackNavigator(
         DescricaoProdutoScreen,
         InformaTecnicaProdutoScreen,
         AvaliacaesDoProdutoScreen,
+        AvaliaProdutoScreen,
         SearchBarScreen,
         
         

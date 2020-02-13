@@ -11,13 +11,16 @@ export default class ComentProduto extends  React.Component{
 
 
     render(){
+
+        const {data} = this.props;
+
         return(
             <View style={styles.container}>
                 <Rating
                     imageSize={18}
                     readonly
                     ratingCount={5}
-                    startingValue={2}
+                    startingValue={data.rating}
                     onFinishRating={this.ratingCompleted}
                     style={styles.rating}
                    
@@ -26,13 +29,10 @@ export default class ComentProduto extends  React.Component{
                 <View style={styles.body}> 
 
                     <Text style={styles.textComent}>
-                            "Sistema operacional é ruim,
-                             complicado, não é bom pra jogos
-                            , e não gta 5 no fullHD e nem
-                            o pes2020 so roda minecraft,"
+                        {data.descricao}
                     </Text>
 
-                    <Text style={styles.nameAuto}>Gustavo José</Text>
+                    <Text style={styles.nameAuto}>{data.name}</Text>
 
                     <View style={styles.avaliaUser}>
 
@@ -42,12 +42,12 @@ export default class ComentProduto extends  React.Component{
 
                         <TouchableOpacity style={styles.containerIcon}  onPress={()=>{alert("Like");}}>
                             <Feather name={"thumbs-up"} style={styles.icon} />
-                            <Text style={styles.textIcon}>(5)</Text>
+                            <Text style={styles.textIcon}>({data.like})</Text>
                         </TouchableOpacity>
                                                     
                         <TouchableOpacity style={styles.containerIcon} onPress={()=>{alert("Like");}}>
                             <Feather name={"thumbs-down"} style={styles.icon} />
-                            <Text style={styles.textIcon}>(0)</Text>
+                            <Text style={styles.textIcon}>({data.notlike})</Text>
                         </TouchableOpacity>
 
                     </View>

@@ -17,6 +17,7 @@ export default class CardInfor extends PureComponent{
             openViewDecricaoProduto,
             openViewInformaTecnicaProduto,
             openViewAvaliacaesDoProduto,
+          
 
         } = this.props;
 
@@ -85,7 +86,7 @@ export default class CardInfor extends PureComponent{
                             type="solid"
                             containerStyle={styles.margin}
                             buttonStyle={styles.button}
-                            onPress={()=>{alert("Adiciona o produto a lista")}}
+                            onPress={()=>{alert("adiciona a lista");}}
 
                         />
                                     

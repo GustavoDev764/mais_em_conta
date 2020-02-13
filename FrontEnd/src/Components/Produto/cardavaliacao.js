@@ -9,6 +9,9 @@ const {width, height} = Dimensions.get("screen");
 //import componente
 import ComentProduto from '../ComentarioProduto';
 
+//import json
+import {Comentarios} from '../../utils/Avaliacao';
+
 export default class CardAvaliacao extends PureComponent{
 
     constructor(props){
@@ -18,7 +21,11 @@ export default class CardAvaliacao extends PureComponent{
 
     render(){
 
-        const {openViewAvaliacaesDoProduto, produto} = this.props;
+        const {
+            openViewAvaliaProduto,
+             openViewAvaliacaesDoProduto,
+             produto,
+        } = this.props;
 
         return(
             <Fragment>
@@ -46,7 +53,7 @@ export default class CardAvaliacao extends PureComponent{
                             title="Avaliar"
                             type="outline"
                             containerStyle={[styles.margin,]}
-                            onPress={()=>{return openViewAvaliacaesDoProduto(produto);}}
+                            onPress={()=>{return openViewAvaliaProduto(produto);}}
                                     
                         />
 
@@ -59,11 +66,16 @@ export default class CardAvaliacao extends PureComponent{
                                     
                                     
                         <View style={styles.comentContainer}>
-                                        
-                            <ComentProduto />
 
-                            <ComentProduto />
-        
+                            {
+                                Comentarios.map((item,index)=>{
+                                    return <ComentProduto 
+                                                key  = {index}
+                                                data = {item}
+                                        />
+                                })
+                            }
+                                    
                             <View style={styles.footerComenteAvalia}>
 
                                         
