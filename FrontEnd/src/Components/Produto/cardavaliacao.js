@@ -23,8 +23,8 @@ export default class CardAvaliacao extends PureComponent{
 
         const {
             openViewAvaliaProduto,
-             openViewAvaliacaesDoProduto,
-             produto,
+            openViewAvaliacaesDoProduto,
+            produto,
         } = this.props;
 
         return(

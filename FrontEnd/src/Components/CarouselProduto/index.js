@@ -15,7 +15,7 @@ export default class CarouselProduto extends PureComponent{
         super(props);
     }
 
-    renderProdutos(item, index){
+    renderProdutos(item, index, openViewProdutoTrocaData){
 
         
         return item.produtos.map((produto, index)=>{
@@ -23,6 +23,7 @@ export default class CarouselProduto extends PureComponent{
             return <Produto
                     key     = {index}
                     produto = {produto}
+                    openViewProdutoTrocaData = {openViewProdutoTrocaData}
                 />
 
         });
@@ -32,6 +33,9 @@ export default class CarouselProduto extends PureComponent{
 
 
     render() {
+
+      const {openViewProdutoTrocaData} = this.props;
+
       return (
         <Fragment>
 
@@ -45,7 +49,7 @@ export default class CarouselProduto extends PureComponent{
 
                 {
                     Listprodutos.map((item, index)=>{
-                        return this.renderProdutos(item, index);
+                        return this.renderProdutos(item, index, openViewProdutoTrocaData);
                     })
                 }
             

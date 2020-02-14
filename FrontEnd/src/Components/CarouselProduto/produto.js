@@ -11,9 +11,13 @@ export default class Produto extends PureComponent{
         super(props);
     }
 
+    //Navegação por telas
+
+    //Fim de Navegações
+
     render(){
         
-        const { produto } = this.props;
+        const { produto, openViewProdutoTrocaData } = this.props;
 
         const {
 
@@ -31,7 +35,7 @@ export default class Produto extends PureComponent{
 
         return(
             <Fragment>
-                <TouchableOpacity onPress={()=>{alert("ir para tela de produto");}} style={styles.container} >
+                <TouchableOpacity onPress={()=>{return openViewProdutoTrocaData(produto) }} style={styles.container} >
                     
                     <View style={styles.head}>
                         <Image

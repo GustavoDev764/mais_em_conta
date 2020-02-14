@@ -11,6 +11,7 @@ import SideBar from '../Components/Sidebar';
 //Rotas Drawer
 import {HomeScreenStack} from '../Screen/home';
 import SearchBarScreen from '../Screen/searchBar';
+import ListProdutoScreen from '../Screen/listaProduto';
 
 
 const MyDrawerNavigator = createDrawerNavigator(
@@ -18,6 +19,7 @@ const MyDrawerNavigator = createDrawerNavigator(
      
       HomeScreenStack,
       SearchBarScreen,
+      ListProdutoScreen,
             
      
     },

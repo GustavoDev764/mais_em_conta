@@ -24,11 +24,32 @@ export default class CardFiltro extends PureComponent{
                 
                     <View style={styles.containerPicker}>
                                             
-                        <Picker selectedValue = {tipo} onValueChange = {updateTipo}>
-                            <Picker.Item label = "Avaliações mais recentes" value = "recentes" />
-                            <Picker.Item label = "Avaliações mais antigas" value = "antigas" />
-                            <Picker.Item label = "Avaliações mais positivas" value = "positivas" />
-                            <Picker.Item label = "Avaliações mais negativas" value = "negativas" />
+                        <Picker 
+                            selectedValue = {tipo}
+                            onValueChange = {updateTipo}
+                            style={{}}
+                            itemStyle={{}} 
+                        >
+                            <Picker.Item 
+                                label = "Avaliações mais recentes"
+                                value = "recentes"
+                                 
+                            />
+
+                            <Picker.Item 
+                                label = "Avaliações mais antigas"
+                                value = "antigas"
+                            />
+
+                            <Picker.Item 
+                                label = "Avaliações mais positivas"
+                                value = "positivas"
+                            />
+
+                            <Picker.Item 
+                                label = "Avaliações mais negativas"
+                                value = "negativas"
+                            />
                         </Picker>
 
                     </View>

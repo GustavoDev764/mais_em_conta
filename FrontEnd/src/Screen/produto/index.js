@@ -25,6 +25,8 @@ export default class ProdutoScreen extends Component{
         this.state = {
             favorito: false,
             isRender: false,
+            trocaProduto: false,
+            dataProduto: [],
         }
 
     }
@@ -35,6 +37,11 @@ export default class ProdutoScreen extends Component{
     };
 
     //Navegação por telas
+
+    openTelaProdutoTrocaData = (produto) => {
+        this.setState({trocaProduto: true, dataProduto: produto, isRender: false});
+        setTimeout(()=>{ this.setState({isRender: true}) }, 0);
+    }
 
     openTelaSearhcView = () => {
         return this.props.navigation.navigate('SearchBarScreen', {routeBack: "ProdutoScreen"});
@@ -78,9 +85,19 @@ export default class ProdutoScreen extends Component{
         
         const {navigation} = this.props;
 
-        const {favorito, isRender} = this.state;
+        const {favorito, isRender, trocaProduto, dataProduto} = this.state;
 
-        const data      = navigation.getParam("data");
+        var data = "";
+
+        if(trocaProduto == false){
+
+            data = navigation.getParam("data");
+
+        }else{
+            data = dataProduto;
+        }
+        
+        
         const routeBack = navigation.getParam("routeBack");
         
         //console.log(this.props.navigation.goBack());
@@ -128,7 +145,9 @@ export default class ProdutoScreen extends Component{
                             openViewAvaliaProduto         = {this.openTelaAvaliaProduto}
                         />
                         
-                        <CardSugestao />
+                        <CardSugestao 
+                            openViewProdutoTrocaData = {this.openTelaProdutoTrocaData}
+                        />
                     
                     </View>
 

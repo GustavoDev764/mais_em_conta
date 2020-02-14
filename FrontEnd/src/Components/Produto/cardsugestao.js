@@ -14,6 +14,9 @@ export default class CardSugestao extends PureComponent{
 
 
     render(){
+
+        const {openViewProdutoTrocaData} = this.props;
+
         return(
             <Fragment>
                 <View style={styles.container}>
@@ -23,7 +26,9 @@ export default class CardSugestao extends PureComponent{
                     </View>
 
                                 
-                    <CarouselProduto />
+                    <CarouselProduto 
+                        openViewProdutoTrocaData = {openViewProdutoTrocaData}
+                    />
                         
                 </View>
             </Fragment>

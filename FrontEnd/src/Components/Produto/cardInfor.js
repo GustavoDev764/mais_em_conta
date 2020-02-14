@@ -28,6 +28,7 @@ export default class CardInfor extends PureComponent{
             valor,
             rating,
             descricao,
+            descricaoCurta,
             principaImage,
             images,
 
