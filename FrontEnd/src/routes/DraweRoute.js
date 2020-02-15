@@ -12,6 +12,7 @@ import SideBar from '../Components/Sidebar';
 import {HomeScreenStack} from '../Screen/home';
 import SearchBarScreen from '../Screen/searchBar';
 import ListProdutoScreen from '../Screen/listaProduto';
+import CestaDeProdutoScreen from '../Screen/CestaDeProdutos';
 
 
 const MyDrawerNavigator = createDrawerNavigator(
@@ -20,6 +21,7 @@ const MyDrawerNavigator = createDrawerNavigator(
       HomeScreenStack,
       SearchBarScreen,
       ListProdutoScreen,
+      CestaDeProdutoScreen,
             
      
     },

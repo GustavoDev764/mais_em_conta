@@ -8,6 +8,7 @@ import {
     Dimensions,
     TouchableOpacity,
     Image,
+    StatusBar
     
 } from 'react-native';
 
@@ -27,9 +28,10 @@ import SearchBarScreen from '../searchBar';
 //components
 import Carrossel from '../../Components/Carousel';
 import Tabs from '../../Components/Tabs';
+import CardLoading from  '../../Components/Produto/cardLoading';
 
 import Head from '../../Components/Head';
-import Body from '../../Components/Body';
+import BodyRefresh from '../../Components/Body/bodyrefresh';
 import Grade from '../../Components/CardGradeProdutos/grade';
 import List from '../../Components/CardListProdutos/list';
 
@@ -49,7 +51,26 @@ export default class HomeScreen extends React.Component{
     constructor(props){
         super(props);
 
+        this.state = {
+            refreshing: false,
+            isRender:  false,
+        }
+
     }
+
+
+    componentDidMount(){
+
+        if(this.state.isRender == false){
+            this.setRender()
+        }
+    }
+
+    setRender(){
+        setTimeout(()=>{ this.setState({isRender: true}) }, 0);
+    }
+
+
     
     static navigationOptions = {
         //Drawer
@@ -138,18 +159,32 @@ export default class HomeScreen extends React.Component{
         }
     }
 
+    onRefresh = () => {
+
+        this.setState({refreshing:true});
+
+        setTimeout(()=>{
+            this.setState({refreshing:false});
+        },2000);
+    }
+
 
     
 
     render(){
 
         const {navigation} = this.props;
-        
+        const {refreshing, isRender} = this.state;
+
+
         return(
             <View style={{flex:1, }}>
+
                 
-                {/* <Head openMenu={this.openMenu} navigation={this.props.navigation} nameRoute={'SearchBar'} routeBack={'HomeScreen'} /> */}
-                
+                <StatusBar hidden={false} animated={true} barStyle="dark-content" />
+              
+                   
+
                 <Header 
                     leftComponent={<HeadMenu openMenu={this.openMenuDrawer} />} 
                     centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Mais Em Conta</Text>}
@@ -165,21 +200,42 @@ export default class HomeScreen extends React.Component{
                       }}
                 />
 
-                <Body>
-                
-                    <Carrossel style={{marginTop:10, marginBottom:10,}} image={images} />
-                    
-                    <Tabs />
-                      
+                {
+                    //se pagina carregou entao carregue o body
+                    isRender ?
+
+                    <BodyRefresh
+                        refreshing    = {this.state.refreshing}
+                        onRefreshFunc = {this.onRefresh}
+                    >
                         
+
                         {
-                            Listprodutos.map((item, index)=>{
+                            //se a pagina estive atualizando entao, não mostre nada
+                            refreshing ? 
+                            null : 
+                            <View style={{flex:1}}>
 
-                            return this.switchCard(item, index);
+                                <Carrossel style={{marginTop:10, marginBottom:10,}} image={images} />
+                        
+                                <Tabs />
 
-                            })
+                                {
+                                    Listprodutos.map((item, index)=>{
+
+                                    return this.switchCard(item, index);
+
+                                    })
+                                }
+
+
+
+
+                            </View>
                         }
-                </Body>
+
+                    </BodyRefresh> : <CardLoading />
+                }
                 
             </View>
         );

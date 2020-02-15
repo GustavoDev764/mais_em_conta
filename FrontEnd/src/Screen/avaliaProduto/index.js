@@ -173,7 +173,7 @@ export default class AvaliaProdutoScreen extends PureComponent{
                                             <TextInput 
                                                 style={styles.inputTitle}
                                                 maxLength={100}
-                                                autoFocus={true}
+                                                autoFocus={false}
                                                 onChangeText={text => this.setState({titulo: text})}
                                                 value={this.state.titulo}
                                                 placeholder="Título da avaliação"
@@ -191,7 +191,7 @@ export default class AvaliaProdutoScreen extends PureComponent{
                                                 style={styles.inputDescricao}
                                                 multiline
                                                 maxLength={100}
-                                                autoFocus={true}
+                                                autoFocus={false}
                                                 onChangeText={text => this.setState({descricao: text})}
                                                 value={this.state.descricao}
                                                 placeholder="Descrição"
@@ -242,6 +242,10 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:"column",
         padding:10,
+        //margin:10,
+        marginBottom:20,
+        marginLeft:10,
+        marginRight:10,
         borderRadius:8,
         marginTop:21,
         backgroundColor:"#fff",

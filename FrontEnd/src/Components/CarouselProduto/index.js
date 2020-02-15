@@ -41,8 +41,8 @@ export default class CarouselProduto extends PureComponent{
 
             <ScrollView
                 horizontal
-                pagingEnabled
-                showsHorizontalScrollIndicator={false}
+                
+                showsHorizontalScrollIndicator={true}
                 style={styles.scrollView}
                 
             >

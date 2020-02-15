@@ -23,8 +23,8 @@ export default class SideBar extends React.Component{
                         }>
                         <Image source={require("../../../assets/Profile.png")} style={styles.imageProfile}/>
                         <View style={styles.dadoUser}>
-                            <Text style={styles.nameUser}>Olá Sophie Stewart</Text>
-                            <Text style={styles.emailUser}>SophieStewart@gmail.com</Text>
+                            <Text numberOfLines={1} style={styles.nameUser}>Olá Sophie Stewart </Text>
+                            <Text numberOfLines={1} style={styles.emailUser}>SophieStewart@gmail.com</Text>
                         </View>
                 </TouchableOpacity>
                 <View style={styles.container}>
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     dadoUser:{
         flexDirection:"column",
         padding:10,
+        width:"56%",
         alignContent:"center",
     },
     nameUser:{
@@ -61,15 +62,17 @@ const styles = StyleSheet.create({
 
         width: width,
         height: height * .15,
-        backgroundColor: "#f3db07",
+        backgroundColor: "#0086ff",
        
     },
     imageProfile:{
         width: 70,
         height:70,
-        borderRadius: 90,
-        borderWidth: 3,
-        borderColor: "#FFF"
+        borderRadius: 8,
+        borderWidth: 1,
+        resizeMode:"contain",
+        borderColor: "#FFF",
+       
     },
     name:{
         color: "#FFF",

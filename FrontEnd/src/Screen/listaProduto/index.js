@@ -1,7 +1,7 @@
 import React,{Fragment, PureComponent} from 'react';
-import {View, Text} from 'react-native';
-import {Header} from 'react-native-elements';
-import {Feather} from '@expo/vector-icons';
+import {View, Text, TouchableOpacity} from 'react-native';
+import {Header, Icon} from 'react-native-elements';
+import {Ionicons, Feather, FontAwesome} from '@expo/vector-icons';
 
 
 //aquivos json
@@ -108,6 +108,48 @@ export default class ListProdutoScreen extends PureComponent{
                        
                       }}
                 />
+                <View  style={{
+                        backgroundColor:"#0C47E8",
+                        
+                        height:40,
+                        width:"100%",
+                        marginTop:-.257,
+                        flexDirection:"row",
+                        justifyContent:"flex-end",
+                        
+                        padding:2,
+                      }}
+                >   
+
+                                      
+
+                    <TouchableOpacity onPress={()=>{alert("oi");}} style={{
+                            flexDirection:"row",
+                            alignItems:"center",
+                            
+                            padding:2,
+                          }}
+                    >
+                        <Text style={{
+                                marginRight:10,
+                                fontSize:18,
+                                color:"#FFF",
+                              }}
+                        >
+                            Filtros
+                        </Text>
+                        <Icon 
+                            name="filter-list"
+                            iconStyle = {{
+                                fontSize:40,
+                                color:"#FFF",
+                            }} 
+                        />
+                    </TouchableOpacity>
+
+                    
+                    
+                </View>
 
                 <Body>
                       {
