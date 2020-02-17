@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Dimensions, StyleSheet} from 'react-native';
 import {FontAwesome} from '@expo/vector-icons';
-import {Card, Divider} from 'react-native-elements';
+import {Card, Divider, Button} from 'react-native-elements';
 
 import GradeLineProdutos from './gradeLineProdutos';
-import Theme from '../../Style';
+import Theme from '../../../Style';
 
 const { width, height } = Dimensions.get('screen');
 
-export default class Grade extends React.Component{
+export default class GradeProduto extends React.Component{
 
     constructor(props){
         super(props);
@@ -82,6 +82,8 @@ export default class Grade extends React.Component{
         const {
             titleGrade,
             produtos,
+            loadingMore,
+            onFuncMore,
         } = this.props;
 
         return(
@@ -90,7 +92,7 @@ export default class Grade extends React.Component{
 
                 {/* Head Card 1 */}
                 <View style={styles.headCard}>
-                    <Text style={styles.textHeadCard}>{titleGrade}</Text>
+                    {/* <Text style={styles.textHeadCard}>{titleGrade}</Text> */}
                 </View>
                 {/* Head Card 1 */}
 
@@ -113,10 +115,15 @@ export default class Grade extends React.Component{
                 
 
                 {/* Footer Card 1 */}
-                <TouchableOpacity onPress={()=>{alert("ver mais produto dessa categoria")}} style={styles.footerCard}>
-                    <Text style={styles.footerText}>Ver Mais</Text>
-                    <FontAwesome name="angle-right" color="blue" size={width * .06} />
-                </TouchableOpacity>
+                <View style={styles.footer}>
+                    <Button
+                        onPress={onFuncMore}
+                        title="Ver Mais"
+                        loading={loadingMore}
+                        type="outline"
+                        containerStyle={styles.moreButton}
+                    />
+                </View>
                 {/* Footer Card 1 */}
 
             </Card>
@@ -153,14 +160,15 @@ const styles = StyleSheet.create({
         flexDirection:"column",
     },
 
-    footerCard:{
+    footer:{
         flexDirection:"row",
+        justifyContent:"center",
         padding:10,
-        justifyContent:"space-between",
+        
     },
     
-    footerText:{
-        color:"blue",
+    moreButton:{
+        width:"100%",
     }
 
 });

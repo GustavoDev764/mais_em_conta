@@ -1,5 +1,5 @@
 import React,{Fragment, PureComponent} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {Header, Icon} from 'react-native-elements';
 import {Ionicons, Feather, FontAwesome} from '@expo/vector-icons';
 
@@ -9,13 +9,17 @@ import {ProdutoListView} from '../../utils/ProdutoListView';
 
 //import components
 import Body from '../../Components/Body';
-import ListProduto from '../../Components/ListProduto';
+import ListProduto from '../../Components/ListProduto/List';
+import GradeProduto from '../../Components/ListProduto/Grade';
+import CardLoading from  '../../Components/Produto/cardLoading';
+import SubMenu from '../../Components/ListProduto/submenu';
 
 //HeadListProdutoScreen
 import HeadGrupo from '../../Components/Head/HeadGrupo';
 import HeadArrowBack from '../../Components/Head/HeadArrowBack';
 import HeadList from '../../Components/Head/HeadList';
 import HeadSearch from '../../Components/Head/HeadSearch';
+import Theme from '../../Style';
 
 
 
@@ -26,11 +30,31 @@ export default class ListProdutoScreen extends PureComponent{
 
         this.state = {
             dataProduto: ProdutoListView, 
+            isRender:false,
+            loadingPage:false,
             loadingMore: false,
+            scrollY:0,
+            grade:false,
+            list:true,
         }
     }
 
+    setRender(){
+      setTimeout(()=>{ this.setState({isRender: true}) }, 0);
+    }
 
+    setLoadingPage(){
+
+        this.setState({loadingPage: true});
+        setTimeout(()=>{this.setState({loadingPage: false}); }, 0);
+    
+    }
+
+    componentDidMount(){
+        if(this.state.isRender == false){
+            this.setRender();
+        }
+    }
 
     static navigationOptions = {
         //Drawer
@@ -66,17 +90,62 @@ export default class ListProdutoScreen extends PureComponent{
        // alert("klklklkl");
     }
 
-    renderItem(item){
-        return(
-            <ListProduto
-                
-                openViewProduto = {this.openTelaProduto}
-                onFuncMore      = {this.loadMoreProduto}
-                loadingMore     = {this.state.loadingMore}
-                produtos        = {item}
-            />
-        );
+    typeItemViewList = () => {
+
+        // console.log("======L");
+        // console.log(this.state.scrollY);
+        // console.log("======");
+
+        this.setState({list: true, grade: false});
+        this.setLoadingPage();
+        
+
     }
+
+    typeItemViewGrade = () => {
+
+        // console.log("======G");
+        // console.log(this.state.scrollY);
+        // console.log("======");
+
+        this.setState({list: false, grade: true});
+        this.setLoadingPage();
+        
+    }
+
+    renderItem = (item) => {
+
+        if(this.state.list == true){
+            return(
+                <ListProduto
+                    
+                    openViewProduto = {this.openTelaProduto}
+                    onFuncMore      = {this.loadMoreProduto}
+                    loadingMore     = {this.state.loadingMore}
+                    produtos        = {item}
+                />
+            );
+        }else{
+
+
+            return (
+                <GradeProduto
+                    openViewProduto = {this.openTelaProduto}
+                    onFuncMore      = {this.loadMoreProduto}
+                    loadingMore     = {this.state.loadingMore}
+                    produtos        = {item}
+                />
+            );
+        }
+
+        
+    }
+
+    handleScroll = (event) => {
+        console.log(event.nativeEvent.contentOffset.y);
+       
+        this.setState({scrollY: event.nativeEvent.contentOffset.y });
+    };
 
 
     render(){
@@ -86,7 +155,7 @@ export default class ListProdutoScreen extends PureComponent{
            // routeBack,
         } = this.props;
 
-        const {dataProduto} = this.state;
+        const {dataProduto, list, grade, isRender, loadingPage , scrollY} = this.state;
 
         const routeBack = "HomeScreen";
         
@@ -102,62 +171,43 @@ export default class ListProdutoScreen extends PureComponent{
                             <HeadList   opressFunc={this.openMenuDrawer} />
                         </HeadGrupo>
                     }
-                    containerStyle={{
-                        backgroundColor: '#0086ff',
+                    containerStyle={[{
+                       
                         justifyContent: 'space-around',
                        
-                      }}
+                      }, Theme.backgroundPrimaryColor]}
                 />
-                <View  style={{
-                        backgroundColor:"#0C47E8",
-                        
-                        height:40,
-                        width:"100%",
-                        marginTop:-.257,
-                        flexDirection:"row",
-                        justifyContent:"flex-end",
-                        
-                        padding:2,
-                      }}
-                >   
 
-                                      
-
-                    <TouchableOpacity onPress={()=>{alert("oi");}} style={{
-                            flexDirection:"row",
-                            alignItems:"center",
-                            
-                            padding:2,
-                          }}
-                    >
-                        <Text style={{
-                                marginRight:10,
-                                fontSize:18,
-                                color:"#FFF",
-                              }}
+                {
+                    isRender ? 
+                    
+                    <SubMenu
+                        typeItemViewGrade = {this.typeItemViewGrade}
+                        typeItemViewList  = {this.typeItemViewList}
+                        list              = {list}
+                        grade             = {grade}
+                    /> : null
+                }
+                
+                {
+                    isRender ? 
+                    loadingPage ? <CardLoading /> : <Body
+                        onScrollFunc = {this.handleScroll}
+                        scrollY      = {scrollY}
                         >
-                            Filtros
-                        </Text>
-                        <Icon 
-                            name="filter-list"
-                            iconStyle = {{
-                                fontSize:40,
-                                color:"#FFF",
-                            }} 
-                        />
-                    </TouchableOpacity>
-
-                    
-                    
-                </View>
-
-                <Body>
                       {
-                        this.renderItem(dataProduto)
+                         this.renderItem(dataProduto)
                       } 
-                </Body>
+                    </Body> 
+                    : <CardLoading />
 
+                }            
+                
             </Fragment>
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+});

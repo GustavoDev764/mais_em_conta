@@ -17,6 +17,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import {Header} from 'react-native-elements';
 
+
+import Theme from '../../Style';
+
 //rotas
 import ProdutoScreen from '../produto';
 import DescricaoProdutoScreen from '../descricaoProduto';
@@ -187,17 +190,23 @@ export default class HomeScreen extends React.Component{
 
                 <Header 
                     leftComponent={<HeadMenu openMenu={this.openMenuDrawer} />} 
-                    centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Mais Em Conta</Text>}
+                    centerComponent={<Text 
+                                style={[
+                                    Theme.PrimaryColor,
+                                    Theme.TitlePage,
+                                ]}
+                    >
+                        Mais Em Conta</Text>}
                     rightComponent={
                         <HeadGrupo>
                             <HeadSearch opressFunc={this.openTelaSearhcView} />
                             <HeadList   opressFunc={this.openMenuDrawer} />
                         </HeadGrupo>
                     }
-                    containerStyle={{
-                        backgroundColor: '#0086ff',
+                    containerStyle={[{
+                        
                         justifyContent: 'space-around',
-                      }}
+                      }, Theme.backgroundPrimaryColor]}
                 />
 
                 {

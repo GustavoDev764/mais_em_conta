@@ -1,6 +1,7 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
+import Theme from '../../Style';
 
 export default class HeadSearch extends React.Component{
 
@@ -16,7 +17,13 @@ export default class HeadSearch extends React.Component{
         return(
 
             <TouchableOpacity onPress={opressFunc}>
-                    <Ionicons name="ios-search" size={30} color={"#FFF"} />
+                    <Ionicons name="ios-search"
+                         style={[
+                                Theme.PrimaryColor,
+                                Theme.iconSizeX2,
+                        ]}
+                        
+                    />
             </TouchableOpacity>
         );
     }

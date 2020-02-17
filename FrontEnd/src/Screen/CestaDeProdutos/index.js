@@ -1,19 +1,28 @@
 import React,{Fragment, PureComponent} from 'react';
-import {View, Text} from 'react-native';
-import {Header} from 'react-native-elements';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import {Header, Divider, Icon, Button} from 'react-native-elements';
 import {Feather} from '@expo/vector-icons';
 
 
 //HeadHome
-import HeadGrupo from '../../Components/Head/HeadGrupo';
+import PreLoading from '../../Components/PreLoading';
 import HeadMenu from '../../Components/Head/HeadMenu';
-import HeadList from '../../Components/Head/HeadList';
 import HeadSearch from '../../Components/Head/HeadSearch';
+import Body from '../../Components/Body';
+import Theme from '../../Style';
+
+import ColapsBottom from '../../Components/CestaDeProduto/colapsbottom';
+
+//import components
+import CardCestaProduto from '../../Components/CestaDeProduto';
+
+
 
 export default class CestaDeProdutoScreen extends PureComponent{
 
     constructor(props){
         super(props);
+
     }
 
 
@@ -39,7 +48,7 @@ export default class CestaDeProdutoScreen extends PureComponent{
 
     openMenuDrawer = () => {
         return this.props.navigation.openDrawer();
-     }
+    }
 
 
     render(){
@@ -50,13 +59,30 @@ export default class CestaDeProdutoScreen extends PureComponent{
                     leftComponent={<HeadMenu openMenu={this.openMenuDrawer} />} 
                     centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Minha Cesta</Text>}
                     rightComponent={<HeadSearch opressFunc={this.openTelaSearhcView} /> }
-                    containerStyle={{
-                        backgroundColor: '#0086ff',
+                    containerStyle={[{
                         justifyContent: 'space-around',
-                      }}
+                      },Theme.backgroundPrimaryColor]}
                 />
 
+                <Body>
+
+                    <CardCestaProduto />
+                    <CardCestaProduto />
+                    <CardCestaProduto />
+                    
+                
+                </Body>
+
+                <ColapsBottom />
+
+                
+
+                
             </Fragment>
         );
     }
 }
+
+const styles = StyleSheet.create({
+   
+});

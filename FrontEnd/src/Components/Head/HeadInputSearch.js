@@ -5,7 +5,8 @@ import {FontAwesome, Ionicons} from '@expo/vector-icons';
 
 
 //import components
-import HeadArrowBack from './HeadArrowBack'
+import HeadArrowBack from './HeadArrowBack';
+import Theme from '../../Style';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -42,7 +43,7 @@ export default class HeadInputSearch extends React.Component{
         
         return(
             <Header
-                containerStyle={styles.head}  
+                containerStyle={[styles.head, Theme.backgroundPrimaryColor]}  
 
                 leftComponent={
                     <HeadArrowBack navigation={navigation} routeBack={routeBack != null ? routeBack : 'HomeScreen'} />
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     },
    
     head:{
-        backgroundColor: '#0086ff',
+        //backgroundColor: 'red',
         justifyContent: 'space-around',
     },
     inputBar:{

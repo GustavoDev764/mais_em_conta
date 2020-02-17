@@ -6,6 +6,7 @@ const {width, height} = Dimensions.get("screen");
 
 //import components
 import PreLoading from '../PreLoading';
+import Theme from '../../Style';
 
 export default class TabItem extends React.Component{
 
@@ -22,7 +23,8 @@ export default class TabItem extends React.Component{
         const {title, image, link, params} = this.props;
 
         return(
-            <TouchableOpacity onPress={()=>{return this.categoriaRoute(link, params);}} style={styles.tabItem}>
+            <TouchableOpacity onPress={()=>{return this.categoriaRoute(link, params);}}
+             style={[styles.tabItem, Theme.backgroundSetimo]}>
                 <Image
                     source={{uri: image}}
                     style={styles.image}
@@ -43,7 +45,6 @@ const styles = StyleSheet.create({
         justifyContent:"space-between",
         width: (height > 720) ? width * .2 : 80,
         height: (height > 720) ? height * .12 : 80,
-        backgroundColor:"#ffffff",
         borderRadius:3,
         padding: 5,
         marginLeft:10,

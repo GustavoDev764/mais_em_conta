@@ -11,6 +11,7 @@ import DetalhesAvaliacao from '../../Components/AvaliacaoDoProduto/detalhesavali
 import CardComent from '../../Components/AvaliacaoDoProduto/cardcoment';
 import CardFiltro from '../../Components/AvaliacaoDoProduto/cardfiltro';
 import CardLoading from  '../../Components/Produto/cardLoading';
+import Theme from '../../Style';
 
 
 //import json
@@ -87,10 +88,10 @@ export default class AvaliacaesDoProdutoScreen extends PureComponent{
                         leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
                         centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Avaliações</Text>}
                             
-                        containerStyle={{
-                            backgroundColor: '#0086ff',
+                        containerStyle={[{
+                            
                             justifyContent: 'space-around',
-                        }}
+                        },Theme.backgroundPrimaryColor]}
                     />
                     {
                         

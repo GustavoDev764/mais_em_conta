@@ -1,5 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, SafeAreaView, ScrollView, RefreshControl} from 'react-native';
+import Theme from '../../Style';
+
 
 export default class BodyRefresh extends React.Component{
 
@@ -20,7 +22,7 @@ export default class BodyRefresh extends React.Component{
         return(
             <SafeAreaView style={styles.safeAreaView}>
                     <ScrollView 
-                        style={styles.scrollView}
+                        style={[Theme.backgroundSexto]}
                         showsVerticalScrollIndicator={false}
                         refreshControl={
                             <RefreshControl colors={["#0D0EFF","#0086FF", "#0CBBE8","#0DFFEF"]} refreshing={refreshing} onRefresh={onRefreshFunc} />
@@ -41,10 +43,6 @@ const styles = StyleSheet.create({
 
     safeAreaView:{
         flex:1,
-    },
-
-    scrollView:{
-        backgroundColor: '#ececec'
     },
 
     view:{

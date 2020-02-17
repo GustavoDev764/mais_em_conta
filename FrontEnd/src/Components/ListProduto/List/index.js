@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{memo} from 'react';
 import {View, Text, TouchableOpacity, Dimensions, StyleSheet} from 'react-native';
 import {Card, Divider, Button} from 'react-native-elements';
 
@@ -9,7 +9,7 @@ const { width, height } = Dimensions.get('screen');
 
 import Produto from './produto';
 
-export default class ListProduto extends React.Component{
+class ListProduto extends React.Component{
 
     constructor(props){
         super(props);
@@ -73,6 +73,8 @@ export default class ListProduto extends React.Component{
         );
     }
 }
+
+export default memo(ListProduto);
 
 const styles = StyleSheet.create({
 

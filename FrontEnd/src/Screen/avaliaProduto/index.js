@@ -23,6 +23,7 @@ import RadioForm from 'react-native-simple-radio-button';
 import HeadArrowBack from '../../Components/Head/HeadArrowBack';
 import Body from '../../Components/Body';
 import PreLoading from '../../Components/PreLoading';
+import Theme from '../../Style';
 
 const url = "https://images-americanas.b2w.io/produtos/01/00/img/24738/9/24738914P1.jpg";
 
@@ -82,10 +83,10 @@ export default class AvaliaProdutoScreen extends PureComponent{
                             leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
                             centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Avalia</Text>}
                                 
-                            containerStyle={{
-                                backgroundColor: '#0086ff',
+                            containerStyle={[{
+                               
                                 justifyContent: 'space-around',
-                            }}
+                            }, Theme.backgroundPrimaryColor]}
                         />
 
                         <Body>

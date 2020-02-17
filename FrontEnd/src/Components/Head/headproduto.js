@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import {Header} from 'react-native-elements';
+import Theme from '../../Style';
 
 
 //HeadHome
@@ -41,11 +42,10 @@ export default class HeadProduto extends React.Component{
                             <HeadList   opressFunc={this.openMenuDrawer} />
                         </HeadGrupo>
                     }
-                    containerStyle={{
-                        backgroundColor: '#0086ff',
-                        justifyContent: 'space-around',
+                    containerStyle={[{
+                       justifyContent: 'space-around',
                        
-                      }}
+                      },Theme.backgroundPrimaryColor]}
                 />
         );
     }

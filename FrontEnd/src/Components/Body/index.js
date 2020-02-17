@@ -1,5 +1,10 @@
 import React from 'react';
 import {View, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
+import Theme from '../../Style';
+
+
+let scrollYPos = 0;
+
 
 export default class Body extends React.Component{
 
@@ -7,12 +12,29 @@ export default class Body extends React.Component{
         super(props);
     }
 
+
+    scrollTo = (scrollYPosY) => {
+        this.scroller.scrollTo({x: 0, y: scrollYPos});
+    };
+
     render(){
 
+        const {onScrollFunc, scrollY} = this.props;
+
+        
         
         return(
             <SafeAreaView style={styles.safeAreaView}>
-                    <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+                    <ScrollView 
+
+                        onMomentumScrollEnd={onScrollFunc} 
+                        
+                        contentOffset={{x:0, y:150}}
+
+                        style={[Theme.backgroundSexto]} 
+                        showsVerticalScrollIndicator={true}
+
+                    >
                         <View style={styles.view}>
 
                             {this.props.children}
@@ -31,7 +53,7 @@ const styles = StyleSheet.create({
     },
 
     scrollView:{
-        backgroundColor: '#ececec'
+        backgroundColor: 'red'
     },
 
     view:{

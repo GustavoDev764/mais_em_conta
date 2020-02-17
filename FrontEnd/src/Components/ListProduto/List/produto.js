@@ -5,7 +5,7 @@ import {Divider, Rating, Image} from 'react-native-elements';
 const { width, height } = Dimensions.get('screen');
 
 //import components
-import PreLoading from '../PreLoading';
+import PreLoading from '../../PreLoading';
 
 export default class Produto extends React.Component{
 
