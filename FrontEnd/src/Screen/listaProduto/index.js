@@ -73,6 +73,10 @@ export default class ListProdutoScreen extends PureComponent{
            {routeBack: "ListProdutoScreen", data: produto} );
     }
 
+    openTelaCestaDeProdutoView = () => {
+        return this.props.navigation.navigate('CestaDeProdutoScreen');
+    }
+
     //Fim de Navegações
 
     openMenuDrawer = () => {
@@ -152,23 +156,22 @@ export default class ListProdutoScreen extends PureComponent{
 
         const {
             navigation,
-           // routeBack,
         } = this.props;
 
         const {dataProduto, list, grade, isRender, loadingPage , scrollY} = this.state;
 
-        const routeBack = "HomeScreen";
-        
+        var routeBack = navigation.getParam('routeBack');
+
         return(
             <Fragment>
 
                 <Header 
-                    leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
+                    leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack == null ? "HomeScreen" : routeBack } />} 
                     centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Lista de Produto</Text>}
                     rightComponent={
                         <HeadGrupo>
                             <HeadSearch opressFunc={this.openTelaSearhcView} />
-                            <HeadList   opressFunc={this.openMenuDrawer} />
+                            <HeadList   opressFunc={this.openTelaCestaDeProdutoView} />
                         </HeadGrupo>
                     }
                     containerStyle={[{

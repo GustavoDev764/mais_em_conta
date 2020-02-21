@@ -8,8 +8,8 @@ import {
     Dimensions,
     TouchableOpacity,
     Image,
-    StatusBar
-    
+    StatusBar,
+       
 } from 'react-native';
 
 import {Ionicons, FontAwesome, Feather} from '@expo/vector-icons';
@@ -96,6 +96,10 @@ export default class HomeScreen extends React.Component{
 
     openTelaSearhcView = () => {
         return this.props.navigation.navigate('SearchBarScreen',{routeBack: "HomeScreen"});
+    }
+
+    openTelaCestaDeProdutoView = () => {
+        return this.props.navigation.navigate('CestaDeProdutoScreen');
     }
 
     //Fim de Navegações
@@ -200,7 +204,7 @@ export default class HomeScreen extends React.Component{
                     rightComponent={
                         <HeadGrupo>
                             <HeadSearch opressFunc={this.openTelaSearhcView} />
-                            <HeadList   opressFunc={this.openMenuDrawer} />
+                            <HeadList   opressFunc={this.openTelaCestaDeProdutoView} />
                         </HeadGrupo>
                     }
                     containerStyle={[{
@@ -208,6 +212,33 @@ export default class HomeScreen extends React.Component{
                         justifyContent: 'space-around',
                       }, Theme.backgroundPrimaryColor]}
                 />
+
+                <TouchableOpacity
+                    onPress={()=>{alert("ir para tela Localizacao");}}
+                    style={styles.containerHeadLocalizacao}>
+
+                    <View style={styles.containerTextIcon} >
+                        <FontAwesome 
+                            name='map-marker'
+                            style={[
+                                Theme.PrimaryColor,
+                                Theme.iconSizeX1,
+                            ]} 
+                        />
+
+                        <Text style={{color:"#FFF"}}>Informa Localização</Text>
+                    </View>
+
+                    <Ionicons 
+                        name="ios-arrow-forward"
+                        style={[
+                            Theme.PrimaryColor,
+                            Theme.iconSizeX2,
+                        ]}
+                    />
+
+                </TouchableOpacity>
+                
 
                 {
                     //se pagina carregou entao carregue o body
@@ -224,6 +255,7 @@ export default class HomeScreen extends React.Component{
                             refreshing ? 
                             null : 
                             <View style={{flex:1}}>
+                                
 
                                 <Carrossel style={{marginTop:10, marginBottom:10,}} image={images} />
                         
@@ -273,8 +305,28 @@ const styles = StyleSheet.create({
         
     container: {
         flex:1, 
-        
     },
+
+    containerHeadLocalizacao:{
+        backgroundColor:"#F5640C",
+        marginTop:-1,
+        marginBottom:5,
+        padding:2,
+        paddingLeft:5,
+        paddingRight:5,
+        flexDirection:"row",
+        justifyContent:"space-between",
+        alignItems:"center",
+        width:"100%",
+        height:25,
+    },
+
+    containerTextIcon:{
+        width:"42%",
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-between",
+    }
 });
 
 

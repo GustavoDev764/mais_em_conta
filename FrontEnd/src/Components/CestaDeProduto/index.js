@@ -83,18 +83,23 @@ export default class CardCestaProduto extends PureComponent{
 
                                 
                                 <Button
+                                    onPress={()=>{alert("remove item");}}
                                     title="Remove"
                                     type="outline"
                                 />
 
                                 <View style={styles.containerItemAdd} >
-                                    <View style={styles.continerIconMenos} >
+
+                                    <TouchableOpacity 
+                                        onPress={()=>{alert("Remove");}}
+                                        style={styles.continerIconMenos}
+                                    >
                                         <Icon 
                                             name="remove"
                                             color="#FFF"
                                         />
                                        
-                                    </View>
+                                    </TouchableOpacity>
                                     
                                     <View style={styles.containerTotalItem} >
                                         <Text 
@@ -104,13 +109,16 @@ export default class CardCestaProduto extends PureComponent{
                                         </Text>
                                     </View>       
 
-                                    <View style={styles.containerIconAdd} >
+                                    <TouchableOpacity 
+                                        onPress={()=>{alert("Adiciona");}}
+                                        style={styles.containerIconAdd}
+                                    >
                                         <Icon 
                                             name="add"
                                             color="#FFF"
                                         />
                                        
-                                    </View>
+                                    </TouchableOpacity>
                                     
 
                                 </View>

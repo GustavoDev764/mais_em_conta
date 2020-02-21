@@ -13,6 +13,7 @@ import {HomeScreenStack} from '../Screen/home';
 import SearchBarScreen from '../Screen/searchBar';
 import ListProdutoScreen from '../Screen/listaProduto';
 import CestaDeProdutoScreen from '../Screen/CestaDeProdutos';
+import LojaScreen from '../Screen/Loja';
 
 
 const MyDrawerNavigator = createDrawerNavigator(
@@ -22,6 +23,7 @@ const MyDrawerNavigator = createDrawerNavigator(
       SearchBarScreen,
       ListProdutoScreen,
       CestaDeProdutoScreen,
+      LojaScreen,
             
      
     },
