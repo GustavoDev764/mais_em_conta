@@ -6,6 +6,7 @@ import {Header} from 'react-native-elements';
 import HeadArrowBack from '../../Components/Head/HeadArrowBack';
 import Body from '../../Components/Body';
 import Descricao from  '../../Components/Descricao';
+import Theme from '../../Style';
 
 
 
@@ -34,10 +35,9 @@ export default class DescricaoProdutoScreen extends PureComponent{
                         leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
                         centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Descrição</Text>}
                         
-                        containerStyle={{
-                            backgroundColor: '#0086ff',
+                        containerStyle={[{
                             justifyContent: 'space-around',
-                        }}
+                        }, Theme.tmHead, Theme.backgroundPrimaryColor]}
                     />
 
                      <Body>  

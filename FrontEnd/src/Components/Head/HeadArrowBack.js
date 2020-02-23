@@ -21,7 +21,7 @@ export default class HeadArrowBack extends React.Component{
                         name="ios-arrow-back"
                         style={[
                             Theme.PrimaryColor,
-                            Theme.iconSizeX2,
+                            Theme.iconSizeX1,
                         ]}
                 />
             </TouchableOpacity>

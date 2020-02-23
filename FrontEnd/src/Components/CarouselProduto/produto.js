@@ -24,6 +24,7 @@ export default class Produto extends PureComponent{
             id,
             title,
             valor,
+            valorAnterio,
             rating,
             descricaoCurta,
             principaImage,
@@ -44,9 +45,19 @@ export default class Produto extends PureComponent{
                         style={styles.image}
                         PlaceholderContent={<PreLoading />}
                         />
+
+                        <View style={styles.containerTextExpira}>
+                            <Text style={styles.textExpira}>Expira em 2 dias</Text>
+                        </View>
                     </View>
 
                     <View style={styles.containerPriceRating}>
+
+                        <View style={{}}>
+                            <Text style={styles.textValorAnterio}>
+                                R$ {valorAnterio}
+                            </Text>
+                        </View>
 
                         <View style={styles.containerPrice}>
                             <Text style={styles.priceCoin}>R$ {valorArray[0]}</Text>
@@ -60,7 +71,7 @@ export default class Produto extends PureComponent{
 
                         <View style={styles.containerRating}>
                             <Rating
-                                imageSize={18}
+                                imageSize={15}
                                 readonly
                                 ratingCount={5}
                                 startingValue={rating}
@@ -99,21 +110,11 @@ const styles = StyleSheet.create({
         alignItems:"flex-start",
         marginRight:5,
         marginBottom:10,
-        //backgroundColor:"#FFF",
-        
         borderWidth: 0,
         shadowColor:"#ccc",
         shadowOffset: {width :  0 , height :  2 },
         shadowOpacity: .2,
-        
-       // shadowRadius:2,
         elevation: 1,
-        // shadowColor :  ' # 000 ' ,
-        // shadowOffset : {width :  0 , height :  2 },
-        // shadowOpacity :  0.8 ,
-        // shadowRadius :  2 ,
-        // elevação :  1 ,
-        
         padding:1,
         width:168,
         height:"100%",
@@ -167,8 +168,29 @@ const styles = StyleSheet.create({
         marginLeft:2,
         
     },
+
     text:{
         fontSize:12,
+    },
+
+    textValorAnterio:{
+        fontSize:13,
+        textDecorationLine:"line-through",
+    },
+
+    containerTextExpira:{
+        position:"absolute",
+        padding:2,
+        borderRadius:3,
+        bottom:-9,
+        left: 2,
+        zIndex:2,
+        //backgroundColor:"#0000004d",
+    },
+
+    textExpira:{
+        fontSize:11,
+        color:"red"
     }
 
 

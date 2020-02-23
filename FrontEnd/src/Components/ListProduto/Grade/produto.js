@@ -28,6 +28,7 @@ export default class Produto extends React.Component{
             id,
             title,
             valor,
+            valorAnterio,
             rating,
             descricaoCurta,
             principaImage,
@@ -64,9 +65,20 @@ export default class Produto extends React.Component{
                             style={styles.image}
                         />
                     </View>
+
+                    <View style={styles.containerTextExpira}>
+                        <Text style={styles.textExpira}>Expira em 2 dias</Text>
+                    </View>
+                    
                 </View>
 
                 <View style={styles.textContainer}>
+
+                    <View style={{}}>
+                        <Text style={styles.textValorAnterio}>
+                            R$ {valorAnterio}
+                        </Text>
+                    </View>
                     
                     <View style={styles.priceRatingContainer}>
                         
@@ -175,6 +187,21 @@ const styles = StyleSheet.create({
         textAlign:"left",
         fontSize:12,
         color:"#505050",
+    },
+
+    textValorAnterio:{
+        fontSize:13,
+        textDecorationLine:"line-through",
+    },
+
+    containerTextExpira:{
+        position:"absolute",
+        bottom:0,
+    },
+
+    textExpira:{
+        fontSize:11,
+        color:"red"
     }
 
 });

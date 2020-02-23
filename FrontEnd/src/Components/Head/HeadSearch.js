@@ -20,7 +20,7 @@ export default class HeadSearch extends React.Component{
                     <Ionicons name="ios-search"
                          style={[
                                 Theme.PrimaryColor,
-                                Theme.iconSizeX2,
+                                Theme.iconSizeX1,
                         ]}
                         
                     />

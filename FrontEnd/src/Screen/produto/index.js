@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, ScrollView, Image, Dimensions, TouchableOpacity}
 import {Ionicons, Feather} from '@expo/vector-icons';
 
 
+
+
 //import Components
 import HeadProduto from '../../Components/Head/headproduto';
 import Body from '../../Components/Body';
@@ -10,6 +12,7 @@ import ImagesProduto from '../../Components/ImagesProduto';
 import CardInfor from '../../Components/Produto/cardInfor';
 import CardAvaliacao from '../../Components/Produto/cardavaliacao';
 import CardSugestao from '../../Components/Produto/cardsugestao';
+import Theme from '../../Style';
 
 import CardLoading from  '../../Components/Produto/cardLoading';
 
@@ -126,6 +129,23 @@ export default class ProdutoScreen extends Component{
                 
                     <ImagesProduto images = {data.images} />
 
+                    <View style={styles.containerExpire} >
+
+                        <View style={{}}>
+                            <Ionicons name="md-stopwatch" style={[styles.iconStopWatch, Theme.iconSizeX3]} />
+                        </View>
+
+                        
+                        <Text style={[styles.colorTextExpire, styles.textExpire]}>Expira em 2 dias</Text>
+                        
+
+                        <View style={styles.containerQTD}>
+                            <Text style={[styles.colorTextExpire]}>Quantidade</Text>
+                            <Text style={[styles.colorTextExpire]}>36</Text>
+                        </View>
+
+                    </View>
+
                     <View style={{marginTop:10, padding:5,}}>
                         
 
@@ -171,4 +191,39 @@ const styles = StyleSheet.create({
         height: "100%",
         width: Dimensions.get("window").width
     },
+
+    iconStopWatch:{
+        color:"#FFF",
+    },
+
+    containerExpire:{
+        flexDirection:"row",
+        alignContent:"center",
+        alignItems:"center",
+        justifyContent:"space-around",
+                            
+        padding:2,
+        paddingLeft:10,
+        paddingRight:10,
+        borderRadius:3,
+        marginTop:8,
+        marginLeft:5,
+        marginRight:5,
+        backgroundColor:"#191919f5"
+                          
+    },
+
+    colorTextExpire:{
+        color:"#FFF",
+    },
+
+    textExpire:{
+        fontSize:18,
+    },
+
+    containerQTD:{
+        flexDirection:"column",
+        alignItems:"center"
+    },
+
   });

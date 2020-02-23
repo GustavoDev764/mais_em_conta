@@ -37,6 +37,10 @@ const Theme = StyleSheet.create({
         backgroundColor:"#FFF",
     },
 
+    tmHead:{
+        height:65,
+    },
+
     //fim Background
 
 

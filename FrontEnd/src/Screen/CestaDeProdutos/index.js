@@ -61,7 +61,7 @@ export default class CestaDeProdutoScreen extends PureComponent{
                     rightComponent={<HeadSearch opressFunc={this.openTelaSearhcView} /> }
                     containerStyle={[{
                         justifyContent: 'space-around',
-                      },Theme.backgroundPrimaryColor]}
+                      },Theme.tmHead, Theme.backgroundPrimaryColor]}
                 />
 
                 <Body>

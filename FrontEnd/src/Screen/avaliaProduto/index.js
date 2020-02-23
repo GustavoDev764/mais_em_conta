@@ -86,7 +86,7 @@ export default class AvaliaProdutoScreen extends PureComponent{
                             containerStyle={[{
                                
                                 justifyContent: 'space-around',
-                            }, Theme.backgroundPrimaryColor]}
+                            }, Theme.tmHead, Theme.backgroundPrimaryColor]}
                         />
 
                         <Body>

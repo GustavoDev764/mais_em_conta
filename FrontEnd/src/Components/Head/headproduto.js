@@ -44,8 +44,7 @@ export default class HeadProduto extends React.Component{
                     }
                     containerStyle={[{
                        justifyContent: 'space-around',
-                       
-                      },Theme.backgroundPrimaryColor]}
+                      },Theme.tmHead, Theme.backgroundPrimaryColor]}
                 />
         );
     }

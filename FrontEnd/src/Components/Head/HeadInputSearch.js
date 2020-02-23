@@ -43,7 +43,7 @@ export default class HeadInputSearch extends React.Component{
         
         return(
             <Header
-                containerStyle={[styles.head, Theme.backgroundPrimaryColor]}  
+                containerStyle={[styles.head, Theme.tmHead, Theme.backgroundPrimaryColor]}  
 
                 leftComponent={
                     <HeadArrowBack navigation={navigation} routeBack={routeBack != null ? routeBack : 'HomeScreen'} />
@@ -52,7 +52,7 @@ export default class HeadInputSearch extends React.Component{
                 centerComponent={
                     <SearchBar
                         showLoading={isloading}
-                        searchIcon={<FontAwesome name="search" style={styles.iconSearch}/>}
+                        searchIcon={<FontAwesome name="search" style={[styles.iconSearch, Theme.iconSizeX1]}/>}
                         placeholder="Buscar no Mais Econta"
                         placeholderTextColor={"#a2a2a2"}
                         onChangeText={this.updateSearch}
@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
     },
     iconSearch:{
         color:"#a2a2a2",
-        fontSize:width * .06,
     },
    
     head:{
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
 
         backgroundColor:"#FFF",
-        height: height * .06,
+        height: "80%",
         marginLeft:35,
         width:"135%",
         borderRadius:5,

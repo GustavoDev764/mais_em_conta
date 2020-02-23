@@ -157,7 +157,7 @@ export default class LojaScreen extends PureComponent {
                         borderBottomWidth:0,
                         
                        
-                      }, Theme.backgroundPrimaryColor]}
+                      }, Theme.tmHead, Theme.backgroundPrimaryColor]}
                 />
 
                 <Body>

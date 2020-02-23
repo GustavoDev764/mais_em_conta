@@ -22,6 +22,7 @@ export default class Produto extends React.Component{
             id,
             title,
             valor,
+            valorAnterio,
             rating,
             descricaoCurta,
             principaImage,
@@ -48,6 +49,12 @@ export default class Produto extends React.Component{
                     </View>
                                             
                     <View style={styles.containerPriceRating}>
+
+                        <View style={{}}>
+                            <Text style={styles.textValorAnterio}>
+                                R$ {valorAnterio}
+                            </Text>
+                        </View>
                                                 
                         <View style={styles.containerPrice}>
                             <Text style={styles.textCoin}>R$</Text>
@@ -66,7 +73,7 @@ export default class Produto extends React.Component{
                     
                         <View style={styles.containerRating}>
                             <Rating
-                                imageSize={18}
+                                imageSize={15}
                                 readonly
                                 ratingCount={5}
                                 startingValue={rating}
@@ -74,6 +81,10 @@ export default class Produto extends React.Component{
                                 style={styles.rating}
                                 
                             />
+                        </View>
+
+                        <View style={styles.containerTextExpira}>
+                            <Text style={styles.textExpira}>Expira em 2 dias</Text>
                         </View>
 
                         <View style={styles.containerText}>
@@ -186,5 +197,22 @@ const styles = StyleSheet.create({
         color:"#505050",
         padding:2,
         marginLeft:0,  
-    }
+    },
+
+    containerTextExpira:{
+        position:"absolute",
+        top:0,
+        right:0,
+    },
+
+    textExpira:{
+        fontSize:11,
+        color:"red"
+    },
+
+    textValorAnterio:{
+        fontSize:13,
+        textDecorationLine:"line-through",
+    },
+
 });

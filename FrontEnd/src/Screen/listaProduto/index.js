@@ -178,7 +178,7 @@ export default class ListProdutoScreen extends PureComponent{
                        
                         justifyContent: 'space-around',
                        
-                      }, Theme.backgroundPrimaryColor]}
+                      }, Theme.tmHead, Theme.backgroundPrimaryColor]}
                 />
 
                 {

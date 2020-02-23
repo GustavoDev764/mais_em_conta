@@ -91,7 +91,7 @@ export default class AvaliacaesDoProdutoScreen extends PureComponent{
                         containerStyle={[{
                             
                             justifyContent: 'space-around',
-                        },Theme.backgroundPrimaryColor]}
+                        },Theme.tmHead, Theme.backgroundPrimaryColor]}
                     />
                     {
                         

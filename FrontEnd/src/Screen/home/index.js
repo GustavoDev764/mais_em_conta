@@ -198,6 +198,7 @@ export default class HomeScreen extends React.Component{
                                 style={[
                                     Theme.PrimaryColor,
                                     Theme.TitlePage,
+                                    
                                 ]}
                     >
                         Mais Em Conta</Text>}
@@ -208,9 +209,8 @@ export default class HomeScreen extends React.Component{
                         </HeadGrupo>
                     }
                     containerStyle={[{
-                        
-                        justifyContent: 'space-around',
-                      }, Theme.backgroundPrimaryColor]}
+                         justifyContent: 'space-around',
+                      }, Theme.tmHead, Theme.backgroundPrimaryColor]}
                 />
 
                 <TouchableOpacity
@@ -233,7 +233,7 @@ export default class HomeScreen extends React.Component{
                         name="ios-arrow-forward"
                         style={[
                             Theme.PrimaryColor,
-                            Theme.iconSizeX2,
+                            Theme.iconSizeX1,
                         ]}
                     />
 
@@ -310,7 +310,6 @@ const styles = StyleSheet.create({
     containerHeadLocalizacao:{
         backgroundColor:"#F5640C",
         marginTop:-1,
-        marginBottom:5,
         padding:2,
         paddingLeft:5,
         paddingRight:5,
@@ -318,7 +317,7 @@ const styles = StyleSheet.create({
         justifyContent:"space-between",
         alignItems:"center",
         width:"100%",
-        height:25,
+        height:22,
     },
 
     containerTextIcon:{

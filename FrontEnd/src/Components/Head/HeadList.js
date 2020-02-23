@@ -1,6 +1,6 @@
 import React, { Fragment, PureComponent } from 'react';
 import {Badge} from 'react-native-elements';
-import {TouchableOpacity} from 'react-native';
+import {TouchableOpacity, Text, View} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import Theme from '../../Style';
 
@@ -23,13 +23,33 @@ export default class HeadList extends PureComponent{
             <Fragment>
 
                 <TouchableOpacity onPress={opressFunc}>
-                    <Badge value="9" status="error" 
-                        containerStyle={{ position: 'absolute', zIndex:2, width:50, height:50, left:-6, top:-3}}
-                    />
+                    {/* <Badge value="9" status="error" 
+                        containerStyle={{}}
+                    /> */}
+                    <View 
+                        style={{ 
+                            fontSize:10,
+                            position: 'absolute',
+                            alignItems:"center",
+                            alignSelf:"center",
+                            alignContent:"center",
+                            zIndex:2,
+                            width:15,
+                            height:15,
+                            left:8,
+                            top:-3,
+                            backgroundColor:"red",
+                            borderRadius:90,
+                        }}
+                    >
+                        <Text style={{fontSize:11, color:"#FFF"}} >
+                           9
+                        </Text>
+                    </View>
                     <Ionicons name="ios-list-box" 
                             style={[
                                 Theme.PrimaryColor,
-                                Theme.iconSizeX2,
+                                Theme.iconSizeX1,
                             ]}
                     />
                     

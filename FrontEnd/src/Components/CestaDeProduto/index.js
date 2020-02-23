@@ -5,6 +5,9 @@ import {Image, Button, Icon} from 'react-native-elements';
 
 const principaImage = 'https://images-americanas.b2w.io/produtos/01/00/img/85787/7/85787787_1GG.jpg';
 const descricaoCurta =  'Computador Gamer Completo Com Monitor Led Intel Core I5 8gb Hd 500gb (nvidia Geforce Gt) Kit Gamer Com Mousepad Easypc Light.';
+const logo   = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAe1BMVEXmABb////lAADmAA/+8/TvfoPoLDbpOkH4xcjmABPznqL40dLmAAbmAArzo6bsYmj0r7L619n2trnpMTz97/D73uDqQ0v/+vv85efnGyfxkJTwio7tcHX5zM/ylpvtaG3rTlX3vcDueH33wsTnCh7oIy/vg4jsXWPqR08KbH2AAAADEklEQVR4nO3c3XKiMBiA4fKBP7Go+Au1ausW273/K9yiq80XiNLMzmhn3+ewnjDvUEIS4OEBAAAAAAAAAAAAAAAAAAAAAIB/T77h1sd6P6SftJVv6XYij1FrA7KdkC0I2YKQLQjZgpAtCNmCkC0I2YLIpH22EdlO0pdOa6/DWx/t/Ujbz+SpBgDANcYaWeNbH8wPUd1kjDujbLrbTbPVeka664zIeDrX84LHbVfE3PrI7pnINmmaUS067Fj5ybgxWiX5xQnnIYNLc/gN3RrJ6PLax4JuDaRzuVoUTbm+1cRP16pF0ZLlD5e8Xc/2xunmiLtOonxezHO3G1c3hx4P8sHsMLMq1xuVbZze+jjvjBRWncJIfDiv4s9Jg51txX+pogeE0rr0q9OQsVRL7ZNKbU4Nl9YvO7IpsrLidO0VDxNbv/TJpkhmj5f2L/GebH5mmJ6ouwyjgpLNZb6c//Y5kOrpPdkuMfFxQbz7kumVJLL5VMVMb73KNkVtkkC2ZkZk/74rarnIdokMVwtvMrI1G15e3SVbI5nNr1UjW428elLNyeY3nHmiPQvZvIzUh8+82D33REqyeamp/Kdk974cHh5jMGTzMqJmA5OP6kGQ4ySLbH7ph11tZD+5oBYwyaaoZY6NaqOWKcmmqBcTemo3VNZk8xFr1p7oNGovgWyKfW+2cLItyOah9gsK/6WNbIqxzza1lWD061hkU1S28VebWA2xZHOoC1ghfx9ZiKXUzzI49yb/PZnacYrlcSthpk81srnUzVk1mmaDUb9h+e2RbDYj9e2WJhOyKbL1psqt696cbIoR74r40r7CPfBcoOJb3U1m6kTkATeHLJsub5s0Vc9wRXyHzCFl/fsM1asvegoR8YkBRyxrtaGQD47LlTLof9n0eN3PJfJ7NDmMDckiG59f61NfZqBag2rbxZRlVYqHwr9HPeIGAD9X3B6XvbN4323tiW4nfL8tCF8LDEK2IGQLQrYgZAtCtiBkC0K2IGQLwiwhSNzttbZnTnrGCggAAAAAAAAAAAAAAAAAAAAA/Dt/ACawJkgeZLADAAAAAElFTkSuQmCC";
+
+
 
 //import components
 import PreLoading from '../PreLoading';
@@ -124,6 +127,40 @@ export default class CardCestaProduto extends PureComponent{
                                 </View>
                                 
                                 
+                        </View>
+
+                        <View style={{ padding:2, flexDirection:"column"}}>
+                            <View style={{ padding:2, flexDirection:"row"}}>
+
+                                <View style={{ padding:2}}>
+                                    <Image
+                                        source={{ uri: logo }}
+                                        style={{ width: 60, height: 60 }}
+                                        PlaceholderContent={<PreLoading />}
+                                    />
+                                </View>
+
+                                <View style={{ flexDirection:'column', justifyContent:"flex-start", marginLeft:2, padding:2}}>
+                                    <Text>Lojas Americanas</Text>
+                                    <Text style={styles.textInfor}>Rua São Mateus, 81 ° Isaura Parente</Text>
+                                    
+                                    <View style={{flexDirection:"row", alignItems:"center", alignContent:"center"}}>
+
+                                        <View style={{width:60, alignItems:"center", borderRadius:3, backgroundColor:"#38ad27",}}>
+                                            <Text style={{color:"#FFF"}}>Aberto</Text>
+                                        </View>
+
+                                        <Text style={{marginLeft:3, color:"#000"}}>08:00 - 21:00</Text>
+
+                                        <Text style={{marginLeft:3, color:"#000"}}>° 12 km</Text>
+                                       
+                                        
+                                    </View>
+
+                                </View>
+
+                            </View>
+
                         </View>
                 </View>
 

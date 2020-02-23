@@ -4,6 +4,7 @@ import { View, Text, FlatList } from 'react-native';
 
 import {Header, ListItem} from 'react-native-elements';
 import HeadArrowBack from '../../Components/Head/HeadArrowBack';
+import Theme from '../../Style';
 
 
 export default class InformaTecnicaProdutoScreen extends PureComponent {
@@ -40,10 +41,9 @@ export default class InformaTecnicaProdutoScreen extends PureComponent {
                         leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
                         centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Informação Técnica</Text>}
                             
-                        containerStyle={{
-                            backgroundColor: '#0086ff',
-                            justifyContent: 'space-around',
-                        }}
+                        containerStyle={[{
+                           justifyContent: 'space-around',
+                        }, Theme.tmHead, Theme.backgroundPrimaryColor]}
                     />
 
                     
