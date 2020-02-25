@@ -17,16 +17,16 @@ const Theme = StyleSheet.create({
     },
 
     backgroundTertiaryColor:{
-        backgroundColor:"#0086FF",
+        backgroundColor:"#EB810C",
         //backgroundColor:"#ececec",
     },
 
     backgroundQuatro:{
-        backgroundColor:"#0CBBE8",
+        backgroundColor:"#F5210C",
     },
 
     backgroundQuinto:{
-        backgroundColor:"#0DFFEF",
+        backgroundColor:"#EB0C38",
     },
 
     backgroundSexto:{
@@ -83,6 +83,10 @@ const Theme = StyleSheet.create({
     TitlePage:{
         fontSize: 25,
     },
+
+    borderColorPrimary:{
+        borderColor:"#EB0C38",
+    }
 
 
 

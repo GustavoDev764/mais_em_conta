@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.5",
+    "@react-native-community/slider": "^2.0.8",
     "expo": "~36.0.0",
     "expo-font": "~8.0.0",
     "opencollective-postinstall": "^2.0.2",

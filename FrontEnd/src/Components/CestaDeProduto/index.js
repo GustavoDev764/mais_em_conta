@@ -128,40 +128,6 @@ export default class CardCestaProduto extends PureComponent{
                                 
                                 
                         </View>
-
-                        <View style={{ padding:2, flexDirection:"column"}}>
-                            <View style={{ padding:2, flexDirection:"row"}}>
-
-                                <View style={{ padding:2}}>
-                                    <Image
-                                        source={{ uri: logo }}
-                                        style={{ width: 60, height: 60 }}
-                                        PlaceholderContent={<PreLoading />}
-                                    />
-                                </View>
-
-                                <View style={{ flexDirection:'column', justifyContent:"flex-start", marginLeft:2, padding:2}}>
-                                    <Text>Lojas Americanas</Text>
-                                    <Text style={styles.textInfor}>Rua São Mateus, 81 ° Isaura Parente</Text>
-                                    
-                                    <View style={{flexDirection:"row", alignItems:"center", alignContent:"center"}}>
-
-                                        <View style={{width:60, alignItems:"center", borderRadius:3, backgroundColor:"#38ad27",}}>
-                                            <Text style={{color:"#FFF"}}>Aberto</Text>
-                                        </View>
-
-                                        <Text style={{marginLeft:3, color:"#000"}}>08:00 - 21:00</Text>
-
-                                        <Text style={{marginLeft:3, color:"#000"}}>° 12 km</Text>
-                                       
-                                        
-                                    </View>
-
-                                </View>
-
-                            </View>
-
-                        </View>
                 </View>
 
         </Fragment>
