@@ -15,6 +15,7 @@ import ListProdutoScreen from '../Screen/listaProduto';
 import CestaDeProdutoScreen from '../Screen/CestaDeProdutos';
 import LojaScreen from '../Screen/Loja';
 import FiltroScreen from '../Screen/filtro';
+import PerfilScreen from '../Screen/perfilUsuario';
 
 
 const MyDrawerNavigator = createDrawerNavigator(
@@ -26,6 +27,7 @@ const MyDrawerNavigator = createDrawerNavigator(
       CestaDeProdutoScreen,
       LojaScreen,
       FiltroScreen,
+      PerfilScreen,
             
      
     },
