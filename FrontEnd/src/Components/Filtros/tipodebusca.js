@@ -17,7 +17,7 @@ export default class TipoDeBuscar extends PureComponent {
                 <View style={styles.container}>
                                 
                     <View style={styles.headCard}>
-                        <Text style={styles.titleProduto}>
+                        <Text style={[styles.titleProduto, Theme.PrimaryColor]}>
                             Tipo de Buscar
                         </Text>
                     </View>
@@ -25,15 +25,15 @@ export default class TipoDeBuscar extends PureComponent {
                     <View style={styles.containerBodyCard} >
 
                         <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                            <Text style={styles.textElement}>Produtos</Text>
+                            <Text style={[styles.textElement, Theme.PrimaryColor]}>Produtos</Text>
                         </View>
 
                         <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                            <Text style={styles.textElement}>Lojas</Text>
+                            <Text style={[styles.textElement, Theme.PrimaryColor]}>Lojas</Text>
                         </View>
 
                         <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                            <Text style={styles.textElement}>Serviços</Text>
+                            <Text style={[styles.textElement, Theme.PrimaryColor]}>Serviços</Text>
                         </View>
                                    
                                     

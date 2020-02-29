@@ -4,6 +4,7 @@ import { Rating, Image} from 'react-native-elements';
 
 //import components
 import PreLoading from '../PreLoading';
+import Theme from '../../Style';
 
 export default class Produto extends React.Component{
 
@@ -75,20 +76,20 @@ export default class Produto extends React.Component{
                 <View style={styles.textContainer}>
                     
                     <View style={{}}>
-                        <Text style={styles.textValorAnterio}>
+                        <Text style={[styles.textValorAnterio, Theme.TertiaryColor]}>
                             R$ {valorAnterio}
                         </Text>
                     </View>
                     
                     <View style={styles.priceRatingContainer}>
                         
-                        <Text style={styles.textCoin}>R$</Text>
+                        <Text style={[styles.textCoin, Theme.PrimaryColor]}>R$</Text>
                         
                         <View style={styles.priceCentsContainer}>
-                            <Text style={styles.priceCoin}>{valorArray[0]}</Text>
+                            <Text style={[styles.priceCoin, Theme.PrimaryColor]}>{valorArray[0]}</Text>
                             { ( parseFloat(valorArray[1]) > 0 ) ? 
                                 
-                                <Text numberOfLines={1} style={styles.textCents}>,{valorArray[1]} </Text>
+                                <Text numberOfLines={1} style={[styles.textCents, Theme.PrimaryColor]}>,{valorArray[1]} </Text>
                                 
                                 : null}
                             
@@ -112,7 +113,7 @@ export default class Produto extends React.Component{
                 </View>
 
                 <View style={[styles.margin, styles.descriptionContainer]}>
-                    <Text numberOfLines={2} ellipsizeMode="tail" style={styles.description}>
+                    <Text numberOfLines={2} ellipsizeMode="tail" style={[styles.description, Theme.QuatroColor]}>
                        {descricaoCurta}
                     </Text>
                 </View>
@@ -159,7 +160,6 @@ const styles = StyleSheet.create({
     textCoin:{
         fontSize:17,
         fontWeight:"bold",
-        color:"#2f2f2f",
     },
 
     priceCentsContainer:{
@@ -170,15 +170,12 @@ const styles = StyleSheet.create({
         fontSize:17,
         fontWeight:"bold",
         marginLeft:5,
-        color:"#2f2f2f",
-        
     },
 
     textCents:{
         fontSize:13,
         fontWeight:"bold",
         marginLeft:1,
-        color:"#2f2f2f"
     },
 
     descriptionContainer:{
@@ -189,7 +186,6 @@ const styles = StyleSheet.create({
     description:{
         textAlign:"left",
         fontSize:12,
-        color:"#505050",
     },
 
     textValorAnterio:{

@@ -3,6 +3,8 @@ import {View, Text, TouchableOpacity,  StyleSheet} from 'react-native';
 import {Rating} from 'react-native-elements';
 import {Feather, FontAwesome} from '@expo/vector-icons';
 
+import Theme from '../../Style';
+
 export default class ComentProduto extends  React.Component{
 
     constructor(props){ 
@@ -28,15 +30,18 @@ export default class ComentProduto extends  React.Component{
                                        
                 <View style={styles.body}> 
 
-                    <Text style={styles.textComent}>
+                    <Text style={[styles.title, Theme.PrimaryColor]}>{data.title}</Text>
+
+
+                    <Text style={[styles.textComent, Theme.PrimaryColor]}>
                         {data.descricao}
                     </Text>
 
-                    <Text style={styles.nameAuto}>{data.name}</Text>
+                    <Text style={[styles.nameAuto, Theme.PrimaryColor]}>{data.name}</Text>
 
                     <View style={styles.avaliaUser}>
 
-                        <Text style={styles.textAvalia}>
+                        <Text style={[styles.textAvalia, Theme.PrimaryColor]}>
                             esta avaliação foi util?
                         </Text>
 
@@ -95,8 +100,16 @@ const styles = StyleSheet.create({
         fontSize:15,
     },
 
+    title:{
+        fontWeight:"bold",
+        marginBottom:2,
+        marginTop:2,
+    },
+
     nameAuto:{
+        marginTop:2,
         fontSize:14,
+        
     },
 
     avaliaUser:{

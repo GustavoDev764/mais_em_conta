@@ -37,7 +37,7 @@ export default class SubMenu extends PureComponent {
                                 
                                 <Icon 
                                     name="list"
-                                    iconStyle = {[Theme.iconSizeX2, Theme.PrimaryColor]} 
+                                    iconStyle = {[Theme.iconSizeX2, Theme.colorWhite]} 
                                 />
 
 
@@ -54,7 +54,7 @@ export default class SubMenu extends PureComponent {
                             >
                                 <Icon 
                                     name="grid-on"
-                                    iconStyle = {[Theme.iconSizeX1, Theme.PrimaryColor]} 
+                                    iconStyle = {[Theme.iconSizeX1, Theme.colorWhite]} 
                                 />
                             </TouchableOpacity>
                             
@@ -69,17 +69,17 @@ export default class SubMenu extends PureComponent {
                                 padding:2,
                             }}
                         >
-                            <Text style={{
+                            <Text style={[{
                                     marginRight:10,
                                     fontSize:18,
-                                    color:"#FFF",
-                                }}
+                                    
+                                }, Theme.colorWhite]}
                             >
                                 Filtros
                             </Text>
                             <Icon 
                                 name="filter-list"
-                                iconStyle = {[Theme.iconSizeX2, Theme.PrimaryColor]} 
+                                iconStyle = {[Theme.iconSizeX2, Theme.colorWhite]} 
                             />
                         </TouchableOpacity>
 
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
 
     selecte:{
         borderBottomWidth:2,
-        borderBottomColor:"#FFF",
+        borderBottomColor: Theme.colorWhite.color,
     },
 
     container:{

@@ -1,6 +1,8 @@
 import React,{Fragment, PureComponent} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
+import Theme from '../../Style';
+
 export default class Descricao extends PureComponent{
 
     constructor(props){
@@ -14,13 +16,13 @@ export default class Descricao extends PureComponent{
 
         return(
             <Fragment>
-                <View style={styles.container}>
+                <View style={[styles.container, ]}>
 
-                    <Text style={styles.title}>
+                    <Text style={[styles.title, Theme.PrimaryColor]}>
                         {title}
                     </Text>
 
-                    <Text style={styles.text}>
+                    <Text style={[styles.text, Theme.PrimaryColor]}>
                         {text}
                     </Text>
 

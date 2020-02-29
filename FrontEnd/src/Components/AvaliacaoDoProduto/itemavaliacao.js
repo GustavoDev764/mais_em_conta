@@ -2,6 +2,9 @@ import React,{Fragment, PureComponent} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Rating} from 'react-native-elements';
 
+
+import Theme from '../../Style';
+
 export default class ItemAvaliacao extends PureComponent{
 
     constructor(props){
@@ -29,7 +32,7 @@ export default class ItemAvaliacao extends PureComponent{
                     </View>
 
                     <View style={styles.containerText}>
-                        <Text style={styles.text}>{pessoa} Pessoas</Text>
+                        <Text style={[styles.text, Theme.PrimaryColor]}>{pessoa} Pessoas</Text>
                     </View>
 
 

@@ -167,7 +167,7 @@ export default class ListProdutoScreen extends PureComponent{
 
                 <Header 
                     leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack == null ? "HomeScreen" : routeBack } />} 
-                    centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Lista de Produto</Text>}
+                    centerComponent={<Text style={[Theme.TitlePage, Theme.colorWhite]}>Lista de Produto</Text>}
                     rightComponent={
                         <HeadGrupo>
                             <HeadSearch opressFunc={this.openTelaSearhcView} />

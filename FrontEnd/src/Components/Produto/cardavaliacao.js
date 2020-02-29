@@ -8,6 +8,7 @@ const {width, height} = Dimensions.get("screen");
 
 //import componente
 import ComentProduto from '../ComentarioProduto';
+import Theme from '../../Style';
 
 //import json
 import {Comentarios} from '../../utils/Avaliacao';
@@ -34,7 +35,7 @@ export default class CardAvaliacao extends PureComponent{
                     <View style={styles.head}>
                                     
                         <View style={styles.avalicaoRanting}>
-                            <Text style={styles.textAvaliacao}>30 Avaliações</Text>
+                            <Text style={[styles.textAvaliacao, Theme.PrimaryColor]}>30 Avaliações</Text>
                             <TouchableOpacity style={{}} onPress={()=>{return openViewAvaliacaesDoProduto(produto);}}>
                                     <Rating
                                         imageSize={18}

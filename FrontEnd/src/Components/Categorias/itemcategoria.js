@@ -1,6 +1,7 @@
 import React,{Fragment, PureComponent} from 'react';
 import {View,Text, StyleSheet, TouchableOpacity} from 'react-native';
 
+import Theme from '../../Style';
 
 export default class Itemcategoria extends PureComponent{
 
@@ -20,7 +21,7 @@ export default class Itemcategoria extends PureComponent{
                     style={styles.container}
                 >
                     <Text
-                        style={styles.textItem}
+                        style={[styles.textItem, Theme.PrimaryColor]}
                     >
                         {CategoriaData.name}
                     </Text>

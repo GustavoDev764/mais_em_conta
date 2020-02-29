@@ -8,11 +8,6 @@ import Body from '../../Components/Body';
 import Descricao from  '../../Components/Descricao';
 import Theme from '../../Style';
 
-
-
-
-
-
 export default class DescricaoProdutoScreen extends PureComponent{
 
     constructor(props){
@@ -33,7 +28,7 @@ export default class DescricaoProdutoScreen extends PureComponent{
 
                     <Header 
                         leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
-                        centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Descrição</Text>}
+                        centerComponent={<Text style={[Theme.colorWhite, Theme.TitlePage]}>Descrição</Text>}
                         
                         containerStyle={[{
                             justifyContent: 'space-around',

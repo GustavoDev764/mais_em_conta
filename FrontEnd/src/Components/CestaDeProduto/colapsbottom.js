@@ -57,10 +57,10 @@ export default class ColapsBottom extends PureComponent {
                             paddingRight:20,
                             justifyContent:"space-between"}}
                     > 
-                        <Text>
+                        <Text style={[Theme.PrimaryColor]}>
                             Frete
                         </Text>
-                        <Text>
+                        <Text style={[Theme.PrimaryColor]}>
                             R$ 213,61
                         </Text>
                     </View>
@@ -71,10 +71,10 @@ export default class ColapsBottom extends PureComponent {
                             paddingRight:20,
                             justifyContent:"space-between"}}
                     > 
-                        <Text style={{fontSize:16, fontWeight:"bold"}}>
+                        <Text style={[styles.totalPedido, Theme.PrimaryColor]}>
                             Total do Pedido
                         </Text>
-                        <Text style={{fontSize:16, fontWeight:"bold"}}>
+                        <Text style={[styles.totalPedidoValor, Theme.PrimaryColor]}>
                             R$ 14.206,09
                         </Text>
                     </View>
@@ -90,10 +90,10 @@ export default class ColapsBottom extends PureComponent {
                                 paddingRight:20,
                                 justifyContent:"space-between"}}
                         > 
-                            <Text>
+                            <Text style={[Theme.PrimaryColor]}>
                                 Boleto
                             </Text>
-                            <Text>
+                            <Text style={[Theme.PrimaryColor]}>
                                 R$ 14.026,27
                             </Text>
                         </View>
@@ -103,10 +103,10 @@ export default class ColapsBottom extends PureComponent {
                                 paddingRight:20,
                                 justifyContent:"space-between"}}
                         > 
-                            <Text>
+                            <Text style={[Theme.PrimaryColor]}>
                                 Cartao de Credito
                             </Text>
-                            <Text>
+                            <Text style={[Theme.PrimaryColor]}>
                                 R$ 13.00,27
                             </Text>
                         </View>
@@ -149,6 +149,16 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#fff',
   },
+
+  totalPedido:{
+    fontSize:16,
+    fontWeight:"bold"
+  },   
+  
+  totalPedidoValor:{
+    fontSize:16,
+    fontWeight:"bold"
+  }
   
   
 });

@@ -2,6 +2,8 @@ import React,{Fragment, PureComponent} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Rating, Button} from 'react-native-elements';
 
+import Theme from '../../Style';
+
 export default class CardInfor extends PureComponent{
 
     constructor(props){
@@ -23,7 +25,7 @@ export default class CardInfor extends PureComponent{
                         <View style={styles.containerAvalicaoRating}>
 
                             <View>
-                                <Text style={styles.textHead}>30 Avaliações</Text>
+                                <Text style={[styles.textHead, Theme.PrimaryColor]}>30 Avaliações</Text>
                             </View>
 
                             <View style={styles.avaliacao}>
@@ -39,8 +41,8 @@ export default class CardInfor extends PureComponent{
                                     />
                                 </View>
 
-                                <View style={styles.textEstrelas}>
-                                    <Text>3,5 de 5 estrelas</Text>
+                                <View>
+                                    <Text style={[styles.textEstrelas, Theme.PrimaryColor]}>3,5 de 5 estrelas</Text>
                                 </View>
 
                             </View>
@@ -66,7 +68,7 @@ export default class CardInfor extends PureComponent{
                         </View>
 
                         <View style={styles.containerTextPorcentagem}>
-                            <Text style={styles.textPorcCliente}>dos Clientes Recomenda este produto</Text>
+                            <Text style={[styles.textPorcCliente, Theme.PrimaryColor]}>dos Clientes Recomenda este produto</Text>
                         </View>
 
                     </View>

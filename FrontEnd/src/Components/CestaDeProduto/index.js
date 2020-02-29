@@ -31,7 +31,7 @@ export default class CardCestaProduto extends PureComponent{
                                                 
                             <Text 
                                 numberOfLines={3}
-                                style={styles.textHead}>
+                                style={[styles.textHead, Theme.PrimaryColor]}>
                                     {descricaoCurta}
                              </Text>
                                                         
@@ -107,7 +107,7 @@ export default class CardCestaProduto extends PureComponent{
                                     <View style={styles.containerTotalItem} >
                                         <Text 
                                             numberOfLines={3}
-                                            style={styles.textTotalItem}>
+                                            style={[styles.textTotalItem, Theme.PrimaryColor]}>
                                             3
                                         </Text>
                                     </View>       

@@ -19,7 +19,7 @@ export default class HeadSearch extends React.Component{
             <TouchableOpacity onPress={opressFunc}>
                     <Ionicons name="ios-search"
                          style={[
-                                Theme.PrimaryColor,
+                                Theme.colorWhite,
                                 Theme.iconSizeX1,
                         ]}
                         

@@ -57,7 +57,7 @@ export default class CestaDeProdutoScreen extends PureComponent{
 
                 <Header 
                     leftComponent={<HeadMenu openMenu={this.openMenuDrawer} />} 
-                    centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Minha Cesta</Text>}
+                    centerComponent={<Text style={[Theme.TitlePage, Theme.colorWhite]}>Minha Cesta</Text>}
                     rightComponent={<HeadSearch opressFunc={this.openTelaSearhcView} /> }
                     containerStyle={[{
                         justifyContent: 'space-around',

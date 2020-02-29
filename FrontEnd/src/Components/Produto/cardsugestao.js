@@ -2,6 +2,7 @@ import React, {PureComponent, Fragment} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 
+import Theme from '../../Style';
 
 import CarouselProduto from '../../Components/CarouselProduto';
 
@@ -22,7 +23,7 @@ export default class CardSugestao extends PureComponent{
                 <View style={styles.container}>
                                 
                     <View style={styles.head}>
-                        <Text style={styles.text}>quem viu este, viu também</Text>                            
+                        <Text style={[styles.text, Theme.PrimaryColor]}>quem viu este, viu também</Text>                            
                     </View>
 
                                 

@@ -4,6 +4,7 @@ import {Image, Rating} from 'react-native-elements';
 
 //components
 import PreLoading from '../PreLoading';
+import Theme from '../../Style';
 
 export default class Produto extends PureComponent{
     
@@ -54,16 +55,16 @@ export default class Produto extends PureComponent{
                     <View style={styles.containerPriceRating}>
 
                         <View style={{}}>
-                            <Text style={styles.textValorAnterio}>
+                            <Text style={[styles.textValorAnterio, Theme.TertiaryColor]}>
                                 R$ {valorAnterio}
                             </Text>
                         </View>
 
                         <View style={styles.containerPrice}>
-                            <Text style={styles.priceCoin}>R$ {valorArray[0]}</Text>
+                            <Text style={[styles.priceCoin, Theme.PrimaryColor]}>R$ {valorArray[0]}</Text>
                             {
                                 ( parseFloat(valorArray[1]) > 0 ) ? 
-                                <Text style={styles.centsCoin}>,{valorArray[1]}</Text>
+                                <Text style={[styles.centsCoin, Theme.PrimaryColor]}>,{valorArray[1]}</Text>
                                 : null
                             }
                             
@@ -83,11 +84,11 @@ export default class Produto extends PureComponent{
 
                     </View>
 
-                    <View style={styles.containerText}>
+                    <View style={[styles.containerText]}>
                         <Text 
                             numberOfLines={3}
                             ellipsizeMode="tail"
-                            style={styles.text}>
+                            style={[styles.text, Theme.QuatroColor]}>
 
                         {descricaoCurta}
 

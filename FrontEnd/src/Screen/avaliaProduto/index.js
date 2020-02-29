@@ -81,7 +81,7 @@ export default class AvaliaProdutoScreen extends PureComponent{
 
                         <Header 
                             leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
-                            centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Avalia</Text>}
+                            centerComponent={<Text style={[Theme.TitlePage, Theme.colorWhite]}>Avalia</Text>}
                                 
                             containerStyle={[{
                                
@@ -94,7 +94,7 @@ export default class AvaliaProdutoScreen extends PureComponent{
                             <View style={styles.container} >
 
                                 <View style={styles.head} >
-                                    <Text style={styles.textHead}>
+                                    <Text style={[styles.textHead, Theme.PrimaryColor]}>
                                         Avalia este produto
                                     </Text>
                                 </View> 
@@ -114,7 +114,7 @@ export default class AvaliaProdutoScreen extends PureComponent{
 
                                     <View style={styles.textContainer} >
 
-                                        <Text numberOfLines={7} style={styles.textDecricaoProduto} >
+                                        <Text numberOfLines={7} style={[styles.textDecricaoProduto, Theme.PrimaryColor]} >
                                             {descricaoCurta}
                                         </Text>
 
@@ -137,7 +137,7 @@ export default class AvaliaProdutoScreen extends PureComponent{
                                 <View style={styles.containerRadio} >
 
                                     <View style={styles.containerTextRadio}>
-                                        <Text style={styles.textTitleRadio}>
+                                        <Text style={[styles.textTitleRadio, Theme.PrimaryColor]}>
                                             Você recomenda esse produto?
                                         </Text>    
                                     </View>    
@@ -167,12 +167,12 @@ export default class AvaliaProdutoScreen extends PureComponent{
 
                                         <View style={styles.containerTitleAvaliacao} >   
 
-                                            <Text style={styles.tituloText} >
+                                            <Text style={[styles.tituloText, Theme.PrimaryColor]} >
                                                 Título da avaliação
                                             </Text>
 
                                             <TextInput 
-                                                style={styles.inputTitle}
+                                                style={[styles.inputTitle, Theme.PrimaryColor]}
                                                 maxLength={100}
                                                 autoFocus={false}
                                                 onChangeText={text => this.setState({titulo: text})}
@@ -184,12 +184,12 @@ export default class AvaliaProdutoScreen extends PureComponent{
 
                                         <View style={styles.containerDescricao}>
 
-                                            <Text style={styles.textTitleDescricao} >
+                                            <Text style={[styles.textTitleDescricao, Theme.PrimaryColor]} >
                                                 Descrição
                                             </Text>
 
                                             <TextInput 
-                                                style={styles.inputDescricao}
+                                                style={[styles.inputDescricao, Theme.PrimaryColor]}
                                                 multiline
                                                 maxLength={100}
                                                 autoFocus={false}

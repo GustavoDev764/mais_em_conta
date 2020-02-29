@@ -47,20 +47,29 @@ const Theme = StyleSheet.create({
 
     //Text Color
 
-    PrimaryColor:{
+    ColorBlack:{
+        color:"#000",
+    },
+
+    colorWhite:{
         color:"#FFF",
+    },
+    
+
+    PrimaryColor:{
+        color:"#2f2f2f",
     },
 
     SecondaryColor:{
-        color:"#7c7c7c",
+        color:"#333",
     },
 
     TertiaryColor:{
-        color:"#3d92f5",
+        color:"#666666",
     },
 
     QuatroColor:{
-        color:"#ececec",
+        color:"#999999",
     },
 
     
@@ -77,6 +86,10 @@ const Theme = StyleSheet.create({
 
     iconSizeX3:{
         fontSize:30,
+    },
+
+    iconSizeX4:{
+        fontSize:40,
     },
 
 

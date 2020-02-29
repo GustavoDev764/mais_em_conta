@@ -24,9 +24,8 @@ export default class HeadMenu extends React.Component{
 
                     <Ionicons name="ios-menu" 
                         style={[
-                                {},
                                 Theme.iconSizeX2,
-                                Theme.PrimaryColor,
+                                Theme.colorWhite,
                             ]} 
                     />
 

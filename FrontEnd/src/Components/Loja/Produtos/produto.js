@@ -6,6 +6,7 @@ const { width, height } = Dimensions.get('screen');
 
 //import components
 import PreLoading from '../../PreLoading';
+import Theme from '../../../Style';
 
 export default class Produto extends React.Component{
 
@@ -51,19 +52,19 @@ export default class Produto extends React.Component{
                     <View style={styles.containerPriceRating}>
 
                         <View style={{}}>
-                            <Text style={styles.textValorAnterio}>
+                            <Text style={[styles.textValorAnterio, Theme.TertiaryColor]}>
                                 R$ {valorAnterio}
                             </Text>
                         </View>
                                                 
                         <View style={styles.containerPrice}>
-                            <Text style={styles.textCoin}>R$</Text>
+                            <Text style={[styles.textCoin, Theme.PrimaryColor]}>R$</Text>
                             <View style={styles.containerCents}>
                                 <Text style={styles.price}>1.615</Text>
                                             
                                 { ( parseFloat(valorArray[1]) > 0 ) ? 
                                         
-                                    <Text numberOfLines={1} style={styles.priceCents}>,{valorArray[1]} </Text>
+                                    <Text numberOfLines={1} style={[styles.priceCents, Theme.PrimaryColor]}>,{valorArray[1]} </Text>
                                                 
                                     : null}
                             </View>
@@ -91,7 +92,7 @@ export default class Produto extends React.Component{
                                                
                             <Text 
                                 numberOfLines={2}
-                                style={styles.descricao}>
+                                style={[styles.descricao, Theme.QuatroColor]}>
                                         
                                 {descricaoCurta}
                             </Text>

@@ -192,7 +192,7 @@ export default class HomeScreen extends React.Component{
                     leftComponent={<HeadMenu openMenu={this.openMenuDrawer} />} 
                     centerComponent={<Text 
                                 style={[
-                                    Theme.PrimaryColor,
+                                    Theme.colorWhite,
                                     Theme.TitlePage,
                                     
                                 ]}
@@ -217,18 +217,18 @@ export default class HomeScreen extends React.Component{
                         <FontAwesome 
                             name='map-marker'
                             style={[
-                                Theme.PrimaryColor,
+                                Theme.colorWhite,
                                 Theme.iconSizeX1,
                             ]} 
                         />
 
-                        <Text style={{color:"#FFF"}}>Informa Localização</Text>
+                        <Text style={[Theme.colorWhite]}>Informa Localização</Text>
                     </View>
 
                     <Ionicons 
                         name="ios-arrow-forward"
                         style={[
-                            Theme.PrimaryColor,
+                            Theme.colorWhite,
                             Theme.iconSizeX1,
                         ]}
                     />

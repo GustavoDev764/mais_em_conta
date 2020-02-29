@@ -1,5 +1,5 @@
 import React,{Fragment, PureComponent} from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 
 import {Header, ListItem} from 'react-native-elements';
@@ -19,8 +19,8 @@ export default class InformaTecnicaProdutoScreen extends PureComponent {
     renderItem = ({ item }) => (
         <ListItem
             
-            title={<Text  style={{fontSize:13, fontWeight:"bold", color:"#0086ff"}}>{item.title}</Text>}
-    subtitle={<Text style={{fontSize:12, color:"#000"}}>{item.subtitle}</Text>}
+            title={<Text  style={[styles.title]}>{item.title}</Text>}
+    subtitle={<Text style={[styles.description, Theme.PrimaryColor]}>{item.subtitle}</Text>}
             bottomDivider
         />
     )
@@ -39,7 +39,7 @@ export default class InformaTecnicaProdutoScreen extends PureComponent {
 
                     <Header 
                         leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
-                        centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Informação Técnica</Text>}
+                        centerComponent={<Text style={[Theme.colorWhite,{fontSize:22}]}>Informação Técnica</Text>}
                             
                         containerStyle={[{
                            justifyContent: 'space-around',
@@ -62,3 +62,17 @@ export default class InformaTecnicaProdutoScreen extends PureComponent {
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    title:{
+        fontSize:13, 
+        fontWeight:"bold",
+        color:"#F5640C",
+    },
+
+    description:{
+        fontSize:12,
+ 
+    }
+});

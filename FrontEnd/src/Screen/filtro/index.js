@@ -43,7 +43,7 @@ export default class FiltroScreen extends PureComponent {
 
                     <Header 
                         leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
-                        centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Filtro</Text>}
+                        centerComponent={<Text style={[{fontSize:18,}, Theme.colorWhite]}>Filtro</Text>}
                                 
                         containerStyle={[{
                                

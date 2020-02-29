@@ -8,6 +8,7 @@ import {HorariosData} from '../../../utils/hoararios';
 
 //import Compontes
 import Horarios from './horario';
+import Theme from '../../../Style';
 
 export default class InformacaoLoja extends PureComponent{
 
@@ -37,8 +38,8 @@ export default class InformacaoLoja extends PureComponent{
                     <View
                         style={styles.container}
                     >
-                        <Text style={styles.titleInfor}>Endereço</Text>
-                        <Text style={styles.textInfor}>Rua São Mateus, 81 ° Isaura Parente</Text>
+                        <Text style={[styles.titleInfor, Theme.PrimaryColor]}>Endereço</Text>
+                        <Text style={[styles.textInfor, Theme.PrimaryColor]}>Rua São Mateus, 81 ° Isaura Parente</Text>
                     </View>
 
 

@@ -143,7 +143,7 @@ export default class LojaScreen extends PureComponent {
 
                 <Header 
                     leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
-                    centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Loja</Text>}
+                    centerComponent={<Text style={[Theme.TitlePage, Theme.colorWhite]}>Loja</Text>}
                     rightComponent={
                         <HeadGrupo>
                             <HeadSearch opressFunc={this.openTelaSearhcView} />
@@ -213,7 +213,7 @@ export default class LojaScreen extends PureComponent {
                                 ]}
                         >
                             <Text 
-                                style={styles.textTabItem}
+                                style={[styles.textTabItem, Theme.PrimaryColor]}
                             >
                                 Produtos
                             </Text>
@@ -230,7 +230,7 @@ export default class LojaScreen extends PureComponent {
                                 ]}
                         >
                             <Text 
-                                style={styles.textTabItem}
+                                style={[styles.textTabItem, Theme.PrimaryColor]}
                             >
                                 Serviços
                             </Text>
@@ -248,7 +248,7 @@ export default class LojaScreen extends PureComponent {
                                 ]}
                         >
                             <Text
-                                style={styles.textTabItem}
+                                style={[styles.textTabItem, Theme.PrimaryColor]}
                             >
                                 Categorias
                             </Text>
@@ -266,7 +266,7 @@ export default class LojaScreen extends PureComponent {
                         >
                            
                             <Text 
-                                style={styles.textTabItem}
+                                style={[styles.textTabItem, Theme.PrimaryColor]}
                             >
                                 Informações
                             </Text>

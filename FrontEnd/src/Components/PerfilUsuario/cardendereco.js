@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Feather, FontAwesome} from '@expo/vector-icons';
 
 
+import Theme from '../../Style';
+
 export default class CardEndereco extends PureComponent {
 
     constructor(props){
@@ -25,11 +27,11 @@ export default class CardEndereco extends PureComponent {
                     <View style={styles.headCard}>
 
                         <View style={styles.containerNameHead}>
-                            <Text style={styles.titleCard}>Endereço</Text>
+                            <Text style={[styles.titleCard, Theme.PrimaryColor]}>Endereço</Text>
                         </View>
 
                         <TouchableOpacity onPress={()=>{openViewEditEnderecoUser(data)}} style={styles.containerIconHead}>
-                            <FontAwesome name="edit" size={22} />
+                            <FontAwesome name="edit" style={[Theme.iconSizeX1, Theme.PrimaryColor]} />
                         </TouchableOpacity>
 
                     </View>
@@ -37,28 +39,28 @@ export default class CardEndereco extends PureComponent {
                     <View style={styles.bodyCard}>
 
                         <View style={styles.textRow}>
-                            <Text style={styles.textTitle}>Endereço:</Text>
-                            <Text style={styles.textBody}> {data.endereco} </Text>
+                            <Text style={[styles.textTitle, Theme.PrimaryColor]}>Endereço:</Text>
+                            <Text style={[styles.textBody, Theme.PrimaryColor]}> {data.endereco} </Text>
                         </View>
 
                         <View style={styles.textRow}>
-                            <Text style={styles.textTitle}>N° Casa:</Text>
-                            <Text style={styles.textBody}>{data.ncasa}</Text>
+                            <Text style={[styles.textTitle, Theme.PrimaryColor]}>N° Casa:</Text>
+                            <Text style={[styles.textBody, Theme.PrimaryColor]}>{data.ncasa}</Text>
                         </View>
 
                         <View style={styles.textRow}>
-                            <Text style={styles.textTitle}>Bairro/Distrito:</Text>
-                            <Text style={styles.textBody}>{data.bairrodistrito}</Text>
+                            <Text style={[styles.textTitle, Theme.PrimaryColor]}>Bairro/Distrito:</Text>
+                            <Text style={[styles.textBody, Theme.PrimaryColor]}>{data.bairrodistrito}</Text>
                         </View>
 
                         <View style={styles.textRow}>
-                            <Text style={styles.textTitle}>CEP:</Text>
-                            <Text style={styles.textBody}>{data.cep}</Text>
+                            <Text style={[styles.textTitle, Theme.PrimaryColor]}>CEP:</Text>
+                            <Text style={[styles.textBody, Theme.PrimaryColor]}>{data.cep}</Text>
                         </View>
 
                         <View style={styles.textRow}>
-                            <Text style={styles.textTitle}>Localidade/UF:</Text>
-                            <Text style={styles.textBody}>{data.localidadeuf}</Text>
+                            <Text style={[styles.textTitle, Theme.PrimaryColor]}>Localidade/UF:</Text>
+                            <Text style={[styles.textBody, Theme.PrimaryColor]}>{data.localidadeuf}</Text>
                         </View>
                         
                     

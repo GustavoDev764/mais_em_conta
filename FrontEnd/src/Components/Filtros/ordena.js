@@ -35,7 +35,7 @@ export default class Ordena extends PureComponent {
                 <View style={styles.container}>
                                 
                     <View style={styles.headCard}>
-                        <Text style={styles.titleProduto}>
+                        <Text style={[styles.titleProduto, Theme.PrimaryColor]}>
                             Ordena
                         </Text>
                     </View>
@@ -64,11 +64,11 @@ export default class Ordena extends PureComponent {
                         <View style={styles.containerLineElement}>
 
                             <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                                <Text style={styles.textElement}>Menores Preços</Text>
+                                <Text style={[styles.textElement, Theme.PrimaryColor]}>Menores Preços</Text>
                             </View>
 
                             <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                                <Text style={styles.textElement}>Maiores Preços</Text>
+                                <Text style={[styles.textElement, Theme.PrimaryColor]}>Maiores Preços</Text>
                             </View>
 
                         </View>
@@ -77,11 +77,11 @@ export default class Ordena extends PureComponent {
                         <View style={styles.containerLineElement}>
 
                             <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                                <Text style={styles.textElement}>Mais Vendidos</Text>
+                                <Text style={[styles.textElement, Theme.PrimaryColor]}>Mais Vendidos</Text>
                             </View>
 
                             <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                                <Text style={styles.textElement}>Mais Avaliados</Text>
+                                <Text style={[styles.textElement, Theme.PrimaryColor]}>Mais Avaliados</Text>
                             </View>
 
                         </View>

@@ -9,6 +9,7 @@ const logo   = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vs
 
 //components
 import PreLoading from '../PreLoading';
+import Theme from '../../Style';
 
 export default class CardInfor extends PureComponent{
 
@@ -54,7 +55,7 @@ export default class CardInfor extends PureComponent{
                                     
 
                         <View style={styles.inforProduto}>
-                            <Text style={{}}>
+                            <Text style={[Theme.PrimaryColor]}>
                               Codigo: {id}
                             </Text>
 
@@ -87,8 +88,8 @@ export default class CardInfor extends PureComponent{
                                 </View>
 
                                 <View style={{ flexDirection:'column', justifyContent:"flex-start", marginLeft:2, padding:2}}>
-                                    <Text>Lojas Americanas</Text>
-                                    <Text style={styles.textInfor}>Rua São Mateus, 81 ° Isaura Parente</Text>
+                                    <Text style={[Theme.PrimaryColor]}>Lojas Americanas</Text>
+                                    <Text style={[styles.textInfor, Theme.PrimaryColor]}>Rua São Mateus, 81 ° Isaura Parente</Text>
                                     
                                     <View style={{flexDirection:"row", alignItems:"center", alignContent:"center"}}>
 
@@ -96,9 +97,9 @@ export default class CardInfor extends PureComponent{
                                             <Text style={{color:"#FFF"}}>Aberto</Text>
                                         </View>
 
-                                        <Text style={{marginLeft:3, color:"#000"}}>08:00 - 21:00</Text>
+                                        <Text style={[{marginLeft:3,}, Theme.PrimaryColor]}>08:00 - 21:00</Text>
 
-                                        <Text style={{marginLeft:3, color:"#000"}}>° 12 km</Text>
+                                        <Text style={[{marginLeft:3,}, Theme.PrimaryColor]}>° 12 km</Text>
                                        
                                         
                                     </View>
@@ -116,7 +117,7 @@ export default class CardInfor extends PureComponent{
 
                     <View style={styles.containerPriceButton} >
 
-                        <Text style={styles.textPrice}>R$ {valor}</Text>
+                        <Text style={[styles.textPrice, Theme.PrimaryColor]}>R$ {valor}</Text>
                         <Button
                             icon={
                                 <Ionicons name="ios-list-box"
@@ -127,7 +128,7 @@ export default class CardInfor extends PureComponent{
                             title="Adiciona a Lista"
                             type="solid"
                             containerStyle={styles.margin}
-                            buttonStyle={styles.button}
+                            buttonStyle={[styles.button,]}
                             onPress={()=>{alert("adiciona a lista");}}
 
                         />
@@ -139,7 +140,7 @@ export default class CardInfor extends PureComponent{
                         <Button
                             title="Descrição"
                             type="outline"
-                            containerStyle={styles.margin}
+                            containerStyle={[styles.margin,]}
                             onPress={()=>{return openViewDecricaoProduto(produto);}}
                         />
 

@@ -35,7 +35,7 @@ export default class HeadProduto extends React.Component{
         return(
             <Header 
                     leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
-                    centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Produto</Text>}
+                    centerComponent={<Text style={[Theme.TitlePage, Theme.colorWhite]}>Produto</Text>}
                     rightComponent={
                         <HeadGrupo>
                             <HeadSearch opressFunc={openTelaSearhcView} />

@@ -20,7 +20,7 @@ export default class HeadArrowBack extends React.Component{
                 <Ionicons 
                         name="ios-arrow-back"
                         style={[
-                            Theme.PrimaryColor,
+                            Theme.colorWhite,
                             Theme.iconSizeX1,
                         ]}
                 />

@@ -1,6 +1,8 @@
 import React, {Fragment, PureComponent} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
+import Theme from '../../../Style';
+
 export default class Horarios extends PureComponent{
 
     constructor(props){
@@ -18,12 +20,12 @@ export default class Horarios extends PureComponent{
                     style={styles.container}
                 >
                     <Text
-                        style={styles.titleInfor}
+                        style={[styles.titleInfor, Theme.PrimaryColor]}
                     >
                         {item.dia}
                     </Text>
                     <Text
-                        style={styles.textInfor}
+                        style={[styles.textInfor, Theme.PrimaryColor]}
                     >
                         {item.hora}
                     </Text>

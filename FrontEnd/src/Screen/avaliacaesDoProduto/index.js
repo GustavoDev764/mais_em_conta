@@ -86,7 +86,7 @@ export default class AvaliacaesDoProdutoScreen extends PureComponent{
 
                     <Header 
                         leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
-                        centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Avaliações</Text>}
+                        centerComponent={<Text style={[Theme.TitlePage, Theme.colorWhite]}>Avaliações</Text>}
                             
                         containerStyle={[{
                             

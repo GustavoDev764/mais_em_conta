@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {Feather, FontAwesome} from '@expo/vector-icons';
 
 
+import Theme from '../../Style';
+
 export default class CardPerfil extends PureComponent {
 
     constructor(props){
@@ -30,11 +32,11 @@ export default class CardPerfil extends PureComponent {
                     <View style={styles.headCard}>
 
                         <View style={styles.containerNameHead}>
-                            <Text style={styles.titleCard}> {data.name} </Text>
+                            <Text style={[styles.titleCard, Theme.PrimaryColor]}> {data.name} </Text>
                         </View>
 
                         <TouchableOpacity onPress={()=>{openViewEditDadosUser(data)}} style={styles.containerIconHead}>
-                            <FontAwesome name="edit" size={22} />
+                            <FontAwesome name="edit" style={[Theme.iconSizeX1, Theme.PrimaryColor]} />
                         </TouchableOpacity>
 
                     </View>
@@ -42,36 +44,39 @@ export default class CardPerfil extends PureComponent {
                     <View style={styles.bodyCard}>
 
                         <View style={styles.containerPerfil}>
-                            <Image 
-                                source={{uri: !trocaImage ? data.image : image}} 
-                                style={styles.imageProfile}
-                            />
 
-                            <TouchableOpacity onPress={openModal} style={styles.contianerEditeFoto}>
-                                <FontAwesome name="camera" size={25} />
-                            </TouchableOpacity>
+                            <View style={{width: 150, height:150,}}>
+                                <Image 
+                                    source={{uri: !trocaImage ? data.image : image}} 
+                                    style={styles.imageProfile}
+                                    resizeMode="cover"
+                                />
 
+                                <TouchableOpacity onPress={openModal} style={styles.contianerEditeFoto}>
+                                    <FontAwesome name="camera" style={[Theme.PrimaryColor, Theme.iconSizeX2]}  />
+                                </TouchableOpacity>
+                            </View>
 
                         </View>
 
                         <View style={styles.textRow}>
-                            <Text style={styles.textTitle}>Email:</Text>
-                            <Text style={styles.textBody}> {data.email} </Text>
+                            <Text style={[styles.textTitle, Theme.PrimaryColor]}>Email:</Text>
+                            <Text style={[styles.textBody, Theme.PrimaryColor]}> {data.email} </Text>
                         </View>
 
                         <View style={styles.textRow}>
-                            <Text style={styles.textTitle}>Cpf:</Text>
-                            <Text style={styles.textBody}> {data.cpf} </Text>
+                            <Text style={[styles.textTitle, Theme.PrimaryColor]}>Cpf:</Text>
+                            <Text style={[styles.textBody, Theme.PrimaryColor]}> {data.cpf} </Text>
                         </View>
 
                         <View style={styles.textRow}>
-                            <Text style={styles.textTitle}>Telefone:</Text>
-                            <Text style={styles.textBody}> {data.telefone} </Text>
+                            <Text style={[styles.textTitle, Theme.PrimaryColor]}>Telefone:</Text>
+                            <Text style={[styles.textBody, Theme.PrimaryColor]}> {data.telefone} </Text>
                         </View>
 
                         <View style={styles.textRow}>
-                            <Text style={styles.textTitle}>Data de Nasci.:</Text>
-                            <Text style={styles.textBody}> {data.nascimento} </Text>
+                            <Text style={[styles.textTitle, Theme.PrimaryColor]}>Data de Nasci.:</Text>
+                            <Text style={[styles.textBody, Theme.PrimaryColor]}> {data.nascimento} </Text>
                         </View>
                         
                     </View>
@@ -106,15 +111,15 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         bottom:0,
-        left:90,
+        left:0,
         width:33,
         height:33,
         //borderWidth:1,
     },
 
     imageProfile:{
-        width: 150,
-        height:150,
+        width: "100%",
+        height:"100%",
         borderRadius: 8,
         
         resizeMode:"contain",

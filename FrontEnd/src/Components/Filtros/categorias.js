@@ -19,8 +19,8 @@ export default class Categorias extends PureComponent {
             <Fragment>
                 <View style={styles.container}>
                                 
-                    <View style={styles.headCard}>
-                        <Text style={styles.titleProduto}>
+                    <View style={[styles.headCard, Theme.PrimaryColor]}>
+                        <Text style={[styles.titleProduto, Theme.PrimaryColor]}>
                             Categorias
                         </Text>
                     </View>
@@ -30,11 +30,11 @@ export default class Categorias extends PureComponent {
                         <View style={styles.containerLineElement}>
 
                             <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                                <Text style={styles.textElement}>Celulares e Smartphones</Text>
+                                <Text style={[styles.textElement, Theme.PrimaryColor]}>Celulares e Smartphones</Text>
                             </View>
 
                             <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                                <Text style={styles.textElement}>Informatica e Acessórios</Text>
+                                <Text style={[styles.textElement, Theme.PrimaryColor]}>Informatica e Acessórios</Text>
                             </View>
 
                         </View>
@@ -43,11 +43,11 @@ export default class Categorias extends PureComponent {
                         <View style={styles.containerLineElement}>
 
                             <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                                <Text style={styles.textElement}>Telefonia Fixa</Text>
+                                <Text style={[styles.textElement, Theme.PrimaryColor]}>Telefonia Fixa</Text>
                             </View>
 
                             <View style={[styles.containerElement, Theme.borderColorPrimary]} >
-                                <Text style={styles.textElement}>Cameras e Filmadoras</Text>
+                                <Text style={[styles.textElement, Theme.PrimaryColor]}>Cameras e Filmadoras</Text>
                             </View>
 
                         </View>

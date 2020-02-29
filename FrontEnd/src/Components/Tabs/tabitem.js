@@ -30,7 +30,7 @@ export default class TabItem extends React.Component{
                     style={styles.image}
                     PlaceholderContent={<PreLoading />}
                 />
-                <Text style={styles.text}>{title}</Text>      
+                <Text style={[styles.text, Theme.PrimaryColor]}>{title}</Text>      
             </TouchableOpacity> 
         );
     }

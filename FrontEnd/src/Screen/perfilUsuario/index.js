@@ -93,6 +93,12 @@ export default class PerfilScreen extends PureComponent{
         this.setState({modalVisible: false});
     }
 
+
+    savePhoto = (photo) => {
+        this.setState({ image: photo.uri, trocaImage: true });
+        this.closeModalCamera();
+    }
+
     openModal = () =>{
         this.setState({modalVisible: true});
     }
@@ -150,13 +156,14 @@ export default class PerfilScreen extends PureComponent{
 
             
             cameraVisible ? <CameraModal
-                closeModalCamera = {this.closeModalCamera}
+                                savePhoto    = {this.savePhoto}
+                                closeModalCamera = {this.closeModalCamera}
             />
             : <Fragment>
                     
                     <Header 
                         leftComponent={<HeadArrowBack navigation={navigation} routeBack={routeBack} />} 
-                        centerComponent={<Text style={{fontSize:18, color:"#FFF"}}>Perfil</Text>}
+                        centerComponent={<Text style={[Theme.TitlePage, Theme.colorWhite]}>Perfil</Text>}
                                 
                         containerStyle={[{
                                

@@ -1,6 +1,11 @@
 import React, { PureComponent, useState, useEffect } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Camera } from 'expo-camera';
+import {FontAwesome} from '@expo/vector-icons';
+
+
+import ModalFoto from './modalFoto';
+import Theme from '../../Style';
 
 export default class CameraModal extends PureComponent {
 
@@ -9,10 +14,15 @@ export default class CameraModal extends PureComponent {
        this.state = {
             type:Camera.Constants.Type.back,
             camera: null,
+            photo: null,
+            OpenModal: false,
+           
        }  
 
      
     }
+
+   
 
     trocaCamera = (type) => {
 
@@ -22,26 +32,37 @@ export default class CameraModal extends PureComponent {
         });
     }
 
+    openModalFoto = () =>{
+      this.setState({OpenModal: true});
+    }
+
+    closeModalFoto = () => {
+      this.setState({OpenModal: false});
+    }
+
+
     tiraFoto = async () => {
-
-        alert("em manutenção");
-        // const {camera} = this.state;
-
-        // if (camera) {
-        //     const photo = await this.camera.takePictureAsync();
-        //     console.log(photo);
-        // }
+        var {camera} = this.state;
+        if (camera) {
+            const photo = await camera.takePictureAsync();
+            this.setState({photo:photo});
+            this.openModalFoto();
+           
+        }
 
     }
  
     render(){
          
-        const {closeModalCamera} = this.props;
+        const {closeModalCamera, savePhoto} = this.props;
 
-        const {type, camera} = this.state;
+        const {type, camera, OpenModal, photo, saveFoto} = this.state;
         
         return (
-            <View style={{ flex: 1 }}>
+          //se ja tive foto salvar
+          saveFoto ? closeModalCamera
+
+          : <View style={{ flex: 1 }}>
               <Camera 
                 ref={ref => {
                    this.setState({camera: ref});
@@ -54,24 +75,33 @@ export default class CameraModal extends PureComponent {
                   <TouchableOpacity
                     style={{}}
                     onPress={() => { this.trocaCamera(type); }}>
-                    <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
+                    <FontAwesome name={"refresh"} style={[Theme.iconSizeX4]} color={"#FFF"}  />
                   </TouchableOpacity>
 
                   <TouchableOpacity
                     style={{}}
                     onPress={this.tiraFoto}>
-                    <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Tira Foto </Text>
+                    <FontAwesome name={"play-circle"} style={[Theme.iconSizeX4]} color={"#FFF"}  />
                   </TouchableOpacity>
                   
                   <TouchableOpacity
                     style={{}}
                     onPress={closeModalCamera}>
-                    <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Fecha Camera </Text>
+                    <FontAwesome name={"close"} style={[Theme.iconSizeX4]}  color={"#FFF"} />
                   </TouchableOpacity>
                 </View>
 
 
               </Camera>
+
+              {
+                OpenModal ? <ModalFoto 
+                                closeModal = {this.closeModalFoto}
+                                modalVisible = {OpenModal}
+                                photo = {photo}
+                                savePhoto = {savePhoto}
+                             /> : null
+              }
             </View>
           );
     }
@@ -83,10 +113,11 @@ const styles = StyleSheet.create({
     container:{
         backgroundColor: 'transparent',
         position:"absolute",
-        bottom:0,
+        bottom:20,
+        paddingLeft:30,
+        paddingRight:30,
         flexDirection: 'row',
         justifyContent:"space-between",
         width:"100%",
-        borderWidth:1,
     }
 });

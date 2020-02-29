@@ -1,6 +1,7 @@
 import React,{Fragment, PureComponent} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
+import Theme from '../../Style';
 
 export default class DetalhesItem extends PureComponent{
 
@@ -18,13 +19,13 @@ export default class DetalhesItem extends PureComponent{
 
                     <Text 
                         numberOfLines={3}
-                        style={[styles.text, destaque ? styles.bold : null]}>
+                        style={[styles.text, Theme.PrimaryColor,  destaque ? styles.bold : null]}>
                         {index}
                     </Text>
 
                     <Text 
                         numberOfLines={3}
-                        style={[styles.text, destaque ? styles.bold : null]}>
+                        style={[styles.text, Theme.PrimaryColor, destaque ? styles.bold : null]}>
                      R$ {value}
                     </Text>
 

@@ -2,6 +2,7 @@ import React,{Fragment, PureComponent} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 import ItemAvaliacao from './itemavaliacao';
+import Theme from '../../Style';
 
 export default class DetalhesAvaliacao extends PureComponent{
 
@@ -21,7 +22,7 @@ export default class DetalhesAvaliacao extends PureComponent{
 
 
                     <View style={styles.containerHead}>
-                        <Text style={styles.textHead}>Detalhes da Avaliações</Text>
+                        <Text style={[styles.textHead, Theme.PrimaryColor]}>Detalhes da Avaliações</Text>
                     </View>
 
                     <View style={styles.body}>

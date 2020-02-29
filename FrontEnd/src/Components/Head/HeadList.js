@@ -48,7 +48,7 @@ export default class HeadList extends PureComponent{
                     </View>
                     <Ionicons name="ios-list-box" 
                             style={[
-                                Theme.PrimaryColor,
+                                Theme.colorWhite,
                                 Theme.iconSizeX1,
                             ]}
                     />

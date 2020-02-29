@@ -2,6 +2,7 @@ import React,{Fragment, PureComponent} from 'react';
 import {Text, View, StyleSheet, TextInput} from 'react-native';
 import {Input} from 'react-native-elements'; 
 
+import Theme from "../../Style";
 
 export default class InputText extends PureComponent {
 
@@ -27,7 +28,7 @@ export default class InputText extends PureComponent {
                 <View style={styles.containerTitle} >   
 
                     <Input
-                        label = {<Text style={styles.tituloText}>{nameInput}</Text>}
+                        label = {<Text style={[styles.tituloText, Theme.PrimaryColor]}>{nameInput}</Text>}
                         value = {value}
                         placeholder = {placeholder}
                         errorStyle={{ color: 'red' }}

@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Modal from "react-native-modal";
 import {FontAwesome} from '@expo/vector-icons';
 
+import Theme from '../../Style';
+
 
 export default class ModalSelecao extends PureComponent{
 
@@ -38,22 +40,22 @@ export default class ModalSelecao extends PureComponent{
                                     onPress={openCamera}
                                     style={[
                                          styles.containerIconText,
-                                        {backgroundColor:"#07e8e8"}
+                                        {backgroundColor:"#ccc"}
                                     ]}
                                 >
                                     <Text style={styles.textIcon}>Camera</Text>
-                                    <FontAwesome name="camera" size={25} color={"#FFF"} />
+                                    <FontAwesome name="camera" style={[Theme.iconSizeX2]} color={"#525252"} />
                                 </TouchableOpacity>
 
                                 <TouchableOpacity 
                                     onPress={openGaleria}
                                     style={[
                                          styles.containerIconText,
-                                           {backgroundColor:"#07e88b"}
+                                           {backgroundColor:"#ccc"}
                                         ]}
                                 >
                                     <Text style={styles.textIcon}>Galeria</Text>
-                                    <FontAwesome name="image" size={25} color={"#FFF"} />
+                                    <FontAwesome name="image" style={[Theme.iconSizeX2]} color={"#525252"} />
                                 </TouchableOpacity>
                                         
                                         
@@ -62,7 +64,7 @@ export default class ModalSelecao extends PureComponent{
 
                             <TouchableOpacity 
                                 onPress={closeModal}
-                                style={styles.containerButton}
+                                style={[styles.containerButton, Theme.backgroundPrimaryColor]}
                             >
                                 <Text style={styles.textButton}>Cancela</Text>
                             </TouchableOpacity>
@@ -106,7 +108,7 @@ const styles = StyleSheet.create({
     textIcon:{
         marginRight:5,
         fontSize:25,
-        color:"#FFF",
+        color:"#525252",
     },
 
     containerIconText:{
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
     containerButton:{
         alignItems:"center",
         justifyContent:"center",
-        backgroundColor:"red",
+       // backgroundColor:"red",
         borderRadius:3,
         width:"100%",
         height:40,
