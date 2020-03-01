@@ -19,6 +19,8 @@ export default class InputText extends PureComponent {
             nameInput,
             errorMessage,
             onChangeText,
+            leftIcon,
+            inputStyle,
         } = this.props;
 
 
@@ -28,9 +30,11 @@ export default class InputText extends PureComponent {
                 <View style={styles.containerTitle} >   
 
                     <Input
-                        label = {<Text style={[styles.tituloText, Theme.PrimaryColor]}>{nameInput}</Text>}
+                        label = {nameInput != null? <Text style={[styles.tituloText, Theme.PrimaryColor]}>{nameInput}</Text> : null }
+                        leftIcon = {leftIcon != null ? leftIcon : null}
                         value = {value}
                         placeholder = {placeholder}
+                        inputStyle= {inputStyle != null? inputStyle: null}
                         errorStyle={{ color: 'red' }}
                         errorMessage = {errorMessage}
                         onChangeText = { (text) => {onChangeText(text);} } 

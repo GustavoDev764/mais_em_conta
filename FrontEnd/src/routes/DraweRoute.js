@@ -16,11 +16,11 @@ import CestaDeProdutoScreen from '../Screen/CestaDeProdutos';
 import LojaScreen from '../Screen/Loja';
 import FiltroScreen from '../Screen/filtro';
 import {PerfilScreenStack} from '../Screen/perfilUsuario';
+import LoginScreen from '../Screen/login';
 
 
 const MyDrawerNavigator = createDrawerNavigator(
     {
-     
       HomeScreenStack,
       SearchBarScreen,
       ListProdutoScreen,
@@ -28,7 +28,7 @@ const MyDrawerNavigator = createDrawerNavigator(
       LojaScreen,
       FiltroScreen,
       PerfilScreenStack,
-            
+      LoginScreen,            
      
     },
     {
