@@ -19,11 +19,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 const {height, width} = Dimensions.get("window");
 
-//import Rotas
-import CadastroUsuario from '../cadastroUsuario';
-import RecuperaSenhaScreen from '../recuperaSenha';
 
-export default class LoginScreen extends PureComponent{
+export default class RecuperaSenhaScreen extends PureComponent{
 
     constructor(props){
         super(props);
@@ -39,20 +36,22 @@ export default class LoginScreen extends PureComponent{
     //Navega por telas
     
     
-    openTelaCadastroUsuario = () => {
-        return this.props.navigation.navigate("CadastroUsuario",
-           {routeBack: "LoginScreen"} );
-    }
-
-    openTelaRecuperaSenha = () => {
-        return this.props.navigation.navigate("RecuperaSenhaScreen",
-           {routeBack: "LoginScreen"} );
+    openRouteBack = (Screen) => {
+        return this.props.navigation.navigate(Screen,
+           {routeBack: "RecuperaSenhaScreen"} );
     }
 
     //Fim de Navegações
 
 
     render(){
+
+        const {navigation} = this.props;
+
+        var routeBack = navigation.getParam('routeBack');
+
+        routeBack = routeBack != null ? routeBack : 'LoginScreen';
+
         return(
             <BodyLogin>
        
@@ -76,36 +75,19 @@ export default class LoginScreen extends PureComponent{
                                 nameInput = {null} 
                                 inputStyle= {styles.input}
                                 leftIcon  = {<FontAwesome name={"user"} style={styles.icon} />}
-                                placeholder = {"Email"}
+                                placeholder = {"Digite o Email"}
                                 onChangeText = { (text) => {} } 
 
                             />
 
                         </View>
-
-                        <View style={styles.containerInput}>
-
-                            <InputText
-                                nameInput = {null} 
-                                inputStyle= {styles.input}
-                                leftIcon  = {<FontAwesome name={"lock"} style={styles.icon} />}
-                                placeholder = {"Senha"}
-                                onChangeText = { (text) => {} } 
-
-                            />
-
-                        </View>
-
-                        <TouchableOpacity onPress={this.openTelaRecuperaSenha} style={styles.recuperaSenhaForm}>
-                            <Text style={styles.textSenha}>Esqueci a senha</Text>
-                        </TouchableOpacity>
-
+                       
                         <View style={styles.containerBotaoLogin}>
                             <TouchableOpacity
                                  style={styles.buttonLogin}
-                                onPress={()=>{alert("fazer o login")}}
+                                onPress={()=>{alert("Envia Link")}}
                              >
-                                <Text style={styles.textButton}>Login</Text>
+                                <Text style={styles.textButton}>Envia o link para email</Text>
                              </TouchableOpacity>
 
                         </View>
@@ -114,27 +96,10 @@ export default class LoginScreen extends PureComponent{
 
                     <View style={styles.containerSocialMidia}>
 
-                        <View style={styles.containerIconSocial}>
-                            <SocialIcon
-                                title={null}
-                                button
-                                onPress={()=>{alert("login com Facebook");}}
-                                type='facebook'
-                                style={styles.buttonSocialIcon}
-                            />
-                            <SocialIcon
-                                title={null}
-                                button
-                                onPress={()=>{alert("login com Google");}}
-                                type='google'
-                                style={styles.buttonSocialIcon}
-                            />
-                        </View>
-
                         <TouchableOpacity 
-                            onPress={this.openTelaCadastroUsuario}
+                            onPress={()=>{this.openRouteBack(routeBack);}}
                             style={styles.containerCriaConta}>
-                            <Text style={styles.textCriaConta}>Não tem cadastro? clique aqui</Text>
+                            <Text style={styles.textCriaConta}>Volta</Text>
                         </TouchableOpacity>
 
                     </View>
@@ -267,36 +232,7 @@ const styles = StyleSheet.create({
         fontSize:16,
     },
 
-    buttonSocialIcon:{
-        width:120,
-        borderRadius:5,
-        height:50,
-    },
+    
 
 });
 
-
-export const LoginScreenStack = createStackNavigator(
-    {
-        LoginScreen,
-        CadastroUsuario,
-        RecuperaSenhaScreen,
-      
-        
-        
-    },
-    {
-        headerMode: "none",
-        gestureEnabled:true,
-        gestureDirection: "horizontal",
-        mode:"card",
-        //transitionSpec: config,
-        
-
-        navigationOptions:{
-            drawerLabel: "Login",
-            drawerIcon: ({tintColor}) => <Feather name="user" size={16} color={tintColor} />,
-        }
-      
-    }
-);

@@ -34,7 +34,7 @@ export default class InputText extends PureComponent {
                         leftIcon = {leftIcon != null ? leftIcon : null}
                         value = {value}
                         placeholder = {placeholder}
-                        inputStyle= {inputStyle != null? inputStyle: null}
+                        inputStyle= {inputStyle != null? inputStyle: {}}
                         errorStyle={{ color: 'red' }}
                         errorMessage = {errorMessage}
                         onChangeText = { (text) => {onChangeText(text);} } 

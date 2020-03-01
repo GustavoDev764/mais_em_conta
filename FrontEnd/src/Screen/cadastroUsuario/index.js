@@ -11,22 +11,27 @@ import {
 
 import {FontAwesome, Feather} from '@expo/vector-icons';
 import { SocialIcon } from 'react-native-elements';
+import DatePicker from 'react-native-datepicker';
+import { TextInputMask } from 'react-native-masked-text';
 
 import InputText from '../../Components/EditarPerfil/input';
 import BodyLogin from '../../Components/login/bodylogin';
-import { createStackNavigator } from 'react-navigation-stack';
+
 
 
 const {height, width} = Dimensions.get("window");
 
-//import Rotas
-import CadastroUsuario from '../cadastroUsuario';
-import RecuperaSenhaScreen from '../recuperaSenha';
 
-export default class LoginScreen extends PureComponent{
+export default class CadastroUsuario extends PureComponent{
 
     constructor(props){
         super(props);
+        this.state = {
+            date:"2016-05-15",
+            cpf: null,
+            data:null,
+            phone:null,
+        }
     }
 
     static navigationOptions = {
@@ -39,20 +44,23 @@ export default class LoginScreen extends PureComponent{
     //Navega por telas
     
     
-    openTelaCadastroUsuario = () => {
-        return this.props.navigation.navigate("CadastroUsuario",
-           {routeBack: "LoginScreen"} );
-    }
-
-    openTelaRecuperaSenha = () => {
-        return this.props.navigation.navigate("RecuperaSenhaScreen",
-           {routeBack: "LoginScreen"} );
+    openRouteBack = (Screen) => {
+        return this.props.navigation.navigate(Screen,
+           {routeBack: "CadastroUsuario"} );
     }
 
     //Fim de Navegações
 
 
     render(){
+
+
+        const {navigation} = this.props;
+
+        var routeBack = navigation.getParam('routeBack');
+
+        routeBack = routeBack != null ? routeBack : 'LoginScreen';
+
         return(
             <BodyLogin>
        
@@ -75,7 +83,76 @@ export default class LoginScreen extends PureComponent{
                             <InputText
                                 nameInput = {null} 
                                 inputStyle= {styles.input}
-                                leftIcon  = {<FontAwesome name={"user"} style={styles.icon} />}
+                            
+                                placeholder = {"Nome"}
+                                onChangeText = { (text) => {} } 
+
+                            />
+
+                        </View>
+
+                        <View style={styles.containerInputMask}>
+
+                            <TextInputMask
+                                type={'cpf'}
+                                value={this.state.cpf}
+                                style={styles.inputMask}
+                                placeholder={"CPF"}
+                                onChangeText={text => {
+                                    this.setState({
+                                        cpf: text
+                                    })
+                                }}
+                            />
+
+                        </View>
+
+                        <View style={styles.containerInputMask}>
+
+                            <TextInputMask
+                                type={'datetime'}
+                                options={{
+                                    format: 'DD/MM/YYYY'
+                                }}
+                                value={this.state.data}
+                                style={styles.inputMask}
+                                placeholder={"Data de Nascimento"}
+                                onChangeText={text => {
+                                    this.setState({
+                                        data: text
+                                    })
+                                }}
+                            />
+
+                        </View>
+
+                        <View style={styles.containerInputMask}>
+
+                            <TextInputMask
+                                type={'cel-phone'}
+                                options={{
+                                    maskType: 'BRL',
+                                    withDDD: true,
+                                    dddMask: '(99) ',
+                                }}
+                                value={this.state.phone}
+                                style={styles.inputMask}
+                                placeholder={"Telefone"}
+                                onChangeText={text => {
+                                    this.setState({
+                                        phone: text
+                                    })
+                                }}
+                            />
+
+                        </View>
+
+                        <View style={styles.containerInput}>
+
+                            <InputText
+                                nameInput = {null} 
+                                inputStyle= {styles.input}
+                               
                                 placeholder = {"Email"}
                                 onChangeText = { (text) => {} } 
 
@@ -88,7 +165,7 @@ export default class LoginScreen extends PureComponent{
                             <InputText
                                 nameInput = {null} 
                                 inputStyle= {styles.input}
-                                leftIcon  = {<FontAwesome name={"lock"} style={styles.icon} />}
+                                
                                 placeholder = {"Senha"}
                                 onChangeText = { (text) => {} } 
 
@@ -96,16 +173,14 @@ export default class LoginScreen extends PureComponent{
 
                         </View>
 
-                        <TouchableOpacity onPress={this.openTelaRecuperaSenha} style={styles.recuperaSenhaForm}>
-                            <Text style={styles.textSenha}>Esqueci a senha</Text>
-                        </TouchableOpacity>
+                        
 
                         <View style={styles.containerBotaoLogin}>
                             <TouchableOpacity
                                  style={styles.buttonLogin}
-                                onPress={()=>{alert("fazer o login")}}
+                                onPress={this.openTelaLogin}
                              >
-                                <Text style={styles.textButton}>Login</Text>
+                                <Text style={styles.textButton}>Cadastra</Text>
                              </TouchableOpacity>
 
                         </View>
@@ -132,9 +207,9 @@ export default class LoginScreen extends PureComponent{
                         </View>
 
                         <TouchableOpacity 
-                            onPress={this.openTelaCadastroUsuario}
+                            onPress={()=>{this.openRouteBack(routeBack);}}
                             style={styles.containerCriaConta}>
-                            <Text style={styles.textCriaConta}>Não tem cadastro? clique aqui</Text>
+                            <Text style={styles.textCriaConta}>Volta</Text>
                         </TouchableOpacity>
 
                     </View>
@@ -154,7 +229,7 @@ const styles = StyleSheet.create({
     container:{
         //borderWidth:1,
         flex:1,
-        marginTop:height * .08,
+        marginTop:0,
         padding:15,
         justifyContent:"center",
         alignItems:"center",
@@ -193,6 +268,25 @@ const styles = StyleSheet.create({
         color:"#FFF",
        
     },
+
+    containerInputMask:{
+       // borderWidth:1,
+        marginTop:10,
+        padding: 2,
+        paddingLeft:9,
+        paddingRight:9,
+    },
+
+    inputMask:{
+        color:"#FFF",
+        borderBottomWidth:.6,
+        borderColor:"#b7b7b7",
+        paddingBottom:4,
+        fontSize:18,
+      
+        
+    },
+
     containerInput:{
         marginTop:10,
         //borderWidth:1,
@@ -274,29 +368,3 @@ const styles = StyleSheet.create({
     },
 
 });
-
-
-export const LoginScreenStack = createStackNavigator(
-    {
-        LoginScreen,
-        CadastroUsuario,
-        RecuperaSenhaScreen,
-      
-        
-        
-    },
-    {
-        headerMode: "none",
-        gestureEnabled:true,
-        gestureDirection: "horizontal",
-        mode:"card",
-        //transitionSpec: config,
-        
-
-        navigationOptions:{
-            drawerLabel: "Login",
-            drawerIcon: ({tintColor}) => <Feather name="user" size={16} color={tintColor} />,
-        }
-      
-    }
-);
