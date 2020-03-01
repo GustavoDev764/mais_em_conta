@@ -21,8 +21,11 @@ export default class InputText extends PureComponent {
             onChangeText,
             leftIcon,
             inputStyle,
+            placeholderTextColor,
         } = this.props;
 
+
+        var placeholderColor = placeholderTextColor != null ? placeholderTextColor: "#000";
 
         return(
             <Fragment>
@@ -34,6 +37,7 @@ export default class InputText extends PureComponent {
                         leftIcon = {leftIcon != null ? leftIcon : null}
                         value = {value}
                         placeholder = {placeholder}
+                        placeholderTextColor={placeholderColor}
                         inputStyle= {inputStyle != null? inputStyle: {}}
                         errorStyle={{ color: 'red' }}
                         errorMessage = {errorMessage}

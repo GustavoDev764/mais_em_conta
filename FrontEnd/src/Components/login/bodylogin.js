@@ -28,7 +28,7 @@ export default class BodyLogin extends PureComponent{
             >
 
                 <LinearGradient 
-                    colors={['#F5640C', '#DF3500']}
+                    colors={['#FFF', '#ccc']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 0, y: 1 }}
                     style={styles.container}

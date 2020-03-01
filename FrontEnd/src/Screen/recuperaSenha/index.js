@@ -11,10 +11,13 @@ import {
 
 import {FontAwesome, Feather} from '@expo/vector-icons';
 import { SocialIcon } from 'react-native-elements';
+import { createStackNavigator } from 'react-navigation-stack';
 
+//import components
 import InputText from '../../Components/EditarPerfil/input';
 import BodyLogin from '../../Components/login/bodylogin';
-import { createStackNavigator } from 'react-navigation-stack';
+import Theme from '../../Style';
+
 
 
 const {height, width} = Dimensions.get("window");
@@ -87,7 +90,7 @@ export default class RecuperaSenhaScreen extends PureComponent{
                                  style={styles.buttonLogin}
                                 onPress={()=>{alert("Envia Link")}}
                              >
-                                <Text style={styles.textButton}>Envia o link para email</Text>
+                                <Text style={styles.textButton}>Enviar o link para email</Text>
                              </TouchableOpacity>
 
                         </View>
@@ -127,7 +130,7 @@ const styles = StyleSheet.create({
     },
 
     input:{
-        color:"#FFF",
+        color: Theme.PrimaryColor.color,
     },
 
     containerLogo:{
@@ -148,18 +151,21 @@ const styles = StyleSheet.create({
         paddingBottom:5,
         width:"100%",
         marginTop:10,
-        backgroundColor:"#00000070",
+        //backgroundColor:"#00000070",
+        //backgroundColor:"#FFF",
         borderRadius:3,
     },
 
     icon:{
         fontSize:20,
         marginRight:10,
-        color:"#FFF",
+        color: Theme.PrimaryColor.color,
        
     },
     containerInput:{
         marginTop:10,
+        backgroundColor:"#FFF",
+        borderRadius:3,
         //borderWidth:1,
     },
 
@@ -172,7 +178,7 @@ const styles = StyleSheet.create({
     },
 
     textSenha:{
-        color:"#FFF",
+        color:Theme.PrimaryColor.color,
         fontSize:16,
     },
 
@@ -180,8 +186,8 @@ const styles = StyleSheet.create({
         //borderWidth:1,
         marginTop:10,
         padding:2,
-        paddingRight:10,
-        paddingLeft:10,
+        paddingRight:0,
+        paddingLeft:0,
         width:"100%",
         alignItems:"center",
     },
@@ -192,7 +198,8 @@ const styles = StyleSheet.create({
         height:50,
         alignItems:"center",
         justifyContent:"center",
-        backgroundColor:"#fa1700b8",
+        backgroundColor:"#EB0C38",
+       
         borderRadius:3,
         zIndex:2,
 
@@ -209,14 +216,12 @@ const styles = StyleSheet.create({
         width:"100%",
         flexDirection:"column",
         justifyContent:"center",
-        backgroundColor:"#00000070",
+        //backgroundColor:"#00000070",
+        //backgroundColor:"#FFF",
         borderRadius:3,
     },
 
-    containerIconSocial:{
-        flexDirection:"row",
-        justifyContent:"center",
-    },
+    
 
     containerCriaConta:{
         marginTop:5,
@@ -228,7 +233,7 @@ const styles = StyleSheet.create({
     },
 
     textCriaConta:{
-        color:"#FFF",
+        color:Theme.PrimaryColor.color,
         fontSize:16,
     },
 

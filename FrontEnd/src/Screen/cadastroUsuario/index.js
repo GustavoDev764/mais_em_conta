@@ -14,6 +14,9 @@ import { SocialIcon } from 'react-native-elements';
 import DatePicker from 'react-native-datepicker';
 import { TextInputMask } from 'react-native-masked-text';
 
+
+//import components
+import Theme from '../../Style';
 import InputText from '../../Components/EditarPerfil/input';
 import BodyLogin from '../../Components/login/bodylogin';
 
@@ -98,6 +101,7 @@ export default class CadastroUsuario extends PureComponent{
                                 value={this.state.cpf}
                                 style={styles.inputMask}
                                 placeholder={"CPF"}
+                                placeholderTextColor={Theme.PrimaryColor.color}
                                 onChangeText={text => {
                                     this.setState({
                                         cpf: text
@@ -117,6 +121,7 @@ export default class CadastroUsuario extends PureComponent{
                                 value={this.state.data}
                                 style={styles.inputMask}
                                 placeholder={"Data de Nascimento"}
+                                placeholderTextColor={Theme.PrimaryColor.color}
                                 onChangeText={text => {
                                     this.setState({
                                         data: text
@@ -138,6 +143,7 @@ export default class CadastroUsuario extends PureComponent{
                                 value={this.state.phone}
                                 style={styles.inputMask}
                                 placeholder={"Telefone"}
+                                placeholderTextColor={Theme.PrimaryColor.color}
                                 onChangeText={text => {
                                     this.setState({
                                         phone: text
@@ -180,7 +186,7 @@ export default class CadastroUsuario extends PureComponent{
                                  style={styles.buttonLogin}
                                 onPress={this.openTelaLogin}
                              >
-                                <Text style={styles.textButton}>Cadastra</Text>
+                                <Text style={styles.textButton}>Cadastrar</Text>
                              </TouchableOpacity>
 
                         </View>
@@ -225,7 +231,29 @@ export default class CadastroUsuario extends PureComponent{
 
 
 const styles = StyleSheet.create({
-    
+ 
+    containerInputMask:{
+       // borderWidth:1,
+        marginTop:10,
+        padding: 2,
+        paddingLeft:9,
+        paddingRight:9,
+        backgroundColor:"#FFF",
+        height:45,
+        borderRadius:3,
+    },
+
+    inputMask:{
+        color:Theme.PrimaryColor.color,
+        borderBottomWidth:1,
+        borderColor:Theme.PrimaryColor.color,
+        paddingTop:2,
+        paddingBottom:5,
+        fontSize:18,
+      
+        
+    },
+
     container:{
         //borderWidth:1,
         flex:1,
@@ -237,7 +265,7 @@ const styles = StyleSheet.create({
     },
 
     input:{
-        color:"#FFF",
+        color: Theme.PrimaryColor.color,
     },
 
     containerLogo:{
@@ -258,37 +286,21 @@ const styles = StyleSheet.create({
         paddingBottom:5,
         width:"100%",
         marginTop:10,
-        backgroundColor:"#00000070",
+        //backgroundColor:"#00000070",
+        //backgroundColor:"#FFF",
         borderRadius:3,
     },
 
     icon:{
         fontSize:20,
         marginRight:10,
-        color:"#FFF",
+        color: Theme.PrimaryColor.color,
        
     },
-
-    containerInputMask:{
-       // borderWidth:1,
-        marginTop:10,
-        padding: 2,
-        paddingLeft:9,
-        paddingRight:9,
-    },
-
-    inputMask:{
-        color:"#FFF",
-        borderBottomWidth:.6,
-        borderColor:"#b7b7b7",
-        paddingBottom:4,
-        fontSize:18,
-      
-        
-    },
-
     containerInput:{
         marginTop:10,
+        backgroundColor:"#FFF",
+        borderRadius:3,
         //borderWidth:1,
     },
 
@@ -301,7 +313,7 @@ const styles = StyleSheet.create({
     },
 
     textSenha:{
-        color:"#FFF",
+        color:Theme.PrimaryColor.color,
         fontSize:16,
     },
 
@@ -309,8 +321,8 @@ const styles = StyleSheet.create({
         //borderWidth:1,
         marginTop:10,
         padding:2,
-        paddingRight:10,
-        paddingLeft:10,
+        paddingRight:0,
+        paddingLeft:0,
         width:"100%",
         alignItems:"center",
     },
@@ -321,7 +333,8 @@ const styles = StyleSheet.create({
         height:50,
         alignItems:"center",
         justifyContent:"center",
-        backgroundColor:"#fa1700b8",
+        backgroundColor:"#EB0C38",
+       
         borderRadius:3,
         zIndex:2,
 
@@ -338,7 +351,8 @@ const styles = StyleSheet.create({
         width:"100%",
         flexDirection:"column",
         justifyContent:"center",
-        backgroundColor:"#00000070",
+        //backgroundColor:"#00000070",
+        //backgroundColor:"#FFF",
         borderRadius:3,
     },
 
@@ -357,7 +371,7 @@ const styles = StyleSheet.create({
     },
 
     textCriaConta:{
-        color:"#FFF",
+        color:Theme.PrimaryColor.color,
         fontSize:16,
     },
 
@@ -366,5 +380,4 @@ const styles = StyleSheet.create({
         borderRadius:5,
         height:50,
     },
-
 });
