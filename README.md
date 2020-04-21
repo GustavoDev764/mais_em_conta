@@ -5,4 +5,4 @@ Detalhes
 ----
 FrontEnd criado em React-Native-Expo
 
-<img src="photos/1.png" height="360" width="360">
+<img src="photos/1.png" height="600" width="360">
