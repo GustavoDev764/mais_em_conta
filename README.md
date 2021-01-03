@@ -1,5 +1,5 @@
 # Mais Em conta
-Plataforma de promo��o online
+Plataforma de promoção online
 
 Detalhes
 ----
